@@ -27,7 +27,7 @@ export default function NavBar() {
                 <div className="relative h-8 w-40 max-w-[180px]">
                     <img
                         src="/logo_horizontal.png"
-                        alt="자격증공장"
+                        alt="Study Factory"
                         className="h-full w-full object-contain object-left"
                     />
                 </div>

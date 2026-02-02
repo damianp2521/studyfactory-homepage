@@ -43,7 +43,7 @@ export default function Hero() {
                     transition={{ duration: 0.8, delay: 1.0 }}
                     className="text-slate-500 text-lg md:text-xl mt-6 max-w-2xl mx-auto"
                 >
-                    자격증공장에서 최상의 몰입을 경험하세요.
+                    Study Factory에서 최상의 몰입을 경험하세요.
                     <br /> 당신의 합격을 위한 모든 것이 준비되어 있습니다.
                 </motion.p>
             </div>
