@@ -7,7 +7,7 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 const slides = [
     {
         id: 0,
-        text: "Study Factory에 오면 누리는 행복",
+        text: "자격증공장에 오면 누리는 행복",
         sub: "",
     },
     {

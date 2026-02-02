@@ -9,7 +9,7 @@ const notoSansKr = Noto_Sans_KR({
 });
 
 export const metadata: Metadata = {
-  title: "Study Factory",
+  title: "자격증공장 | License Factory",
   description: "고통스러운 공부는 그만! 행복한 공부를 해야 합격한다. 프리미엄 관리형 스터디카페.",
   icons: {
     icon: "/logo_graphic.png",
