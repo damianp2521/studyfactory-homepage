@@ -133,12 +133,12 @@ export default function Benefits() {
                 >
                     {slides[currentIndex].type === 'intro' ? (
                         // INTRO SLIDE
-                        <div className="text-center px-6">
+                        <div className="text-center px-6 pb-28 md:pb-0">
                             <motion.h2
                                 initial={{ scale: 0.9, opacity: 0 }}
                                 animate={{ scale: 1, opacity: 1 }}
                                 transition={{ duration: 0.8 }}
-                                className="text-4xl md:text-6xl lg:text-7xl font-bold text-[#267E82] tracking-tight mb-8"
+                                className="text-3xl md:text-6xl lg:text-7xl font-bold text-[#267E82] tracking-tight mb-8"
                             >
                                 {slides[currentIndex].title}
                             </motion.h2>
@@ -154,26 +154,26 @@ export default function Benefits() {
                         </div>
                     ) : slides[currentIndex].type === 'list' ? (
                         // LIST SLIDE
-                        <div className="w-full h-full flex flex-col md:flex-row items-center justify-center p-6 md:p-16 lg:p-24 gap-8 md:gap-16">
+                        <div className="w-full h-full flex flex-col md:flex-row items-center justify-center p-6 md:p-16 lg:p-24 pb-28 md:pb-16 gap-6 md:gap-16">
                             {/* Text/List Container - Centered or Split if we had an image. Since no image, let's Center it for impact, or keep split structure for consistency if desired. User asked for specific list style. Let's center it for now as it's text heavy. */}
-                            <div className="w-full max-w-2xl flex flex-col items-center text-center space-y-8 z-10">
+                            <div className="w-full max-w-2xl flex flex-col items-center text-center space-y-6 md:space-y-8 z-10">
                                 <motion.h3
                                     initial={{ y: 20, opacity: 0 }}
                                     animate={{ y: 0, opacity: 1 }}
                                     transition={{ delay: 0.2 }}
-                                    className="text-3xl md:text-5xl lg:text-6xl font-bold text-slate-800 whitespace-pre-line leading-tight"
+                                    className="text-2xl md:text-5xl lg:text-6xl font-bold text-slate-800 whitespace-pre-line leading-tight"
                                 >
                                     {slides[currentIndex].title}
                                 </motion.h3>
 
-                                <div className="flex flex-col gap-4 w-full max-w-md mx-auto items-center">
+                                <div className="flex flex-col gap-3 md:gap-4 w-full max-w-md mx-auto items-center">
                                     {(slides[currentIndex].items as string[])?.map((item, i) => (
                                         <motion.div
                                             key={i}
                                             initial={{ x: -20, opacity: 0 }}
                                             animate={{ x: 0, opacity: 1 }}
                                             transition={{ delay: 0.4 + (i * 0.1) }}
-                                            className="flex items-center gap-3 text-lg md:text-2xl text-slate-700 font-medium text-left md:text-center w-fit"
+                                            className="flex items-center gap-3 text-base md:text-2xl text-slate-700 font-medium text-left md:text-center w-fit"
                                         >
                                             <div className="flex-shrink-0 w-6 h-6 rounded-full bg-[#267E82]/10 flex items-center justify-center text-[#267E82]">
                                                 <Check size={16} strokeWidth={3} />
@@ -195,13 +195,13 @@ export default function Benefits() {
                         </div>
                     ) : slides[currentIndex].type === 'centered' ? (
                         // CENTERED SLIDE (Clean text hierarchy)
-                        <div className="w-full h-full flex flex-col items-center justify-center p-6 md:p-16 lg:p-24 px-16 md:px-24">
-                            <div className="w-full max-w-2xl flex flex-col items-center text-center space-y-6 md:space-y-8 z-10">
+                        <div className="w-full h-full flex flex-col items-center justify-center p-6 md:p-16 lg:p-24 px-12 md:px-24 pb-28 md:pb-16">
+                            <div className="w-full max-w-2xl flex flex-col items-center text-center space-y-4 md:space-y-8 z-10">
                                 <motion.h3
                                     initial={{ y: 20, opacity: 0 }}
                                     animate={{ y: 0, opacity: 1 }}
                                     transition={{ delay: 0.2 }}
-                                    className="text-3xl md:text-5xl lg:text-6xl font-bold text-slate-800 whitespace-pre-line leading-tight"
+                                    className="text-2xl md:text-5xl lg:text-6xl font-bold text-slate-800 whitespace-pre-line leading-tight"
                                 >
                                     {slides[currentIndex].title}
                                 </motion.h3>
@@ -210,7 +210,7 @@ export default function Benefits() {
                                     initial={{ y: 20, opacity: 0 }}
                                     animate={{ y: 0, opacity: 1 }}
                                     transition={{ delay: 0.4 }}
-                                    className="text-xl md:text-2xl text-slate-600 leading-relaxed whitespace-pre-line"
+                                    className="text-base md:text-2xl text-slate-600 leading-relaxed whitespace-pre-line"
                                 >
                                     {slides[currentIndex].subtitle}
                                 </motion.p>
@@ -235,11 +235,11 @@ export default function Benefits() {
                         </div>
                     ) : (
                         // FEATURE SLIDE
-                        <div className="w-full h-full flex flex-col md:flex-row items-center justify-center p-6 md:p-16 gap-8 md:gap-12 max-w-6xl mx-auto">
+                        <div className="w-full h-full flex flex-col md:flex-row items-center justify-center p-6 md:p-16 pb-28 md:pb-16 gap-4 md:gap-12 max-w-6xl mx-auto">
 
                             {/* Image Container */}
-                            <div className={`relative w-full md:flex-1 h-[40vh] md:h-[60vh] flex items-center justify-center order-2 ${slides[currentIndex].layout === 'right' ? 'md:order-2' : 'md:order-1'}`}>
-                                <div className="relative w-full h-full max-h-[500px] max-w-[500px] mx-auto">
+                            <div className={`relative w-full md:flex-1 h-[28vh] md:h-[60vh] flex items-center justify-center order-2 px-10 md:px-0 ${slides[currentIndex].layout === 'right' ? 'md:order-2' : 'md:order-1'}`}>
+                                <div className="relative w-full h-full max-h-[300px] md:max-h-[500px] max-w-[300px] md:max-w-[500px] mx-auto">
                                     <Image
                                         src={slides[currentIndex].image!}
                                         alt="Feature UI"
@@ -251,12 +251,12 @@ export default function Benefits() {
                             </div>
 
                             {/* Text Container */}
-                            <div className={`w-full md:flex-1 flex flex-col items-center md:items-start text-center md:text-left space-y-6 order-1 ${slides[currentIndex].layout === 'right' ? 'md:order-1 md:items-start md:text-left' : 'md:order-2 md:items-start md:text-left'} z-10 px-4 md:px-0`}>
+                            <div className={`w-full md:flex-1 flex flex-col items-center md:items-start text-center md:text-left space-y-3 md:space-y-6 order-1 ${slides[currentIndex].layout === 'right' ? 'md:order-1 md:items-start md:text-left' : 'md:order-2 md:items-start md:text-left'} z-10 px-4 md:px-0`}>
                                 <motion.h3
                                     initial={{ y: 20, opacity: 0 }}
                                     animate={{ y: 0, opacity: 1 }}
                                     transition={{ delay: 0.2 }}
-                                    className="text-3xl md:text-5xl lg:text-6xl font-bold text-slate-800 whitespace-pre-line leading-tight"
+                                    className="text-2xl md:text-5xl lg:text-6xl font-bold text-slate-800 whitespace-pre-line leading-tight"
                                 >
                                     {slides[currentIndex].title}
                                 </motion.h3>
@@ -264,7 +264,7 @@ export default function Benefits() {
                                     initial={{ y: 20, opacity: 0 }}
                                     animate={{ y: 0, opacity: 1 }}
                                     transition={{ delay: 0.4 }}
-                                    className="text-lg md:text-2xl text-slate-600 leading-relaxed whitespace-pre-line"
+                                    className="text-sm md:text-2xl text-slate-600 leading-relaxed whitespace-pre-line"
                                 >
                                     {slides[currentIndex].text}
                                 </motion.p>
