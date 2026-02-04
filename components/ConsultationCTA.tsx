@@ -48,56 +48,24 @@ export default function ConsultationCTA() {
                                 <X size={24} />
                             </button>
 
-                            <div className="mb-6">
-                                <h2 className="text-2xl font-bold text-slate-900 mb-2">상담 예약</h2>
-                                <p className="text-slate-500 text-sm">
-                                    편하신 시간을 선택해주시면 전문 매니저가 연락드립니다.
-                                </p>
+                            <div className="text-center">
+                                <h2 className="text-2xl font-bold text-slate-900 mb-6">상담 예약</h2>
+
+                                <div className="space-y-4">
+                                    <div className="text-lg md:text-xl font-medium text-slate-600">
+                                        <p>자격증공장 중앙 컨트롤 본부</p>
+                                        <p className="text-sm md:text-base text-slate-500 font-normal my-1">(J-control hub)</p>
+                                        <div className="flex items-center justify-center gap-2 mt-2 text-[#267E82]">
+                                            <Phone size={24} />
+                                            <p className="text-2xl font-bold">051 - 757 - 5134</p>
+                                        </div>
+                                    </div>
+
+                                    <p className="text-sm md:text-base text-slate-500 bg-slate-50 py-3 rounded-xl">
+                                        현재 부산 거주 수험자만 등록 가능합니다.
+                                    </p>
+                                </div>
                             </div>
-
-                            <form className="space-y-4" onSubmit={(e) => e.preventDefault()}>
-                                <div className="space-y-1">
-                                    <label className="text-sm font-medium text-slate-700 ml-1">이름</label>
-                                    <div className="relative">
-                                        <User className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 w-5 h-5" />
-                                        <input
-                                            type="text"
-                                            className="w-full pl-12 pr-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#267E82]/20 focus:border-[#267E82] transition-all"
-                                            placeholder="홍길동"
-                                        />
-                                    </div>
-                                </div>
-
-                                <div className="space-y-1">
-                                    <label className="text-sm font-medium text-slate-700 ml-1">연락처</label>
-                                    <div className="relative">
-                                        <Phone className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 w-5 h-5" />
-                                        <input
-                                            type="tel"
-                                            className="w-full pl-12 pr-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#267E82]/20 focus:border-[#267E82] transition-all"
-                                            placeholder="010-1234-5678"
-                                        />
-                                    </div>
-                                </div>
-
-                                <div className="space-y-1">
-                                    <label className="text-sm font-medium text-slate-700 ml-1">희망 상담일</label>
-                                    <div className="relative">
-                                        <Calendar className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 w-5 h-5" />
-                                        <input
-                                            type="date"
-                                            className="w-full pl-12 pr-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#267E82]/20 focus:border-[#267E82] transition-all text-slate-600"
-                                        />
-                                    </div>
-                                </div>
-
-                                <button
-                                    type="submit"
-                                    className="w-full mt-4 bg-[#267E82] text-white font-bold py-4 rounded-xl shadow-lg hover:bg-[#1A5F62] transition-colors active:scale-[0.98]"
-                                >
-                                    예약하기
-                                </button>
-                            </form>
                         </motion.div>
                     </div>
                 )}

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Noto_Sans_KR, Noto_Serif_KR } from "next/font/google";
+import { Noto_Sans_KR, Noto_Serif_KR, Gaegu, Gowun_Dodum } from "next/font/google"; // 다시 고운 돋움으로 변경
 import "./globals.css";
 
 const notoSansKr = Noto_Sans_KR({
@@ -12,6 +12,18 @@ const notoSerifKr = Noto_Serif_KR({
   subsets: ["latin"],
   weight: ["400", "700", "900"],
   variable: "--font-noto-serif",
+});
+
+const gaegu = Gaegu({
+  subsets: ["latin"],
+  weight: ["400", "700"],
+  variable: "--font-gaegu",
+});
+
+const gowunDodum = Gowun_Dodum({
+  subsets: ["latin"],
+  weight: ["400"],
+  variable: "--font-gowun",
 });
 
 export const metadata: Metadata = {
@@ -31,7 +43,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko" suppressHydrationWarning>
-      <body className={`${notoSansKr.variable} ${notoSerifKr.variable} font-sans antialiased text-slate-800 bg-white`}>
+      <body className={`${notoSansKr.variable} ${notoSerifKr.variable} ${gaegu.variable} ${gowunDodum.variable} font-sans antialiased text-slate-800 bg-white`}>
         <EntranceOverlay />
         {children}
       </body>
