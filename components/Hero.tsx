@@ -42,12 +42,12 @@ export default function Hero() {
                     <p className="text-lg md:text-3xl lg:text-4xl font-medium text-slate-600 mt-0">
                         지금 시작합니다.
                     </p>
-                    <p className="text-[#267E82] font-bold tracking-wider text-xs md:text-lg mt-4 md:mt-8">
+                    <p className="text-[#267E82] font-bold tracking-wider text-xs md:text-lg mt-6 md:mt-10">
                         전문자격 학습관리센터 | 성인관리형독서실
                     </p>
                 </motion.div>
 
-                <div className="mt-4 md:mt-8 flex flex-col md:flex-row items-center justify-center gap-2 md:gap-4">
+                <div className="mt-6 md:mt-10 flex flex-col md:flex-row items-center justify-center gap-2 md:gap-4">
                     <button
                         onClick={() => setIsIntroModalOpen(true)}
                         className="w-44 md:w-auto px-5 md:px-8 py-2 md:py-3 bg-white border-2 border-[#267E82] text-[#267E82] rounded-full text-sm md:text-xl font-bold shadow-md hover:bg-[#267E82] hover:text-white transition-all"
