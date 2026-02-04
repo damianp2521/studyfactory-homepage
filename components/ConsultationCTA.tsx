@@ -16,12 +16,12 @@ export default function ConsultationCTA() {
                 initial={{ y: 100, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ delay: 2, duration: 0.5 }}
-                className="fixed bottom-6 right-6 z-40 flex flex-col gap-3"
+                className="fixed bottom-4 md:bottom-6 right-4 md:right-6 z-40 flex flex-col gap-2 md:gap-3"
             >
                 {/* Consultation Button (Teal) - On Top */}
                 <button
                     onClick={() => setModalType("consultation")}
-                    className="bg-[#267E82] text-white px-6 py-3 rounded-full shadow-lg hover:bg-[#1A5F62] transition-colors font-bold text-base tracking-wide hover:scale-105 active:scale-95"
+                    className="bg-[#267E82] text-white px-4 md:px-6 py-2 md:py-3 rounded-full shadow-lg hover:bg-[#1A5F62] transition-colors font-bold text-sm md:text-base tracking-wide hover:scale-105 active:scale-95"
                 >
                     상담예약
                 </button>
@@ -29,7 +29,7 @@ export default function ConsultationCTA() {
                 {/* Franchise Button (Light Gray) - Below */}
                 <button
                     onClick={() => setModalType("franchise")}
-                    className="bg-slate-200 text-slate-600 px-6 py-3 rounded-full shadow-lg hover:bg-slate-300 transition-colors font-bold text-base tracking-wide hover:scale-105 active:scale-95"
+                    className="bg-slate-200 text-slate-600 px-4 md:px-6 py-2 md:py-3 rounded-full shadow-lg hover:bg-slate-300 transition-colors font-bold text-sm md:text-base tracking-wide hover:scale-105 active:scale-95"
                 >
                     가맹문의
                 </button>

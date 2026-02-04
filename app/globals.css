@@ -21,6 +21,23 @@ body {
   background: white;
 }
 
+/* Responsive text utilities using clamp */
+.text-responsive-xl {
+  font-size: clamp(1.25rem, 4vw, 1.5rem);
+}
+
+.text-responsive-2xl {
+  font-size: clamp(1.5rem, 5vw, 2rem);
+}
+
+.text-responsive-3xl {
+  font-size: clamp(1.75rem, 6vw, 3rem);
+}
+
+.text-responsive-4xl {
+  font-size: clamp(2rem, 7vw, 3.5rem);
+}
+
 /* Custom scrollbar */
 .no-scrollbar::-webkit-scrollbar {
   display: none;
@@ -29,4 +46,9 @@ body {
 .no-scrollbar {
   -ms-overflow-style: none;
   scrollbar-width: none;
+}
+
+/* Safe area for bottom content (avoid overlap with buttons) */
+.pb-safe {
+  padding-bottom: max(env(safe-area-inset-bottom), 120px);
 }
