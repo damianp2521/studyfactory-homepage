@@ -33,6 +33,9 @@ export default function Hero() {
                     transition={{ duration: 0.8, delay: 0.5 }}
                     className="space-y-1 md:space-y-2"
                 >
+                    <p className="text-[#267E82] font-bold tracking-wider text-xs md:text-lg mb-2 md:mb-4">
+                        전문자격 학습관리센터 | 성인관리형독서실
+                    </p>
                     <div className="text-lg md:text-3xl lg:text-4xl font-medium text-slate-600">
                         <span className="font-bold text-slate-700">행복</span>한 수험생활이 <span className="font-bold text-slate-700">합격</span>이 되는
                     </div>
@@ -42,8 +45,8 @@ export default function Hero() {
                     <p className="text-lg md:text-3xl lg:text-4xl font-medium text-slate-600 mt-0">
                         지금 시작합니다.
                     </p>
-                    <p className="text-[#267E82] font-bold tracking-wider text-xs md:text-lg mt-6 md:mt-10">
-                        전문자격 학습관리센터 | 성인관리형독서실
+                    <p className="text-slate-400 text-xs md:text-sm mt-4 md:mt-6 max-w-2xl mx-auto break-keep leading-relaxed">
+                        자격증공장은 획일화된 메뉴얼로 중앙 본부에서 지점을 관리 통제하는 시스템으로 전문직 자격 준비생이라면 전국 어디에서든 똑같은 퀄리티의 가까운 자격증공장에서 최상의 수험환경을 제공받을 수 있습니다.
                     </p>
                 </motion.div>
 
