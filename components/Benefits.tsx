@@ -16,7 +16,7 @@ const slides = [
         id: 1,
         type: 'feature',
         title: "체계적인\n학습 관리 시스템",
-        text: "스스로 계획 설정과 결과를 기록하며 성취감 향상,\n타 수험자의 계획과 비교하며\n혼자하는 공부가 아니게 느낌",
+        text: "스스로 계획 설정과 결과를 기록하며\n성취감 향상,\n타 수험자의 계획과 비교하며\n혼자하는 공부가 아니게 느낌",
         image: "/benefits_ui.png",
         layout: "left" // Image on left for desktop
     },
@@ -24,7 +24,7 @@ const slides = [
         id: 2,
         type: 'feature',
         title: "회사원 같은\n자율 휴무 시스템",
-        text: "회사원 같이 스스로 쉬는 날을 정하여\n중앙 본부에 보고하고,\n쉬는 날은 자신의 컨디션과 공부 계획에 따라\n자유롭게 사용 가능",
+        text: "회사원 같이 스스로 쉬는 날을 정하여\n중앙 본부에 보고하고,\n쉬는 날은 자신의 컨디션과\n공부 계획에 따라 자유롭게 사용",
         image: "/benefits_ui_2.png",
         layout: "right"
     },
@@ -46,7 +46,7 @@ const slides = [
         id: 4,
         type: 'centered',
         title: "합격자들의 공부법\n구경만 하셨나요?",
-        subtitle: "1:1 원격 상담으로 시험날까지 끊기지 않게\n합격자 공부법 그대로 실천하게 만들어 드립니다",
+        subtitle: "1:1 원격 상담으로\n시험날까지 끊기지 않게\n합격자 공부법 그대로\n실천하게 만들어 드립니다",
         items: [
             "실제 자격증공장 수험자의 합격 공부법을 그대로 전수",
             "자격증공장 자체 제작 학습 자료 제공"
@@ -195,8 +195,8 @@ export default function Benefits() {
                         </div>
                     ) : slides[currentIndex].type === 'centered' ? (
                         // CENTERED SLIDE (Clean text hierarchy)
-                        <div className="w-full h-full flex flex-col items-center justify-center p-6 md:p-16 lg:p-24">
-                            <div className="w-full max-w-3xl flex flex-col items-center text-center space-y-8 z-10">
+                        <div className="w-full h-full flex flex-col items-center justify-center p-6 md:p-16 lg:p-24 px-16 md:px-24">
+                            <div className="w-full max-w-2xl flex flex-col items-center text-center space-y-6 md:space-y-8 z-10">
                                 <motion.h3
                                     initial={{ y: 20, opacity: 0 }}
                                     animate={{ y: 0, opacity: 1 }}

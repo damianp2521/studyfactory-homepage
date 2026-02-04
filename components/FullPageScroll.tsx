@@ -110,8 +110,8 @@ export default function FullPageScroll({ children }: Props) {
 
             {/* Global Scroll Indicator & Page Number */}
             <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-[100] flex flex-col items-center gap-2 pointer-events-none">
-                <span className="text-[#267E82] text-sm tracking-widest font-semibold font-mono min-h-[20px]">
-                    {currentPage === 0 ? "스크롤하여 살펴보기" : `${currentPage + 1} / ${totalPages}`}
+                <span className="text-[#267E82] text-sm tracking-widest font-semibold font-mono min-h-[40px] text-center whitespace-pre-line">
+                    {currentPage === 0 ? "스크롤하여\n살펴보기" : `${currentPage + 1} / ${totalPages}`}
                 </span>
                 {/* Animated Chevrons */}
                 <div className="flex flex-col items-center -space-y-2">
