@@ -45,7 +45,7 @@ export default function Hero() {
                     <p className="text-lg md:text-3xl lg:text-4xl font-medium text-slate-600 mt-0">
                         지금 시작합니다.
                     </p>
-                    <p className="text-slate-400 text-xs md:text-sm mt-4 md:mt-6 max-w-2xl mx-auto break-keep leading-relaxed">
+                    <p className="text-slate-500 text-xs md:text-sm mt-4 md:mt-6 max-w-[260px] md:max-w-2xl mx-auto break-keep leading-relaxed">
                         자격증공장은 획일화된 메뉴얼로 중앙 본부에서 지점을 관리 통제하는 시스템으로 전문직 자격 준비생이라면 전국 어디에서든 똑같은 퀄리티의 가까운 자격증공장에서 최상의 수험환경을 제공받을 수 있습니다.
                     </p>
                 </motion.div>
