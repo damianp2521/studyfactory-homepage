@@ -17,25 +17,11 @@ export default function Home() {
       </div>
 
       <FullPageScroll>
-        <section className="h-full w-full bg-white">
-          <Hero />
-        </section>
-
-        <section className="h-full w-full bg-slate-50">
-          <Benefits />
-        </section>
-
-        <section className="h-full w-full bg-white">
-          <Happiness />
-        </section>
-
-        <section className="h-full w-full bg-slate-50">
-          <Reviews />
-        </section>
-
-        <section className="h-full w-full bg-white">
-          <Footer />
-        </section>
+        <Hero />
+        <Benefits />
+        <Happiness />
+        <Reviews />
+        <Footer />
       </FullPageScroll>
 
       <div className="fixed bottom-0 left-0 right-0 z-[100] pointer-events-none">

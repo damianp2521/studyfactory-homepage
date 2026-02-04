@@ -112,7 +112,7 @@ export default function Benefits({ isActive }: BenefitsProps) {
     };
 
     return (
-        <section ref={containerRef} id="benefits" className="relative h-full w-full overflow-hidden bg-white text-slate-900 group">
+        <section ref={containerRef} id="benefits" className="relative h-full w-full overflow-hidden bg-slate-50 text-slate-900 group">
             {/* Navigation Buttons - Hidden on Mobile, Visible on Desktop */}
             <button
                 onClick={() => paginate(-1)}

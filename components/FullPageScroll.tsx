@@ -17,6 +17,9 @@ export default function FullPageScroll({ children }: Props) {
     const SCROLL_COOLDOWN = 800;
 
     const handleScroll = useCallback((direction: "up" | "down") => {
+        // Respect scroll lock (e.g., when modals are open)
+        if (document.body.style.overflow === "hidden") return;
+
         const now = Date.now();
         if (now - lastScrollTime.current < SCROLL_COOLDOWN) return;
 
@@ -32,6 +35,7 @@ export default function FullPageScroll({ children }: Props) {
     // Keyboard Navigation
     useEffect(() => {
         const handleKeyDown = (e: KeyboardEvent) => {
+            if (document.body.style.overflow === "hidden") return;
             if (e.key === "ArrowDown") handleScroll("down");
             if (e.key === "ArrowUp") handleScroll("up");
         };
@@ -51,6 +55,7 @@ export default function FullPageScroll({ children }: Props) {
     // Wheel Event (Desktop)
     useEffect(() => {
         const onWheel = (e: WheelEvent) => {
+            if (document.body.style.overflow === "hidden") return;
             // Small threshold to ignore tiny trackpad jitters
             if (Math.abs(e.deltaY) > 20) {
                 handleScroll(e.deltaY > 0 ? "down" : "up");
@@ -63,10 +68,12 @@ export default function FullPageScroll({ children }: Props) {
 
     // Touch Events (Mobile)
     const onTouchStart = (e: React.TouchEvent) => {
+        if (document.body.style.overflow === "hidden") return;
         touchStartY.current = e.touches[0].clientY;
     };
 
     const onTouchEnd = (e: React.TouchEvent) => {
+        if (document.body.style.overflow === "hidden") return;
         const touchEndY = e.changedTouches[0].clientY;
         const deltaY = touchStartY.current - touchEndY;
 

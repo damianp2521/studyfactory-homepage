@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useCallback, useRef } from "react";
+import { useState, useCallback, useRef, useEffect } from "react";
 import { motion, AnimatePresence, useInView } from "framer-motion";
 import { ChevronLeft, ChevronRight, ExternalLink } from "lucide-react";
 import Link from "next/link";
@@ -61,11 +61,26 @@ const reviews: Review[] = [
     }
 ];
 
-export default function Reviews() {
+// Add props interface
+interface ReviewsProps {
+    isActive?: boolean;
+}
+
+export default function Reviews({ isActive }: ReviewsProps) {
     const [[page, direction], setPage] = useState([0, 0]);
     const DURATION = 5000;
     const containerRef = useRef(null);
     const isInView = useInView(containerRef, { amount: 0.5 });
+
+    // Reset to start when leaving the section
+    useEffect(() => {
+        if (!isActive) {
+            const timer = setTimeout(() => {
+                setPage([0, 0]);
+            }, 800);
+            return () => clearTimeout(timer);
+        }
+    }, [isActive]);
 
     const currentIndex = (page % reviews.length + reviews.length) % reviews.length;
 
@@ -97,7 +112,7 @@ export default function Reviews() {
     };
 
     return (
-        <section ref={containerRef} id="reviews" className="relative h-full w-full overflow-hidden bg-white text-slate-900 group">
+        <section ref={containerRef} id="reviews" className="relative h-full w-full overflow-hidden bg-slate-50 text-slate-900 group">
             {/* Navigation Buttons */}
             <button
                 onClick={() => paginate(-1)}
