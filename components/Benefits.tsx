@@ -165,6 +165,14 @@ export default function Benefits({ isActive }: BenefitsProps) {
                                 {slides[currentIndex].title}
                             </motion.h2>
                             <motion.p
+                                initial={{ opacity: 0, y: 10 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ delay: 0.5, duration: 0.8 }}
+                                className="text-slate-500 text-xs md:text-sm mb-12 md:mb-16 md:max-w-2xl mx-auto break-keep leading-relaxed text-center px-4 md:px-0"
+                            >
+                                전문직 자격을 준비하는 성인 수험생들이 스스로 계획하고 성취하게 함으로써 할 수 있다는 자신감을 심어줍니다.
+                            </motion.p>
+                            <motion.p
                                 initial={{ opacity: 0, x: -20 }}
                                 animate={{ opacity: 1, x: 0 }}
                                 transition={{ delay: 1, duration: 1, repeat: Infinity, repeatType: "reverse" }}
