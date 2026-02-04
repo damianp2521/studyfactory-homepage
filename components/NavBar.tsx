@@ -1,36 +1,53 @@
 "use client";
 
 import { useState } from "react";
-import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { menuItems } from "@/lib/data";
 
+// Page index mapping for menu items
+const pageIndexMap: { [key: string]: number } = {
+    "#hero": 0,
+    "#benefits": 1,
+    "#happiness": 2,
+    "#reviews": 3,
+    "#footer": 4,
+};
+
 export default function NavBar() {
     const [isOpen, setIsOpen] = useState(false);
 
-    // Smooth scroll handler
-    const handleScroll = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>, href: string) => {
+    // Navigate to specific page using custom event
+    const navigateToPage = (pageIndex: number) => {
+        window.dispatchEvent(new CustomEvent("navigateToPage", { detail: pageIndex }));
+        setIsOpen(false);
+    };
+
+    const handleMenuClick = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>, href: string) => {
         e.preventDefault();
-        const element = document.querySelector(href);
-        if (element) {
-            element.scrollIntoView({ behavior: "smooth" });
-            setIsOpen(false);
-        }
+        const pageIndex = pageIndexMap[href] ?? 0;
+        navigateToPage(pageIndex);
+    };
+
+    const handleLogoClick = () => {
+        navigateToPage(0);
     };
 
     return (
         <>
             {/* Premium Sticky Header */}
             <nav className="fixed top-0 left-0 right-0 z-50 flex justify-between items-center px-6 py-4 bg-white shadow-sm transition-all pointer-events-auto">
-                {/* Logo */}
-                <div className="relative h-8 w-40 max-w-[180px]">
+                {/* Logo - Clickable to go home */}
+                <button
+                    onClick={handleLogoClick}
+                    className="relative h-8 w-40 max-w-[180px] cursor-pointer"
+                >
                     <img
                         src="/logo_horizontal.png"
                         alt="자격증공장"
                         className="h-full w-full object-contain object-left"
                     />
-                </div>
+                </button>
 
                 {/* Hamburger Button */}
                 <button
@@ -57,7 +74,7 @@ export default function NavBar() {
                                 <li key={item.name}>
                                     <a
                                         href={item.href}
-                                        onClick={(e) => handleScroll(e, item.href)}
+                                        onClick={(e) => handleMenuClick(e, item.href)}
                                         className="text-3xl font-light text-slate-800 hover:text-[#267E82] transition-colors"
                                     >
                                         {item.name}

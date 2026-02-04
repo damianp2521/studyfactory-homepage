@@ -39,6 +39,15 @@ export default function FullPageScroll({ children }: Props) {
         return () => window.removeEventListener("keydown", handleKeyDown);
     }, [handleScroll]);
 
+    // Custom event for navigation from NavBar
+    useEffect(() => {
+        const handleNavigate = (e: CustomEvent<number>) => {
+            setCurrentPage(e.detail);
+        };
+        window.addEventListener("navigateToPage", handleNavigate as EventListener);
+        return () => window.removeEventListener("navigateToPage", handleNavigate as EventListener);
+    }, []);
+
     // Wheel Event (Desktop)
     useEffect(() => {
         const onWheel = (e: WheelEvent) => {
