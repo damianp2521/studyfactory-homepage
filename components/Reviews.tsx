@@ -124,9 +124,21 @@ export default function Reviews() {
                     animate="center"
                     exit="exit"
                     transition={transitionSettings}
-                    className="absolute inset-0 flex flex-col items-center justify-center p-6"
+                    drag="x"
+                    dragConstraints={{ left: 0, right: 0 }}
+                    dragElastic={1}
+                    onDragEnd={(e, { offset, velocity }) => {
+                        const swipe = Math.abs(offset.x) * velocity.x;
+                        const swipeConfidenceThreshold = 10000;
+                        if (swipe < -swipeConfidenceThreshold) {
+                            paginate(1);
+                        } else if (swipe > swipeConfidenceThreshold) {
+                            paginate(-1);
+                        }
+                    }}
+                    className="absolute inset-0 flex flex-col items-center justify-center p-6 cursor-grab active:cursor-grabbing"
                 >
-                    <div className="relative z-10 text-center max-w-3xl flex flex-col items-center">
+                    <div className="relative z-10 text-center max-w-2xl px-16 md:px-8 flex flex-col items-center">
                         {/* Conditional Rendering for Link Slide */}
                         {reviews[currentIndex].type === 'link' ? (
                             <Link href={reviews[currentIndex].url!} target="_blank" className="group/link flex flex-col items-center">
@@ -156,6 +168,18 @@ export default function Reviews() {
                                     {reviews[currentIndex].text}
                                 </motion.h2>
 
+                                {reviews[currentIndex].highlight && (
+                                    <motion.p
+                                        initial={{ opacity: 0, x: -20 }}
+                                        animate={{ opacity: 1, x: 0 }}
+                                        transition={{ delay: 1, duration: 1, repeat: Infinity, repeatType: "reverse" }}
+                                        className="text-lg md:text-xl text-slate-400 font-medium cursor-pointer flex items-center justify-center gap-2"
+                                        onClick={() => paginate(1)}
+                                    >
+                                        오른쪽으로 넘기기 →
+                                    </motion.p>
+                                )}
+
                                 {reviews[currentIndex].sub && (
                                     <motion.p
                                         initial={{ y: 20, opacity: 0 }}
@@ -180,22 +204,6 @@ export default function Reviews() {
                             </>
                         )}
 
-                        {/* Progress Indicator */}
-                        <div className="flex flex-col items-center gap-2 mt-16 w-full">
-                            {/* Progress Bar Container */}
-                            <div className="w-24 h-[2px] bg-slate-200 overflow-hidden rounded-full">
-                                <motion.div
-                                    key={page} // Reset animation on slide change
-                                    initial={{ width: "0%" }}
-                                    animate={{ width: isInView ? "100%" : "0%" }}
-                                    transition={{ duration: DURATION / 1000, ease: "linear" }}
-                                    className="h-full bg-[#267E82]"
-                                    onAnimationComplete={() => {
-                                        if (isInView) paginate(1);
-                                    }}
-                                />
-                            </div>
-                        </div>
                     </div>
                 </motion.div>
             </AnimatePresence>

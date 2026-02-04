@@ -1,10 +1,16 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { createPortal } from "react-dom";
 import { motion, AnimatePresence } from "framer-motion";
 
 export default function Hero() {
     const [isIntroModalOpen, setIsIntroModalOpen] = useState(false);
+    const [mounted, setMounted] = useState(false);
+
+    useEffect(() => {
+        setMounted(true);
+    }, []);
 
     return (
         <section className="relative h-full flex flex-col items-center justify-center bg-white overflow-hidden">
@@ -72,71 +78,74 @@ export default function Hero() {
                 </div>
             </div>
 
-            {/* Modal */}
-            <AnimatePresence>
-                {isIntroModalOpen && (
-                    <motion.div
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        exit={{ opacity: 0 }}
-                        className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4"
-                        onClick={() => setIsIntroModalOpen(false)}
-                    >
+            {/* Modal - Using Portal to break out of FullPageScroll stacking context */}
+            {mounted && createPortal(
+                <AnimatePresence>
+                    {isIntroModalOpen && (
                         <motion.div
-                            initial={{ scale: 0.9, opacity: 0 }}
-                            animate={{ scale: 1, opacity: 1 }}
-                            exit={{ scale: 0.9, opacity: 0 }}
-                            className="bg-white rounded-2xl p-8 max-w-2xl w-full shadow-2xl relative max-h-[90vh] overflow-y-auto"
-                            onClick={(e) => e.stopPropagation()}
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            exit={{ opacity: 0 }}
+                            className="fixed inset-0 z-[100] flex items-center justify-center bg-black/50 p-4"
+                            onClick={() => setIsIntroModalOpen(false)}
                         >
-                            <button
-                                onClick={() => setIsIntroModalOpen(false)}
-                                className="absolute top-4 right-4 text-slate-400 hover:text-slate-600"
+                            <motion.div
+                                initial={{ scale: 0.9, opacity: 0 }}
+                                animate={{ scale: 1, opacity: 1 }}
+                                exit={{ scale: 0.9, opacity: 0 }}
+                                className="bg-white rounded-2xl p-8 max-w-2xl w-full shadow-2xl relative max-h-[90vh] overflow-y-auto"
+                                onClick={(e) => e.stopPropagation()}
                             >
-                                <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                                </svg>
-                            </button>
+                                <button
+                                    onClick={() => setIsIntroModalOpen(false)}
+                                    className="absolute top-4 right-4 text-slate-400 hover:text-slate-600"
+                                >
+                                    <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                                    </svg>
+                                </button>
 
-                            <h3 className="text-2xl md:text-3xl font-bold text-[#267E82] mb-6 text-center">
-                                자격증공장이란?
-                            </h3>
+                                <h3 className="text-2xl md:text-3xl font-bold text-[#267E82] mb-6 text-center">
+                                    자격증공장이란?
+                                </h3>
 
-                            <div className="space-y-6 text-slate-700 leading-relaxed text-lg text-center font-medium">
-                                <p>
-                                    몸은 힘들어도 마음은 편하게<br />
-                                    <span className="text-[#267E82] font-bold">'단순생산공장에 출근하 듯<br />
-                                        뚝딱 자격증을 만들자'</span> 는
-                                </p>
-                                <p>
-                                    전문직자격 수험자만을 대상으로 관리하는,<br />
-                                    <span className="font-bold underline underline-offset-4 decoration-[#267E82]">성인생활학습관리센터</span> 입니다.<br />
-                                    <span className="text-sm text-slate-400 font-normal">(미성년자x, 재수생x)</span>
-                                </p>
-                                <p>
-                                    많은 양의 난이도 높은 시험을 흔들리지 않고<br />
-                                    꾸준히 준비해 단기에 합격 할 수 있도록
-                                </p>
-                                <div className="bg-slate-50 p-4 rounded-xl inline-block mx-auto">
-                                    <p className="space-x-2">
-                                        <span>¹.규칙적인 생활</span>
-                                        <span>².건강한멘탈</span>
+                                <div className="space-y-6 text-slate-700 leading-relaxed text-lg text-center font-medium">
+                                    <p>
+                                        몸은 힘들어도 마음은 편하게<br />
+                                        <span className="text-[#267E82] font-bold">'단순생산공장에 출근하 듯<br />
+                                            뚝딱 자격증을 만들자'</span> 는
                                     </p>
-                                    <p className="space-x-2 mt-1">
-                                        <span>³.수험생영양</span>
-                                        <span>⁴.합격하는 공부법</span>
+                                    <p>
+                                        전문직자격 수험자만을 대상으로 관리하는,<br />
+                                        <span className="font-bold underline underline-offset-4 decoration-[#267E82]">성인생활학습관리센터</span> 입니다.<br />
+                                        <span className="text-sm text-slate-400 font-normal">(미성년자x, 재수생x)</span>
+                                    </p>
+                                    <p>
+                                        많은 양의 난이도 높은 시험을 흔들리지 않고<br />
+                                        꾸준히 준비해 단기에 합격 할 수 있도록
+                                    </p>
+                                    <div className="bg-slate-50 p-4 rounded-xl inline-block mx-auto">
+                                        <p className="space-x-2">
+                                            <span>¹.규칙적인 생활</span>
+                                            <span>².건강한멘탈</span>
+                                        </p>
+                                        <p className="space-x-2 mt-1">
+                                            <span>³.수험생영양</span>
+                                            <span>⁴.합격하는 공부법</span>
+                                        </p>
+                                    </div>
+                                    <p>
+                                        에 초점을 두어<br />
+                                        <span className="font-bold text-[#267E82]">실패 할 수 없는 공부 환경</span>을<br />
+                                        다방면에서 지원합니다.
                                     </p>
                                 </div>
-                                <p>
-                                    에 초점을 두어<br />
-                                    <span className="font-bold text-[#267E82]">실패 할 수 없는 공부 환경</span>을<br />
-                                    다방면에서 지원합니다.
-                                </p>
-                            </div>
+                            </motion.div>
                         </motion.div>
-                    </motion.div>
-                )}
-            </AnimatePresence>
+                    )}
+                </AnimatePresence>,
+                document.body
+            )}
         </section>
     );
 }

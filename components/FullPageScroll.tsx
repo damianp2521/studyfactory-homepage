@@ -100,11 +100,45 @@ export default function FullPageScroll({ children }: Props) {
             })}
 
             {/* Global Scroll Indicator & Page Number */}
-            <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-[100] flex flex-col items-center gap-3 pointer-events-none">
+            <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-[100] flex flex-col items-center gap-2 pointer-events-none">
                 <span className="text-[#267E82] text-sm tracking-widest font-semibold font-mono min-h-[20px]">
                     {currentPage === 0 ? "스크롤하여 살펴보기" : `${currentPage + 1} / ${totalPages}`}
                 </span>
-                <div className="h-[40px] w-[1px] bg-[#267E82]" />
+                {/* Animated Chevrons */}
+                <div className="flex flex-col items-center -space-y-2">
+                    <motion.svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        className="text-[#267E82]"
+                        animate={{ y: [0, 4, 0] }}
+                        transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+                    >
+                        <polyline points="6 9 12 15 18 9" />
+                    </motion.svg>
+                    <motion.svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        className="text-[#267E82]/50"
+                        animate={{ y: [0, 4, 0] }}
+                        transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut", delay: 0.2 }}
+                    >
+                        <polyline points="6 9 12 15 18 9" />
+                    </motion.svg>
+                </div>
             </div>
         </div>
     );

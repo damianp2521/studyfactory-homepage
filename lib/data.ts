@@ -17,10 +17,9 @@ export interface Review {
 }
 
 export const menuItems = [
-  { name: "시설 안내", href: "#benefits" },
-  { name: "이용 후기", href: "#reviews" },
-  { name: "가맹 문의", href: "#franchise" },
-  { name: "오시는 길", href: "#footer" },
+  { name: "성인자기주도학습관리", href: "#benefits" },
+  { name: "자격증공장에 오면 누리는 행복", href: "#happiness" },
+  { name: "다녀본 사람들의 생생한 리뷰", href: "#reviews" },
 ];
 
 export const benefits: Benefit[] = [
