@@ -23,7 +23,7 @@ export default function Hero() {
                 <div className="absolute inset-0 bg-white/90" /> {/* Overlay to ensure text readability */}
             </div>
 
-            <div className="max-w-4xl text-center space-y-6 z-10 relative px-6">
+            <div className="max-w-4xl text-center space-y-4 md:space-y-6 z-10 relative px-6">
 
 
                 {/* Three-line tagline from intro */}
@@ -31,39 +31,26 @@ export default function Hero() {
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.5 }}
-                    className="space-y-2"
+                    className="space-y-1 md:space-y-2"
                 >
-                    <div className="text-2xl md:text-3xl lg:text-4xl font-medium text-slate-600 relative inline-block">
-                        <span className="relative inline-block mx-1">
-                            <span className="font-bold text-slate-700">행복</span>
-                            <svg className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[160%] h-[160%] text-red-500 opacity-80 pointer-events-none" viewBox="0 0 100 60" preserveAspectRatio="none">
-                                <path d="M10,30 C10,10 30,5 50,5 C70,5 95,15 90,35 C85,55 55,55 35,50 C15,45 5,25 10,15 C20,5 60,0 80,10 C95,20 95,40 70,50" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
-                            </svg>
-                        </span>
-                        한 수험생활이
-                        <span className="relative inline-block mx-1">
-                            <span className="font-bold text-slate-700">합격</span>
-                            <svg className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[160%] h-[160%] text-red-500 opacity-80 pointer-events-none" viewBox="0 0 100 60" preserveAspectRatio="none">
-                                <path d="M10,30 C10,10 30,5 50,5 C70,5 95,15 90,35 C85,55 55,55 35,50 C15,45 5,25 10,15 C20,5 60,0 80,10 C95,20 95,40 70,50" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
-                            </svg>
-                        </span>
-                        이 되는
+                    <div className="text-xl md:text-3xl lg:text-4xl font-medium text-slate-600">
+                        <span className="font-bold text-slate-700">행복</span>한 수험생활이 <span className="font-bold text-slate-700">합격</span>이 되는
                     </div>
-                    <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#267E82] to-[#1A5F62] leading-relaxed">
+                    <h1 className="text-2xl md:text-5xl lg:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#267E82] to-[#1A5F62] leading-relaxed">
                         자격증공장의 마법
                     </h1>
-                    <p className="text-2xl md:text-3xl lg:text-4xl font-medium text-slate-600 mt-0">
+                    <p className="text-xl md:text-3xl lg:text-4xl font-medium text-slate-600 mt-0">
                         지금 시작합니다.
                     </p>
-                    <p className="text-[#267E82] font-bold tracking-wider text-base md:text-lg mt-8">
+                    <p className="text-[#267E82] font-bold tracking-wider text-sm md:text-lg mt-6 md:mt-8">
                         전문자격 학습관리센터 | 성인관리형독서실
                     </p>
                 </motion.div>
 
-                <div className="mt-8 flex flex-col md:flex-row items-center justify-center gap-4">
+                <div className="mt-6 md:mt-8 flex flex-col md:flex-row items-center justify-center gap-3 md:gap-4">
                     <button
                         onClick={() => setIsIntroModalOpen(true)}
-                        className="w-full md:w-auto px-8 py-3 bg-white border-2 border-[#267E82] text-[#267E82] rounded-full text-lg md:text-xl font-bold shadow-md hover:bg-[#267E82] hover:text-white transition-all"
+                        className="w-48 md:w-auto px-6 md:px-8 py-2.5 md:py-3 bg-white border-2 border-[#267E82] text-[#267E82] rounded-full text-base md:text-xl font-bold shadow-md hover:bg-[#267E82] hover:text-white transition-all"
                     >
                         자격증공장 소개
                     </button>
@@ -71,7 +58,7 @@ export default function Hero() {
                         href="https://map.naver.com/p/directions/-/14372155.3537346,4187711.2060766,%EC%9E%90%EA%B2%A9%EC%A6%9D%EA%B3%B5%EC%9E%A5%20%EA%B4%80%EB%A6%AC%ED%98%95%EB%8F%85%EC%84%9C%EC%8B%A4,1199907214,PLACE_POI/-/transit?c=15.00,0,0,0,dh"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="w-full md:w-auto px-8 py-3 bg-white border-2 border-[#267E82] text-[#267E82] rounded-full text-lg md:text-xl font-bold shadow-md hover:bg-[#267E82] hover:text-white transition-all inline-block"
+                        className="w-48 md:w-auto px-6 md:px-8 py-2.5 md:py-3 bg-white border-2 border-[#267E82] text-[#267E82] rounded-full text-base md:text-xl font-bold shadow-md hover:bg-[#267E82] hover:text-white transition-all inline-block"
                     >
                         자격증공장 위치
                     </a>
