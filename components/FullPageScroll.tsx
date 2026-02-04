@@ -109,7 +109,7 @@ export default function FullPageScroll({ children }: Props) {
             })}
 
             {/* Global Scroll Indicator & Page Number */}
-            <div className="absolute bottom-6 md:bottom-10 left-6 md:left-1/2 md:-translate-x-1/2 z-[100] flex flex-col items-center gap-1 md:gap-2 pointer-events-none">
+            <div className="absolute bottom-6 md:bottom-10 left-1/2 -translate-x-1/2 z-[100] flex flex-col items-center gap-1 md:gap-2 pointer-events-none">
                 <span className="text-[#267E82] text-xs md:text-sm tracking-widest font-semibold font-mono min-h-[32px] md:min-h-[40px] text-center whitespace-pre-line">
                     {currentPage === 0 ? "스크롤하여\n살펴보기" : `${currentPage + 1} / ${totalPages}`}
                 </span>
