@@ -88,8 +88,10 @@ export default function FullPageScroll({ children }: Props) {
                 // If index > currentPage, it waits below (y: 100%).
 
                 // For the "stacking" effect (next card covers previous):
-                // We render all pages. 
+                // We render all pages.
                 // Z-index ensures correct layering.
+
+                const isActive = index === currentPage;
 
                 return (
                     <motion.div
@@ -103,7 +105,10 @@ export default function FullPageScroll({ children }: Props) {
                             ease: [0.22, 1, 0.36, 1] // Custom "premium" ease (Ease Out Quint-ish)
                         }}
                     >
-                        {child}
+                        {/* Pass isActive prop to child if it's a valid React element */}
+                        {React.isValidElement(child)
+                            ? React.cloneElement(child as React.ReactElement<any>, { isActive })
+                            : child}
                     </motion.div>
                 );
             })}

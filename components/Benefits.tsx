@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useCallback, useRef } from "react";
+import { useState, useCallback, useRef, useEffect } from "react";
 import { motion, AnimatePresence, useInView } from "framer-motion";
 import { ChevronLeft, ChevronRight, Check } from "lucide-react";
 import Image from "next/image";
@@ -54,11 +54,33 @@ const slides = [
     }
 ];
 
-export default function Benefits() {
+// Add props interface
+interface BenefitsProps {
+    isActive?: boolean;
+}
+
+export default function Benefits({ isActive }: BenefitsProps) {
     const [[page, direction], setPage] = useState([0, 0]);
     const DURATION = 5000;
     const containerRef = useRef(null);
     const isInView = useInView(containerRef, { amount: 0.5 });
+
+    // Reset to start when leaving the section
+    useEffect(() => {
+        if (!isActive) {
+            // Small timeout to ensure transition is done (optional, but good for UX) -> Actually better to reset immediately but maybe invisible? 
+            // If we reset immediately when it becomes inactive, the user might see it jump if the transition out is slow.
+            // However, FullPageScroll covers it up mostly.
+            // Let's reset when !isActive.
+            // To avoid jitter, we can delay it slightly or just set it. 
+            // Since FullPageScroll covers it, immediate reset is fine as long as z-index hides it.
+            // Waiting for a bit ensures it's hidden.
+            const timer = setTimeout(() => {
+                setPage([0, 0]);
+            }, 800); // 800ms matches scroll cooldown/transition
+            return () => clearTimeout(timer);
+        }
+    }, [isActive]);
 
     const currentIndex = (page % slides.length + slides.length) % slides.length;
 

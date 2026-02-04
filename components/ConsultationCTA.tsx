@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, Phone } from "lucide-react";
 
@@ -8,6 +8,18 @@ type ModalType = "consultation" | "franchise" | null;
 
 export default function ConsultationCTA() {
     const [modalType, setModalType] = useState<ModalType>(null);
+
+    // Prevent background scroll when modal is open
+    useEffect(() => {
+        if (modalType) {
+            document.body.style.overflow = "hidden";
+        } else {
+            document.body.style.overflow = "unset";
+        }
+        return () => {
+            document.body.style.overflow = "unset";
+        };
+    }, [modalType]);
 
     return (
         <>

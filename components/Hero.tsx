@@ -12,6 +12,18 @@ export default function Hero() {
         setMounted(true);
     }, []);
 
+    // Prevent background scroll when modal is open
+    useEffect(() => {
+        if (isIntroModalOpen) {
+            document.body.style.overflow = "hidden";
+        } else {
+            document.body.style.overflow = "unset";
+        }
+        return () => {
+            document.body.style.overflow = "unset";
+        };
+    }, [isIntroModalOpen]);
+
     return (
         <section className="relative h-full flex flex-col items-center justify-center bg-white overflow-hidden">
             {/* Background Image */}

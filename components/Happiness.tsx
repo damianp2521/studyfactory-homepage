@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useCallback, useRef } from "react";
+import { useState, useCallback, useRef, useEffect } from "react";
 import { motion, AnimatePresence, useInView } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import Image from "next/image";
@@ -62,10 +62,25 @@ const slides = [
     }
 ];
 
-export default function Happiness() {
+// Add props interface
+interface HappinessProps {
+    isActive?: boolean;
+}
+
+export default function Happiness({ isActive }: HappinessProps) {
     const [[page, direction], setPage] = useState([0, 0]);
     const containerRef = useRef(null);
     const isInView = useInView(containerRef, { amount: 0.5 });
+
+    // Reset to start when leaving the section
+    useEffect(() => {
+        if (!isActive) {
+            const timer = setTimeout(() => {
+                setPage([0, 0]);
+            }, 800);
+            return () => clearTimeout(timer);
+        }
+    }, [isActive]);
 
     const currentIndex = (page % slides.length + slides.length) % slides.length;
 
