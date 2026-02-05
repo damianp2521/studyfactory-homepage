@@ -15,8 +15,8 @@ const slides = [
     {
         id: 1,
         type: 'feature',
-        title: "체계적인\n학습 관리 시스템",
-        text: "스스로 계획 설정과 결과를 기록하며\n성취감 향상,\n타 수험자의 계획과 비교하며\n혼자하는 공부가 아니게 느낌",
+        title: "자격증공장\n특화 학습관리시스템",
+        text: "자체 개발한 앱을 통해\n스스로 정한 계획과 결과를 중앙 본부와 공유하여\n진도 상담을 받을 수 있고,\n타 수험자의 계획과 결과도 참고함으로써\n본인의 공부 속도를 가늠해\n혼자 하는 공부가 아니라는 느낌을 줍니다.",
         image: "/benefits_ui.png",
         layout: "left" // Image on left for desktop
     },
@@ -187,8 +187,8 @@ export default function Benefits({ isActive }: BenefitsProps) {
                     ) : slides[currentIndex].type === 'list' ? (
                         // LIST SLIDE
                         <div className="w-full h-full flex flex-col md:flex-row items-center justify-center p-6 md:p-16 lg:p-24 pb-28 md:pb-16 gap-6 md:gap-16">
-                            {/* Text/List Container - Centered or Split if we had an image. Since no image, let's Center it for impact, or keep split structure for consistency if desired. User asked for specific list style. Let's center it for now as it's text heavy. */}
-                            <div className="w-full max-w-2xl flex flex-col items-center text-center space-y-6 md:space-y-8 z-10">
+                            {/* Text/List Container */}
+                            <div className="w-full max-w-2xl flex flex-col items-center text-center space-y-6 md:space-y-8 z-10 px-16 md:px-0">
                                 <motion.h3
                                     initial={{ y: 20, opacity: 0 }}
                                     animate={{ y: 0, opacity: 1 }}
@@ -226,9 +226,9 @@ export default function Benefits({ isActive }: BenefitsProps) {
                             </div>
                         </div>
                     ) : slides[currentIndex].type === 'centered' ? (
-                        // CENTERED SLIDE (Clean text hierarchy)
+                        // CENTERED SLIDE
                         <div className="w-full h-full flex flex-col items-center justify-center p-6 md:p-16 lg:p-24 px-12 md:px-24 pb-28 md:pb-16">
-                            <div className="w-full max-w-2xl flex flex-col items-center text-center space-y-4 md:space-y-8 z-10">
+                            <div className="w-full max-w-2xl flex flex-col items-center text-center space-y-4 md:space-y-8 z-10 px-4 md:px-0">
                                 <motion.h3
                                     initial={{ y: 20, opacity: 0 }}
                                     animate={{ y: 0, opacity: 1 }}
@@ -270,8 +270,8 @@ export default function Benefits({ isActive }: BenefitsProps) {
                         <div className="w-full h-full flex flex-col md:flex-row items-center justify-center p-6 md:p-16 pb-28 md:pb-16 gap-4 md:gap-12 max-w-6xl mx-auto">
 
                             {/* Image Container */}
-                            <div className={`relative w-full md:flex-1 h-[28vh] md:h-[60vh] flex items-center justify-center order-1 px-10 md:px-0 ${slides[currentIndex].layout === 'right' ? 'md:order-2' : 'md:order-1'}`}>
-                                <div className="relative w-full h-full max-h-[300px] md:max-h-[500px] max-w-[300px] md:max-w-[500px] mx-auto">
+                            <div className={`relative w-full md:flex-1 h-[40vh] md:h-[60vh] flex items-center justify-center order-1 px-16 md:px-0 ${slides[currentIndex].layout === 'right' ? 'md:order-2' : 'md:order-1'}`}>
+                                <div className="relative w-full h-full max-h-[400px] md:max-h-[500px] max-w-[300px] md:max-w-[500px] mx-auto">
                                     <Image
                                         src={slides[currentIndex].image!}
                                         alt="Feature UI"
@@ -283,7 +283,7 @@ export default function Benefits({ isActive }: BenefitsProps) {
                             </div>
 
                             {/* Text Container */}
-                            <div className={`w-full md:flex-1 flex flex-col items-center md:items-start text-center md:text-left space-y-3 md:space-y-6 order-2 ${slides[currentIndex].layout === 'right' ? 'md:order-1 md:items-start md:text-left' : 'md:order-2 md:items-start md:text-left'} z-10 px-4 md:px-0`}>
+                            <div className={`w-full md:flex-1 flex flex-col items-center md:items-start text-center md:text-left space-y-3 md:space-y-6 order-2 ${slides[currentIndex].layout === 'right' ? 'md:order-1 md:items-start md:text-left' : 'md:order-2 md:items-start md:text-left'} z-10 px-16 md:px-0`}>
                                 <motion.h3
                                     initial={{ y: 20, opacity: 0 }}
                                     animate={{ y: 0, opacity: 1 }}
@@ -296,7 +296,7 @@ export default function Benefits({ isActive }: BenefitsProps) {
                                     initial={{ y: 20, opacity: 0 }}
                                     animate={{ y: 0, opacity: 1 }}
                                     transition={{ delay: 0.4 }}
-                                    className="text-sm md:text-2xl text-slate-600 leading-relaxed whitespace-pre-line"
+                                    className="text-sm md:text-2xl text-slate-600 leading-relaxed whitespace-pre-line md:whitespace-pre-line break-keep md:break-normal"
                                 >
                                     {slides[currentIndex].text}
                                 </motion.p>
