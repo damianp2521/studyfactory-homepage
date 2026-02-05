@@ -160,7 +160,7 @@ export default function Benefits({ isActive }: BenefitsProps) {
                                 initial={{ scale: 0.9, opacity: 0 }}
                                 animate={{ scale: 1, opacity: 1 }}
                                 transition={{ duration: 0.8 }}
-                                className="text-3xl md:text-6xl lg:text-7xl font-bold text-[#267E82] tracking-tight mb-8"
+                                className="text-3xl md:text-5xl lg:text-6xl font-bold text-[#267E82] tracking-tight mb-8"
                             >
                                 {slides[currentIndex].title}
                             </motion.h2>
@@ -193,7 +193,7 @@ export default function Benefits({ isActive }: BenefitsProps) {
                                     initial={{ y: 20, opacity: 0 }}
                                     animate={{ y: 0, opacity: 1 }}
                                     transition={{ delay: 0.2 }}
-                                    className="text-2xl md:text-5xl lg:text-6xl font-bold text-slate-800 whitespace-pre-line leading-tight"
+                                    className="text-2xl md:text-4xl lg:text-5xl font-bold text-slate-800 whitespace-pre-line leading-tight"
                                 >
                                     {slides[currentIndex].title}
                                 </motion.h3>
@@ -205,7 +205,7 @@ export default function Benefits({ isActive }: BenefitsProps) {
                                             initial={{ x: -20, opacity: 0 }}
                                             animate={{ x: 0, opacity: 1 }}
                                             transition={{ delay: 0.4 + (i * 0.1) }}
-                                            className="flex items-center gap-3 text-base md:text-2xl text-slate-700 font-medium text-left md:text-center w-fit"
+                                            className="flex items-center gap-3 text-base md:text-xl text-slate-700 font-medium text-left md:text-center w-fit"
                                         >
                                             <div className="flex-shrink-0 w-6 h-6 rounded-full bg-[#267E82]/10 flex items-center justify-center text-[#267E82]">
                                                 <Check size={16} strokeWidth={3} />
@@ -233,7 +233,7 @@ export default function Benefits({ isActive }: BenefitsProps) {
                                     initial={{ y: 20, opacity: 0 }}
                                     animate={{ y: 0, opacity: 1 }}
                                     transition={{ delay: 0.2 }}
-                                    className="text-2xl md:text-5xl lg:text-6xl font-bold text-slate-800 whitespace-pre-line leading-tight"
+                                    className="text-2xl md:text-4xl lg:text-5xl font-bold text-slate-800 whitespace-pre-line leading-tight"
                                 >
                                     {slides[currentIndex].title}
                                 </motion.h3>
@@ -242,7 +242,7 @@ export default function Benefits({ isActive }: BenefitsProps) {
                                     initial={{ y: 20, opacity: 0 }}
                                     animate={{ y: 0, opacity: 1 }}
                                     transition={{ delay: 0.4 }}
-                                    className="text-base md:text-2xl text-slate-600 leading-relaxed whitespace-pre-line"
+                                    className="text-base md:text-xl text-slate-600 leading-relaxed whitespace-pre-line"
                                 >
                                     {slides[currentIndex].subtitle}
                                 </motion.p>
@@ -288,7 +288,7 @@ export default function Benefits({ isActive }: BenefitsProps) {
                                     initial={{ y: 20, opacity: 0 }}
                                     animate={{ y: 0, opacity: 1 }}
                                     transition={{ delay: 0.2 }}
-                                    className="text-2xl md:text-5xl lg:text-6xl font-bold text-slate-800 whitespace-pre-line leading-tight"
+                                    className="text-2xl md:text-4xl lg:text-5xl font-bold text-slate-800 whitespace-pre-line leading-tight"
                                 >
                                     {slides[currentIndex].title}
                                 </motion.h3>
@@ -296,7 +296,7 @@ export default function Benefits({ isActive }: BenefitsProps) {
                                     initial={{ y: 20, opacity: 0 }}
                                     animate={{ y: 0, opacity: 1 }}
                                     transition={{ delay: 0.4 }}
-                                    className="text-sm md:text-2xl text-slate-600 leading-relaxed whitespace-pre-line md:whitespace-pre-line break-keep md:break-normal"
+                                    className="text-sm md:text-xl text-slate-600 leading-relaxed whitespace-pre-line md:whitespace-pre-line break-keep md:break-normal"
                                 >
                                     {slides[currentIndex].text}
                                 </motion.p>
