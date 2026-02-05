@@ -61,7 +61,7 @@ export default function Hero() {
 
                     <div className="text-slate-500 text-xs md:text-sm mt-6 md:mt-10 md:max-w-3xl mx-auto break-keep leading-relaxed text-center px-6 md:px-0 space-y-4">
                         <p>
-                            자격증공장은 중앙 컨트롤 센터를 통해<br className="md:hidden" />
+                            자격증공장은 <span className="font-bold text-[#267E82]">중앙 컨트롤 센터</span>를 통해<br className="md:hidden" />
                             전국 모든 지점의 면학 분위기를<br className="md:hidden" />
                             실시간으로 모니터링하고 즉각적으로 통제합니다.
                         </p>
