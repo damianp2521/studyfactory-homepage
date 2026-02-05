@@ -178,7 +178,7 @@ export default function Reviews({ isActive }: ReviewsProps) {
                                     initial={{ y: 20, opacity: 0 }}
                                     animate={{ y: 0, opacity: 1 }}
                                     transition={{ delay: 0.2, duration: 0.8 }}
-                                    className={`font-bold mb-6 ${reviews[currentIndex].highlight ? 'text-4xl md:text-6xl text-[#267E82]' : 'text-2xl md:text-4xl text-slate-900'}`}
+                                    className={`font-bold mb-6 ${reviews[currentIndex].highlight ? 'text-4xl md:text-5xl text-[#267E82]' : 'text-2xl md:text-4xl text-slate-900'}`}
                                 >
                                     {reviews[currentIndex].text}
                                 </motion.h2>
