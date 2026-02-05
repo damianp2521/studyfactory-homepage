@@ -43,27 +43,31 @@ export default function Hero() {
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.5 }}
-                    className="space-y-1 md:space-y-2"
+                    className="space-y-1 md:space-y-4"
                 >
-                    <p className="text-[#267E82] font-bold tracking-wider text-xs md:text-lg mb-2 md:mb-4">
-                        전문자격 학습관리센터 | 성인관리형독서실
+                    <p className="text-[#267E82] font-bold tracking-wider text-xs md:text-lg mb-2 md:mb-4 font-mono">
+                        CENTRAL CONTROL SYSTEM 24/7
                     </p>
                     <div className="text-lg md:text-3xl lg:text-4xl font-medium text-slate-600">
-                        <span className="font-bold text-slate-700">행복</span>한 수험생활이 <span className="font-bold text-slate-700">합격</span>이 되는
+                        자격증공장 본부는
                     </div>
-                    <h1 className="text-xl md:text-5xl lg:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#267E82] to-[#1A5F62] leading-relaxed">
-                        자격증공장의 마법
+                    <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#267E82] to-[#1A5F62] leading-tight pb-2">
+                        잠들지 않습니다.
                     </h1>
-                    <p className="text-lg md:text-3xl lg:text-4xl font-medium text-slate-600 mt-0">
-                        지금 시작합니다.
-                    </p>
-                    <p className="text-slate-500 text-xs md:text-sm mt-4 md:mt-6 md:max-w-2xl mx-auto break-keep leading-relaxed text-center px-4 md:px-0">
-                        자격증공장은 획일화된 매뉴얼로 <br className="md:hidden" />
-                        중앙 본부에서 지점을 관리·통제하는 시스템을 갖추고 있어, <br className="md:hidden" />
-                        전문직 자격 준비생이라면 전국 어디에서든 <br className="md:hidden" />
-                        똑같은 퀄리티의 가까운 자격증공장에서 <br className="md:hidden" />
-                        최상의 수험환경을 제공받을 수 있습니다.
-                    </p>
+
+                    <div className="text-slate-500 text-xs md:text-sm mt-6 md:mt-10 md:max-w-3xl mx-auto break-keep leading-relaxed text-center px-4 md:px-0 space-y-4">
+                        <p>
+                            지점에 맡겨두지 않습니다. 방치하지 않습니다.<br className="hidden md:block" />
+                            자격증공장의 <strong className="text-[#267E82]">중앙 관제 센터(HQ)</strong>는{' '}
+                            전국 모든 지점의 면학 분위기를<br className="hidden md:block" />
+                            실시간으로 모니터링하고 즉각적으로 통제합니다.
+                        </p>
+                        <p>
+                            소음, 온도, 습도, 그리고 학습 텐션까지.<br className="hidden md:block" />
+                            오차 없는 본사의 관리 시스템 아래,<br className="hidden md:block" />
+                            당신은 <strong className="text-slate-700">가장 완벽한 몰입</strong>을 경험하게 됩니다.
+                        </p>
+                    </div>
                 </motion.div>
 
                 {/* Buttons temporarily disabled as per request
