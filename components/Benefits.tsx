@@ -155,7 +155,7 @@ export default function Benefits({ isActive }: BenefitsProps) {
                 >
                     {slides[currentIndex].type === 'intro' ? (
                         // INTRO SLIDE
-                        <div className="text-center px-6 pb-28 md:pb-0">
+                        <div className="text-center px-6 md:pb-0">
                             <motion.h2
                                 initial={{ scale: 0.9, opacity: 0 }}
                                 animate={{ scale: 1, opacity: 1 }}
@@ -267,7 +267,7 @@ export default function Benefits({ isActive }: BenefitsProps) {
                         </div>
                     ) : (
                         // FEATURE SLIDE
-                        <div className="w-full h-full flex flex-col md:flex-row items-center justify-center p-6 md:p-16 pb-28 md:pb-16 gap-4 md:gap-12 max-w-6xl mx-auto">
+                        <div className="w-full h-full flex flex-col md:flex-row items-center justify-center p-6 md:p-16 md:pb-16 gap-4 md:gap-12 max-w-6xl mx-auto">
 
                             {/* Image Container */}
                             <div className={`relative w-full md:flex-1 h-[40vh] md:h-[60vh] flex items-center justify-center order-1 px-16 md:px-0 ${slides[currentIndex].layout === 'right' ? 'md:order-2' : 'md:order-1'}`}>

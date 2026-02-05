@@ -35,7 +35,7 @@ export default function Hero() {
                 <div className="absolute inset-0 bg-white/90" /> {/* Overlay to ensure text readability */}
             </div>
 
-            <div className="max-w-4xl text-center space-y-3 md:space-y-6 z-10 relative px-6 pb-24 md:pb-0">
+            <div className="max-w-4xl text-center space-y-3 md:space-y-6 z-10 relative px-6 md:pb-0">
 
 
                 {/* Three-line tagline from intro */}
