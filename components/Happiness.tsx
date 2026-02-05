@@ -179,7 +179,7 @@ export default function Happiness({ isActive }: HappinessProps) {
                         <div className="w-full h-full flex flex-col md:flex-row items-center justify-center p-6 md:p-16 pb-28 md:pb-16 gap-4 md:gap-12 max-w-6xl mx-auto">
 
                             {/* Image Container */}
-                            <div className={`relative w-full md:flex-1 h-[25vh] md:h-[60vh] flex items-center justify-center order-2 px-10 md:px-0 ${slides[currentIndex].layout === 'right' ? 'md:order-2' : 'md:order-1'}`}>
+                            <div className={`relative w-full md:flex-1 h-[25vh] md:h-[60vh] flex items-center justify-center order-1 px-10 md:px-0 ${slides[currentIndex].layout === 'right' ? 'md:order-2' : 'md:order-1'}`}>
                                 <div className="relative w-full h-full max-h-[250px] md:max-h-[500px] max-w-[250px] md:max-w-[500px] mx-auto">
                                     <Image
                                         src={slides[currentIndex].image!}
@@ -192,7 +192,7 @@ export default function Happiness({ isActive }: HappinessProps) {
                             </div>
 
                             {/* Text Container */}
-                            <div className={`w-full md:flex-1 flex flex-col items-center md:items-start text-center md:text-left space-y-3 md:space-y-6 order-1 ${slides[currentIndex].layout === 'right' ? 'md:order-1 md:items-start md:text-left' : 'md:order-2 md:items-start md:text-left'} z-10 px-4 md:px-0`}>
+                            <div className={`w-full md:flex-1 flex flex-col items-center md:items-start text-center md:text-left space-y-3 md:space-y-6 order-2 ${slides[currentIndex].layout === 'right' ? 'md:order-1 md:items-start md:text-left' : 'md:order-2 md:items-start md:text-left'} z-10 px-4 md:px-0`}>
                                 <motion.h3
                                     initial={{ y: 20, opacity: 0 }}
                                     animate={{ y: 0, opacity: 1 }}
