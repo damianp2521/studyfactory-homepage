@@ -263,7 +263,7 @@ export default function Benefits({ isActive }: BenefitsProps) {
                                 initial={{ y: 20, opacity: 0 }}
                                 animate={{ y: 0, opacity: 1 }}
                                 transition={{ delay: 0.2 }}
-                                className="flex flex-col md:flex-row gap-4 md:gap-6 w-full max-w-4xl justify-center z-10"
+                                className="flex flex-col md:flex-row gap-4 md:gap-6 w-[88%] md:w-full max-w-4xl justify-center z-10"
                             >
                                 {(slides[currentIndex].items as string[])?.map((item, i) => (
                                     <motion.div
@@ -314,13 +314,13 @@ export default function Benefits({ isActive }: BenefitsProps) {
                                     {/* Carousel or Static Image */}
                                     {slides[currentIndex].images ? (
                                         <div className="relative w-full h-full">
-                                            <AnimatePresence initial={false} mode="wait">
+                                            <AnimatePresence initial={false}>
                                                 <motion.div
                                                     key={imageIndex}
                                                     initial={{ opacity: 0 }}
                                                     animate={{ opacity: 1 }}
                                                     exit={{ opacity: 0 }}
-                                                    transition={{ duration: 0.5 }}
+                                                    transition={{ duration: 1.5, ease: "easeInOut" }}
                                                     className="absolute inset-0"
                                                 >
                                                     <Image
