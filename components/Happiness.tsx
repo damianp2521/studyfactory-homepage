@@ -205,7 +205,7 @@ export default function Happiness({ isActive }: HappinessProps) {
                                     initial={{ y: 20, opacity: 0 }}
                                     animate={{ y: 0, opacity: 1 }}
                                     transition={{ delay: 0.4 }}
-                                    className="text-sm md:text-xl text-slate-600 leading-relaxed whitespace-pre-line"
+                                    className="text-xs md:text-sm text-slate-600 leading-relaxed whitespace-pre-line"
                                 >
                                     {slides[currentIndex].text}
                                 </motion.p>

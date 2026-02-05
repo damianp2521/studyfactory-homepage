@@ -205,7 +205,7 @@ export default function Benefits({ isActive }: BenefitsProps) {
                                             initial={{ x: -20, opacity: 0 }}
                                             animate={{ x: 0, opacity: 1 }}
                                             transition={{ delay: 0.4 + (i * 0.1) }}
-                                            className="flex items-center gap-3 text-base md:text-xl text-slate-700 font-medium text-left md:text-center w-fit"
+                                            className="flex items-center gap-3 text-xs md:text-sm text-slate-700 font-medium text-left md:text-center w-fit"
                                         >
                                             <div className="flex-shrink-0 w-6 h-6 rounded-full bg-[#267E82]/10 flex items-center justify-center text-[#267E82]">
                                                 <Check size={16} strokeWidth={3} />
@@ -219,7 +219,7 @@ export default function Benefits({ isActive }: BenefitsProps) {
                                     initial={{ y: 20, opacity: 0 }}
                                     animate={{ y: 0, opacity: 1 }}
                                     transition={{ delay: 0.9 }}
-                                    className="text-base md:text-lg text-[#267E82] font-bold whitespace-pre-line mt-4"
+                                    className="text-xs md:text-sm text-[#267E82] font-bold whitespace-pre-line mt-4"
                                 >
                                     {slides[currentIndex].footer}
                                 </motion.p>
@@ -242,7 +242,7 @@ export default function Benefits({ isActive }: BenefitsProps) {
                                     initial={{ y: 20, opacity: 0 }}
                                     animate={{ y: 0, opacity: 1 }}
                                     transition={{ delay: 0.4 }}
-                                    className="text-base md:text-xl text-slate-600 leading-relaxed whitespace-pre-line"
+                                    className="text-xs md:text-sm text-slate-600 leading-relaxed whitespace-pre-line"
                                 >
                                     {slides[currentIndex].subtitle}
                                 </motion.p>
@@ -256,7 +256,7 @@ export default function Benefits({ isActive }: BenefitsProps) {
                                     {(slides[currentIndex].items as string[])?.map((item, i) => (
                                         <div
                                             key={i}
-                                            className="flex items-center gap-2 px-4 py-2 bg-[#267E82]/10 rounded-full text-[#267E82] font-semibold text-sm md:text-base"
+                                            className="flex items-center gap-2 px-4 py-2 bg-[#267E82]/10 rounded-full text-[#267E82] font-semibold text-xs md:text-sm"
                                         >
                                             <Check size={16} strokeWidth={3} />
                                             {item}
@@ -296,7 +296,7 @@ export default function Benefits({ isActive }: BenefitsProps) {
                                     initial={{ y: 20, opacity: 0 }}
                                     animate={{ y: 0, opacity: 1 }}
                                     transition={{ delay: 0.4 }}
-                                    className="text-sm md:text-xl text-slate-600 leading-relaxed whitespace-pre-line md:whitespace-pre-line break-keep md:break-normal"
+                                    className="text-xs md:text-sm text-slate-600 leading-relaxed whitespace-pre-line md:whitespace-pre-line break-keep md:break-normal"
                                 >
                                     {slides[currentIndex].text}
                                 </motion.p>
