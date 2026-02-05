@@ -82,10 +82,10 @@ export default function Benefits({ isActive }: BenefitsProps) {
 
     // Carousel Effect
     useEffect(() => {
-        if (slides[currentIndex].images) {
+        if (slides[currentIndex].images && slides[currentIndex].images.length > 1) {
             const interval = setInterval(() => {
                 setImageIndex((prev) => (prev + 1) % slides[currentIndex].images!.length);
-            }, 1500);
+            }, 3000);
             return () => clearInterval(interval);
         }
     }, [currentIndex]);
