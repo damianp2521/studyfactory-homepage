@@ -47,8 +47,8 @@ const slides = [
     {
         id: 4,
         type: 'centered',
-        title: "합격자들의 공부법\n구경만 하셨나요?",
-        subtitle: "1:1 원격 상담으로\n시험날까지 끊기지 않게\n합격자 공부법 그대로\n실천하게 만들어 드립니다",
+        title: "합격하는 올바른 공부법으로\n단기 합격",
+        subtitle: "열심히만 한다고 합격하진 않습니다.\n핵심은 점수로 이어지는 올바른 공부법!\n\n합격자 공부법 그대로 꾸준히 실천할 수 있도록\n지속적 개인 모니터링과 1:1 원격상담을\n시험날까지 지원합니다.",
         items: [
             "실제 자격증공장 수험자의 합격 공부법을 그대로 전수",
             "자격증공장 자체 제작 학습 자료 제공"
@@ -256,14 +256,40 @@ export default function Benefits({ isActive }: BenefitsProps) {
                             </div>
                         </div>
                     ) : slides[currentIndex].type === 'centered' ? (
-                        // CENTERED SLIDE
-                        <div className="w-full h-full flex flex-col items-center justify-center p-6 md:p-16 lg:p-24 px-12 md:px-24 pb-28 md:pb-16">
-                            <div className="w-full max-w-2xl flex flex-col items-center text-center space-y-4 md:space-y-8 z-10 px-4 md:px-0">
+                        // CENTERED SLIDE (Redesigned: Cards -> Title -> Text)
+                        <div className="w-full h-full flex flex-col items-center justify-center p-6 md:p-16 lg:p-24 px-8 md:px-24 pb-20 md:pb-16 gap-8 md:gap-12">
+                            {/* Features Cards */}
+                            <motion.div
+                                initial={{ y: 20, opacity: 0 }}
+                                animate={{ y: 0, opacity: 1 }}
+                                transition={{ delay: 0.2 }}
+                                className="flex flex-col md:flex-row gap-4 md:gap-6 w-full max-w-4xl justify-center z-10"
+                            >
+                                {(slides[currentIndex].items as string[])?.map((item, i) => (
+                                    <motion.div
+                                        key={i}
+                                        initial={{ scale: 0.9, opacity: 0 }}
+                                        animate={{ scale: 1, opacity: 1 }}
+                                        transition={{ delay: 0.3 + (i * 0.1) }}
+                                        className="flex-1 bg-white p-6 md:p-8 rounded-3xl shadow-lg border border-slate-100 flex flex-col items-center text-center gap-4 hover:shadow-xl transition-shadow"
+                                    >
+                                        <div className="w-12 h-12 md:w-14 md:h-14 rounded-2xl bg-[#267E82]/10 flex items-center justify-center text-[#267E82]">
+                                            <Check size={24} strokeWidth={3} />
+                                        </div>
+                                        <p className="text-sm md:text-lg font-bold text-slate-800 break-keep leading-snug">
+                                            {item}
+                                        </p>
+                                    </motion.div>
+                                ))}
+                            </motion.div>
+
+                            {/* Title & Subtitle (Moved Below) */}
+                            <div className="w-full max-w-2xl flex flex-col items-center text-center space-y-4 md:space-y-6 z-10 px-4 md:px-0">
                                 <motion.h3
                                     initial={{ y: 20, opacity: 0 }}
                                     animate={{ y: 0, opacity: 1 }}
-                                    transition={{ delay: 0.2 }}
-                                    className="text-2xl md:text-4xl lg:text-5xl font-bold text-slate-800 whitespace-pre-line leading-tight"
+                                    transition={{ delay: 0.5 }}
+                                    className="text-2xl md:text-3xl lg:text-4xl font-bold text-slate-800 whitespace-pre-line leading-tight"
                                 >
                                     {slides[currentIndex].title}
                                 </motion.h3>
@@ -271,28 +297,11 @@ export default function Benefits({ isActive }: BenefitsProps) {
                                 <motion.p
                                     initial={{ y: 20, opacity: 0 }}
                                     animate={{ y: 0, opacity: 1 }}
-                                    transition={{ delay: 0.4 }}
-                                    className="text-xs md:text-sm text-slate-600 leading-relaxed whitespace-pre-line"
+                                    transition={{ delay: 0.7 }}
+                                    className="text-xs md:text-sm text-slate-600 leading-relaxed whitespace-pre-line font-medium"
                                 >
                                     {slides[currentIndex].subtitle}
                                 </motion.p>
-
-                                <motion.div
-                                    initial={{ y: 20, opacity: 0 }}
-                                    animate={{ y: 0, opacity: 1 }}
-                                    transition={{ delay: 0.6 }}
-                                    className="flex flex-col md:flex-row gap-4 md:gap-8 mt-4"
-                                >
-                                    {(slides[currentIndex].items as string[])?.map((item, i) => (
-                                        <div
-                                            key={i}
-                                            className="flex items-center gap-2 px-4 py-2 bg-[#267E82]/10 rounded-full text-[#267E82] font-semibold text-xs md:text-sm"
-                                        >
-                                            <Check size={16} strokeWidth={3} />
-                                            {item}
-                                        </div>
-                                    ))}
-                                </motion.div>
                             </div>
                         </div>
                     ) : (
