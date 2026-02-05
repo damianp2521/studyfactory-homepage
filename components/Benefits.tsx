@@ -24,8 +24,9 @@ const slides = [
         id: 2,
         type: 'feature',
         title: "회사원 같은\n자율 휴무 시스템",
-        text: "회사원 같이 스스로 쉬는 날을 정하여\n중앙 본부에 보고하고,\n쉬는 날은 자신의 컨디션과\n공부 계획에 따라 자유롭게 사용",
-        image: "/benefits_ui_2.png",
+        text: "쉬는 날을 평일과 주말 구분 없이 스스로 정하여\n중앙 본부에 보고하고 사용하는 구조로,\n자신의 컨디션과 공부 계획에 따라\n자유롭게 이용할 수 있습니다.",
+        image: "/benefits_ui_2.png", // Fallback
+        images: ["/benefits_carousel_1.png", "/benefits_carousel_2.png", "/benefits_carousel_3.png"],
         layout: "right"
     },
     {
@@ -61,6 +62,7 @@ interface BenefitsProps {
 
 export default function Benefits({ isActive }: BenefitsProps) {
     const [[page, direction], setPage] = useState([0, 0]);
+    const [imageIndex, setImageIndex] = useState(0); // For Image Carousel
     const DURATION = 5000;
     const containerRef = useRef(null);
     const isInView = useInView(containerRef, { amount: 0.5 });
@@ -68,24 +70,29 @@ export default function Benefits({ isActive }: BenefitsProps) {
     // Reset to start when leaving the section
     useEffect(() => {
         if (!isActive) {
-            // Small timeout to ensure transition is done (optional, but good for UX) -> Actually better to reset immediately but maybe invisible? 
-            // If we reset immediately when it becomes inactive, the user might see it jump if the transition out is slow.
-            // However, FullPageScroll covers it up mostly.
-            // Let's reset when !isActive.
-            // To avoid jitter, we can delay it slightly or just set it. 
-            // Since FullPageScroll covers it, immediate reset is fine as long as z-index hides it.
-            // Waiting for a bit ensures it's hidden.
             const timer = setTimeout(() => {
                 setPage([0, 0]);
-            }, 800); // 800ms matches scroll cooldown/transition
+                setImageIndex(0); // Reset carousel
+            }, 800);
             return () => clearTimeout(timer);
         }
     }, [isActive]);
 
     const currentIndex = (page % slides.length + slides.length) % slides.length;
 
+    // Carousel Effect
+    useEffect(() => {
+        if (slides[currentIndex].images) {
+            const interval = setInterval(() => {
+                setImageIndex((prev) => (prev + 1) % slides[currentIndex].images!.length);
+            }, 1500);
+            return () => clearInterval(interval);
+        }
+    }, [currentIndex]);
+
     const paginate = useCallback((newDirection: number) => {
         setPage([page + newDirection, newDirection]);
+        setImageIndex(0); // Reset carousel when changing slides
     }, [page]);
 
     const variants = {
@@ -272,13 +279,37 @@ export default function Benefits({ isActive }: BenefitsProps) {
                             {/* Image Container */}
                             <div className={`relative w-full md:flex-1 h-[40vh] md:h-[60vh] flex items-center justify-center order-1 px-16 md:px-0 ${slides[currentIndex].layout === 'right' ? 'md:order-2' : 'md:order-1'}`}>
                                 <div className="relative w-full h-full max-h-[400px] md:max-h-[500px] max-w-[300px] md:max-w-[500px] mx-auto">
-                                    <Image
-                                        src={slides[currentIndex].image!}
-                                        alt="Feature UI"
-                                        fill
-                                        className="object-contain drop-shadow-2xl"
-                                        priority
-                                    />
+                                    {/* Carousel or Static Image */}
+                                    {slides[currentIndex].images ? (
+                                        <div className="relative w-full h-full">
+                                            <AnimatePresence initial={false} mode="wait">
+                                                <motion.div
+                                                    key={imageIndex}
+                                                    initial={{ opacity: 0 }}
+                                                    animate={{ opacity: 1 }}
+                                                    exit={{ opacity: 0 }}
+                                                    transition={{ duration: 0.5 }}
+                                                    className="absolute inset-0"
+                                                >
+                                                    <Image
+                                                        src={slides[currentIndex].images[imageIndex]}
+                                                        alt="Feature UI"
+                                                        fill
+                                                        className="object-contain drop-shadow-2xl"
+                                                        priority
+                                                    />
+                                                </motion.div>
+                                            </AnimatePresence>
+                                        </div>
+                                    ) : (
+                                        <Image
+                                            src={slides[currentIndex].image!}
+                                            alt="Feature UI"
+                                            fill
+                                            className="object-contain drop-shadow-2xl"
+                                            priority
+                                        />
+                                    )}
                                 </div>
                             </div>
 
