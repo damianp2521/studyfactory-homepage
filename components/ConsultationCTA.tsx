@@ -38,13 +38,14 @@ export default function ConsultationCTA() {
                     상담예약
                 </button>
 
-                {/* Franchise Button (Light Gray) - Below */}
+                {/* Franchise Button (Light Gray) - Temporarily Disabled
                 <button
                     onClick={() => setModalType("franchise")}
                     className="bg-slate-200 text-slate-600 px-4 md:px-6 py-2 md:py-3 rounded-full shadow-lg hover:bg-slate-300 transition-colors font-bold text-sm md:text-base tracking-wide hover:scale-105 active:scale-95"
                 >
                     가맹문의
                 </button>
+                */}
             </motion.div>
 
             {/* Modal Overlay */}

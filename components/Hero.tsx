@@ -66,6 +66,7 @@ export default function Hero() {
                     </p>
                 </motion.div>
 
+                {/* Buttons temporarily disabled as per request
                 <div className="mt-6 md:mt-10 flex flex-col md:flex-row items-center justify-center gap-2 md:gap-4">
                     <button
                         onClick={() => setIsIntroModalOpen(true)}
@@ -82,6 +83,7 @@ export default function Hero() {
                         자격증공장 위치
                     </a>
                 </div>
+                */}
             </div>
 
             {/* Modal - Using Portal to break out of FullPageScroll stacking context */}

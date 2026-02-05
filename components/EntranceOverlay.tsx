@@ -98,13 +98,10 @@ export default function EntranceOverlay() {
 
     return (
         <>
-            {/* Persistent background - Animated Dark to White */}
+            {/* Persistent background - Always White as requested */}
             {(phase === "blinds" || phase === "no" || phase === "lines") && (
-                <motion.div
-                    className="fixed inset-0 z-[9998]"
-                    initial={{ backgroundColor: "#1c1917" }}
-                    animate={{ backgroundColor: phase === "blinds" ? "#1c1917" : "#ffffff" }}
-                    transition={{ duration: 0.8, ease: "easeInOut" }}
+                <div
+                    className="fixed inset-0 z-[9998] bg-white"
                 />
             )}
 
