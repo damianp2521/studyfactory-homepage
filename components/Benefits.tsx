@@ -124,7 +124,7 @@ export default function Benefits({ isActive }: BenefitsProps) {
             {/* Navigation Buttons - Hidden on Mobile, Visible on Desktop */}
             <button
                 onClick={() => paginate(-1)}
-                className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 z-30 p-2 text-slate-300 hover:text-[#267E82] transition-colors cursor-pointer"
+                className="hidden md:block absolute left-4 md:left-8 top-1/2 -translate-y-1/2 z-30 p-2 text-slate-300 hover:text-[#267E82] transition-colors cursor-pointer"
                 aria-label="Previous slide"
             >
                 <ChevronLeft size={48} strokeWidth={1} />
@@ -132,7 +132,7 @@ export default function Benefits({ isActive }: BenefitsProps) {
 
             <button
                 onClick={() => paginate(1)}
-                className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 z-30 p-2 text-slate-300 hover:text-[#267E82] transition-colors cursor-pointer"
+                className="hidden md:block absolute right-4 md:right-8 top-1/2 -translate-y-1/2 z-30 p-2 text-slate-300 hover:text-[#267E82] transition-colors cursor-pointer"
                 aria-label="Next slide"
             >
                 <ChevronRight size={48} strokeWidth={1} />
@@ -194,13 +194,13 @@ export default function Benefits({ isActive }: BenefitsProps) {
                         </div>
                     ) : slides[currentIndex].type === 'list' ? (
                         // LIST SLIDE (Updated Layout: List -> Title -> Text)
-                        <div className="w-full h-full flex flex-col items-center justify-center p-6 md:p-16 lg:p-24 pb-28 md:pb-16 gap-6 md:gap-10">
+                        <div className="w-full h-full flex flex-col items-center justify-center p-6 md:p-12 lg:p-16 pb-20 md:pb-16 gap-6 md:gap-8">
                             {/* List Container with Background Image */}
                             <motion.div
                                 initial={{ scale: 0.9, opacity: 0 }}
                                 animate={{ scale: 1, opacity: 1 }}
                                 transition={{ duration: 0.5 }}
-                                className="relative w-full max-w-md mx-auto aspect-[4/3] md:aspect-video rounded-3xl overflow-hidden shadow-xl bg-white flex items-center justify-center p-8"
+                                className="relative w-full max-w-[340px] md:max-w-[500px] h-auto rounded-3xl overflow-hidden shadow-xl bg-white flex items-center justify-center py-8 px-6 md:py-10 md:px-12"
                             >
                                 {/* Background Image with Opacity */}
                                 {slides[currentIndex].image && (
