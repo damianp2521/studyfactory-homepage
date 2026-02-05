@@ -200,7 +200,7 @@ export default function Reviews({ isActive }: ReviewsProps) {
                                         initial={{ y: 20, opacity: 0 }}
                                         animate={{ y: 0, opacity: 1 }}
                                         transition={{ delay: 0.3, duration: 0.8 }}
-                                        className="text-lg md:text-xl text-slate-600 mb-8 leading-relaxed break-keep"
+                                        className="text-xs md:text-sm text-slate-600 mb-8 leading-relaxed break-keep"
                                     >
                                         "{reviews[currentIndex].sub}"
                                     </motion.p>
