@@ -121,21 +121,21 @@ export default function Benefits({ isActive }: BenefitsProps) {
 
     return (
         <section ref={containerRef} id="benefits" className="relative h-full w-full overflow-hidden bg-slate-50 text-slate-900 group">
-            {/* Navigation Buttons - Hidden on Mobile, Visible on Desktop */}
+            {/* Navigation Buttons - Visible on all devices, sized responsively */}
             <button
                 onClick={() => paginate(-1)}
-                className="hidden md:block absolute left-4 md:left-8 top-1/2 -translate-y-1/2 z-30 p-2 text-slate-300 hover:text-[#267E82] transition-colors cursor-pointer"
+                className="absolute left-2 md:left-8 top-1/2 -translate-y-1/2 z-30 p-2 text-slate-300 hover:text-[#267E82] transition-colors cursor-pointer"
                 aria-label="Previous slide"
             >
-                <ChevronLeft size={48} strokeWidth={1} />
+                <ChevronLeft className="w-8 h-8 md:w-12 md:h-12" strokeWidth={1} />
             </button>
 
             <button
                 onClick={() => paginate(1)}
-                className="hidden md:block absolute right-4 md:right-8 top-1/2 -translate-y-1/2 z-30 p-2 text-slate-300 hover:text-[#267E82] transition-colors cursor-pointer"
+                className="absolute right-2 md:right-8 top-1/2 -translate-y-1/2 z-30 p-2 text-slate-300 hover:text-[#267E82] transition-colors cursor-pointer"
                 aria-label="Next slide"
             >
-                <ChevronRight size={48} strokeWidth={1} />
+                <ChevronRight className="w-8 h-8 md:w-12 md:h-12" strokeWidth={1} />
             </button>
 
             <AnimatePresence initial={false} custom={direction}>
