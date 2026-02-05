@@ -57,15 +57,14 @@ export default function Hero() {
 
                     <div className="text-slate-500 text-xs md:text-sm mt-6 md:mt-10 md:max-w-3xl mx-auto break-keep leading-relaxed text-center px-6 md:px-0 space-y-4">
                         <p>
-                            지점에 맡겨두지 않습니다. <br className="md:hidden" />방치하지 않습니다.<br className="hidden md:block" />
-                            자격증공장의 <strong className="text-[#267E82]">중앙 컨트롤 센터(J-control hub)</strong>는<br className="md:hidden" />{' '}
-                            전국 모든 지점의 면학 분위기를<br className="hidden md:block" />
-                            실시간으로 모니터링하고 <br className="md:hidden" />즉각적으로 통제합니다.
+                            자격증공장은 중앙 컨트롤 센터를 통해<br className="md:hidden" />
+                            전국 모든 지점의 면학 분위기를<br className="md:hidden" />
+                            실시간으로 모니터링하고 즉각적으로 통제합니다.
                         </p>
                         <p>
-                            소음, 온도, 습도, <br className="md:hidden" />그리고 학습 텐션까지.<br className="hidden md:block" />
-                            오차 없는 본사의 관리 시스템 아래,<br className="hidden md:block" />
-                            당신은 <strong className="text-slate-700">가장 완벽한 몰입</strong>을 <br className="md:hidden" />경험하게 됩니다.
+                            소음, 온도, 습도, 그리고 학습법까지<br className="md:hidden" />
+                            전국 어디의 수험생이든 자격증공장에서<br className="md:hidden" />
+                            가장 완벽한 몰입을 경험하게 됩니다.
                         </p>
                     </div>
                 </motion.div>
