@@ -98,9 +98,9 @@ export default function EntranceOverlay() {
 
     return (
         <>
-            {/* Persistent white background */}
+            {/* Persistent background - Dark Gray */}
             {(phase === "blinds" || phase === "no" || phase === "lines") && (
-                <div className="fixed inset-0 z-[9998] bg-white" />
+                <div className="fixed inset-0 z-[9998] bg-stone-900" />
             )}
 
             {/* Blinds Phase */}
@@ -116,7 +116,7 @@ export default function EntranceOverlay() {
                             }
                         }}
                     >
-                        {/* 블라인드 줄 (Cords) - 얇은 줄만 */}
+                        {/* 블라인드 줄 (Cords) */}
                         {[20, 80].map((pos) => (
                             <motion.div
                                 key={`cord-${pos}`}
@@ -125,14 +125,14 @@ export default function EntranceOverlay() {
                                     left: `${pos}%`,
                                     width: "2px",
                                     transform: "translateX(-50%)",
-                                    background: "linear-gradient(to right, #b0b0b0 0%, #d0d0d0 50%, #b0b0b0 100%)",
-                                    boxShadow: "0 0 2px rgba(0,0,0,0.15)",
+                                    background: "linear-gradient(to right, #cfcfcf 0%, #e0e0e0 50%, #cfcfcf 100%)",
+                                    boxShadow: "0 0 2px rgba(0,0,0,0.2)",
                                 }}
                                 variants={cordVariants}
                             />
                         ))}
 
-                        {/* Slats - 매트한 패브릭 재질 + 리얼한 그림자 */}
+                        {/* Slats - 매트한 무광 베이지 */}
                         {slats.length > 0 ? (
                             slats.map((i) => {
                                 const slatTop = i * SLAT_HEIGHT;
@@ -148,16 +148,16 @@ export default function EntranceOverlay() {
                                             zIndex: 10
                                         }}
                                     >
-                                        {/* 슬랫 본체 - 매트한 은회색 (최초 원본 느낌 복구) */}
+                                        {/* 슬랫 본체 - 매트한 베이지 */}
                                         <div
                                             className="absolute inset-0"
                                             style={{
                                                 background: `linear-gradient(to bottom, 
-                                                    #d5d5d5 0%, 
-                                                    #d0d0d0 15%,
-                                                    #cbcbcb 50%,
-                                                    #c5c5c5 85%,
-                                                    #c0c0c0 100%
+                                                    #f5f2e9 0%, 
+                                                    #efe9d9 15%,
+                                                    #e6dfcc 50%,
+                                                    #ded6c0 85%,
+                                                    #d6cea9 100%
                                                 )`,
                                             }}
                                         />
@@ -182,7 +182,7 @@ export default function EntranceOverlay() {
                                                 backgroundSize: "6px 6px",
                                             }}
                                         />
-                                        {/* 추가 거친 질감 레이어 - 미세 노이즈 */}
+                                        {/* 추가 거친 질감 레이어 */}
                                         <div
                                             className="absolute inset-0 pointer-events-none"
                                             style={{
@@ -197,12 +197,12 @@ export default function EntranceOverlay() {
                                             }}
                                         />
 
-                                        {/* 상단 하이라이트 */}
+                                        {/* 상단 하이라이트 (베이지 톤에 맞게 미세 조정) */}
                                         <div
                                             className="absolute top-0 left-0 right-0"
                                             style={{
                                                 height: "1px",
-                                                background: "rgba(255,255,255,0.4)",
+                                                background: "rgba(255,255,255,0.5)",
                                             }}
                                         />
 
@@ -211,7 +211,7 @@ export default function EntranceOverlay() {
                                             className="absolute bottom-0 left-0 right-0"
                                             style={{
                                                 height: "4px",
-                                                background: "linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.15) 100%)",
+                                                background: "linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.1) 100%)",
                                             }}
                                         />
 
@@ -221,24 +221,24 @@ export default function EntranceOverlay() {
                                             style={{
                                                 bottom: "-2px",
                                                 height: "3px",
-                                                background: "rgba(0,0,0,0.1)",
+                                                background: "rgba(0,0,0,0.08)",
                                             }}
                                         />
 
-                                        {/* 텍스트 */}
+                                        {/* 텍스트 - 베이지에 어울리는 짙은 고동색/회색 */}
                                         <div
                                             className="absolute left-0 right-0 flex justify-center"
                                             style={{
-                                                top: `calc(${textCenterY - slatTop}px - 20vh)`, // 모바일에서는 덜 올라가게 조정 (기존 250px 고정에서 vh 단위로 변경)
+                                                top: `calc(${textCenterY - slatTop}px - 20vh)`,
                                                 height: 240,
                                             }}
                                         >
                                             <div
                                                 className="text-center px-6"
                                                 style={{
-                                                    fontFamily: "var(--font-gowun), cursive", // Gowun Dodum (깔끔한 둥근 돋움)
-                                                    color: "#505050", // 텍스트 색상 다시 짙은 회색으로 변경 (배경이 밝아졌으므로)
-                                                    textShadow: "1px 1px 0px rgba(255,255,255,0.5), -1px -1px 0px rgba(0,0,0,0.05)",
+                                                    fontFamily: "var(--font-gowun), cursive",
+                                                    color: "#4A453A", // 웜톤 다크 그레이/브라운
+                                                    textShadow: "1px 1px 0px rgba(255,255,255,0.3), -1px -1px 0px rgba(0,0,0,0.05)",
                                                 }}
                                             >
                                                 <div className="relative inline-block">
@@ -260,18 +260,18 @@ export default function EntranceOverlay() {
                                 );
                             })
                         ) : (
-                            <div className="absolute inset-0 bg-white" />
+                            <div className="absolute inset-0 bg-stone-900" />
                         )}
                     </motion.div>
                 )}
             </AnimatePresence >
 
-            {/* "No!" Phase */}
+            {/* "No!" Phase - Dark Background */}
             <AnimatePresence>
                 {
                     phase === "no" && (
                         <motion.div
-                            className="fixed inset-0 z-[9999] bg-white flex items-center justify-center pointer-events-none"
+                            className="fixed inset-0 z-[9999] bg-stone-900 flex items-center justify-center pointer-events-none"
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
                             exit={{ opacity: 0 }}
@@ -285,7 +285,7 @@ export default function EntranceOverlay() {
                                 className="text-center px-6"
                             >
 
-                                <div className="text-2xl md:text-4xl lg:text-5xl font-bold text-slate-800 mt-4">
+                                <div className="text-2xl md:text-4xl lg:text-5xl font-bold text-stone-100 mt-4">
                                     당신의 잘못이 아니에요!
                                 </div>
                                 <div className="text-2xl md:text-4xl lg:text-5xl font-bold text-[#267E82] mt-2">
@@ -297,12 +297,12 @@ export default function EntranceOverlay() {
                 }
             </AnimatePresence >
 
-            {/* Lines Phase */}
+            {/* Lines Phase - Dark Background */}
             <AnimatePresence>
                 {
                     phase === "lines" && (
                         <motion.div
-                            className="fixed inset-0 z-[9999] bg-white flex items-center justify-center pointer-events-none"
+                            className="fixed inset-0 z-[9999] bg-stone-900 flex items-center justify-center pointer-events-none"
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
                             exit={{ opacity: 0 }}
@@ -313,7 +313,7 @@ export default function EntranceOverlay() {
                                     initial={{ opacity: 0, y: 20 }}
                                     animate={currentLine >= 1 ? { opacity: 1, y: 0 } : {}}
                                     transition={{ duration: 0.6 }}
-                                    className="text-xl md:text-2xl lg:text-3xl font-medium text-slate-600"
+                                    className="text-xl md:text-2xl lg:text-3xl font-medium text-stone-300"
                                 >
                                     행복한 수험생활이 합격이 되는
                                 </motion.div>
@@ -329,7 +329,7 @@ export default function EntranceOverlay() {
                                     initial={{ opacity: 0, y: 20 }}
                                     animate={currentLine >= 3 ? { opacity: 1, y: 0 } : {}}
                                     transition={{ duration: 0.6 }}
-                                    className="text-xl md:text-2xl lg:text-3xl font-medium text-slate-600"
+                                    className="text-xl md:text-2xl lg:text-3xl font-medium text-stone-300"
                                 >
                                     지금 시작합니다.
                                 </motion.div>
@@ -339,7 +339,7 @@ export default function EntranceOverlay() {
                 }
             </AnimatePresence >
 
-            {/* FadeOut Phase */}
+            {/* FadeOut Phase - From Dark to Transparent */}
             <AnimatePresence>
                 {
                     phase === "fadeOut" && (
@@ -349,7 +349,7 @@ export default function EntranceOverlay() {
                             animate={{ opacity: 0 }}
                             transition={{ duration: 1.8, ease: [0.4, 0, 0.2, 1] }}
                         >
-                            <div className="absolute inset-0 bg-white" />
+                            <div className="absolute inset-0 bg-stone-900" />
                             <motion.div
                                 className="absolute inset-0 flex items-center justify-center"
                                 initial={{ scale: 1, filter: "blur(0px)" }}
@@ -357,13 +357,13 @@ export default function EntranceOverlay() {
                                 transition={{ duration: 1.8, ease: [0.4, 0, 0.2, 1] }}
                             >
                                 <div className="text-center px-6 space-y-4">
-                                    <div className="text-xl md:text-2xl lg:text-3xl font-medium text-slate-600">
+                                    <div className="text-xl md:text-2xl lg:text-3xl font-medium text-stone-300">
                                         행복한 수험생활이 합격이 되는
                                     </div>
                                     <div className="text-3xl md:text-5xl lg:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#267E82] to-[#1A5F62]">
                                         자격증공장의 마법
                                     </div>
-                                    <div className="text-xl md:text-2xl lg:text-3xl font-medium text-slate-600">
+                                    <div className="text-xl md:text-2xl lg:text-3xl font-medium text-stone-300">
                                         지금 시작합니다.
                                     </div>
                                 </div>
