@@ -46,9 +46,9 @@ export default function Hero() {
                     className="space-y-1 md:space-y-4"
                 >
                     <p className="text-[#267E82] font-bold tracking-wider text-xs md:text-lg mb-2 md:mb-4 font-mono">
-                        CENTRAL CONTROL SYSTEM 24/7
+                        전문자격증 학습관리센터
                     </p>
-                    <div className="text-lg md:text-3xl lg:text-4xl font-medium text-slate-600">
+                    <div className="text-lg md:text-3xl lg:text-4xl font-medium text-slate-900">
                         자격증공장 본부는
                     </div>
                     <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#267E82] to-[#1A5F62] leading-tight pb-2">
