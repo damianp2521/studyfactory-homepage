@@ -116,18 +116,18 @@ export default function Reviews({ isActive }: ReviewsProps) {
             {/* Navigation Buttons */}
             <button
                 onClick={() => paginate(-1)}
-                className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 z-30 p-2 text-slate-400 hover:text-slate-900 transition-colors cursor-pointer"
+                className="absolute left-2 md:left-8 top-1/2 -translate-y-1/2 z-30 p-2 text-slate-400 hover:text-slate-900 transition-colors cursor-pointer"
                 aria-label="Previous review"
             >
-                <ChevronLeft size={48} strokeWidth={1} />
+                <ChevronLeft className="w-8 h-8 md:w-12 md:h-12" strokeWidth={1} />
             </button>
 
             <button
                 onClick={() => paginate(1)}
-                className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 z-30 p-2 text-slate-400 hover:text-slate-900 transition-colors cursor-pointer"
+                className="absolute right-2 md:right-8 top-1/2 -translate-y-1/2 z-30 p-2 text-slate-400 hover:text-slate-900 transition-colors cursor-pointer"
                 aria-label="Next review"
             >
-                <ChevronRight size={48} strokeWidth={1} />
+                <ChevronRight className="w-8 h-8 md:w-12 md:h-12" strokeWidth={1} />
             </button>
 
             <AnimatePresence initial={false} custom={direction}>
