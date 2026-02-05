@@ -32,7 +32,7 @@ const slides = [
     {
         id: 3,
         type: 'list',
-        title: "공부 외\n방해요소 제거",
+        title: "최상의 몰입 환경 제공",
         items: [
             "개인 책상 청소",
             "아침마다 음료 서빙",
@@ -40,8 +40,9 @@ const slides = [
             "인쇄 무료",
             "간식 음료 언제든 무제한"
         ],
-        footer: "공부 외 그 어느것도\n신경쓰지 않아도 되는 자격증공장만의 시스템",
-        layout: "left"
+        footer: "공부 외 할 일은 모두 자격증공장이 신속하게 처리해줌으로써,\n오직 공부만 하면 되는 편안한 환경을 제공합니다.",
+        image: "/benefits_cleaning.jpg",
+        layout: "center"
     },
     {
         id: 4,
@@ -192,41 +193,63 @@ export default function Benefits({ isActive }: BenefitsProps) {
                             </motion.p>
                         </div>
                     ) : slides[currentIndex].type === 'list' ? (
-                        // LIST SLIDE
-                        <div className="w-full h-full flex flex-col md:flex-row items-center justify-center p-6 md:p-16 lg:p-24 pb-28 md:pb-16 gap-6 md:gap-16">
-                            {/* Text/List Container */}
-                            <div className="w-full max-w-2xl flex flex-col items-center text-center space-y-6 md:space-y-8 z-10 px-16 md:px-0">
-                                <motion.h3
-                                    initial={{ y: 20, opacity: 0 }}
-                                    animate={{ y: 0, opacity: 1 }}
-                                    transition={{ delay: 0.2 }}
-                                    className="text-2xl md:text-4xl lg:text-5xl font-bold text-slate-800 whitespace-pre-line leading-tight"
-                                >
-                                    {slides[currentIndex].title}
-                                </motion.h3>
+                        // LIST SLIDE (Updated Layout: List -> Title -> Text)
+                        <div className="w-full h-full flex flex-col items-center justify-center p-6 md:p-16 lg:p-24 pb-28 md:pb-16 gap-6 md:gap-10">
+                            {/* List Container with Background Image */}
+                            <motion.div
+                                initial={{ scale: 0.9, opacity: 0 }}
+                                animate={{ scale: 1, opacity: 1 }}
+                                transition={{ duration: 0.5 }}
+                                className="relative w-full max-w-md mx-auto aspect-[4/3] md:aspect-video rounded-3xl overflow-hidden shadow-xl bg-white flex items-center justify-center p-8"
+                            >
+                                {/* Background Image with Opacity */}
+                                {slides[currentIndex].image && (
+                                    <div className="absolute inset-0 z-0">
+                                        <Image
+                                            src={slides[currentIndex].image!}
+                                            alt="Service Background"
+                                            fill
+                                            className="object-cover opacity-20"
+                                        />
+                                        <div className="absolute inset-0 bg-white/30 backdrop-blur-[2px]" />
+                                    </div>
+                                )}
 
-                                <div className="flex flex-col gap-3 md:gap-4 w-full max-w-md mx-auto items-center">
+                                {/* List Items (Foreground) */}
+                                <div className="relative z-10 flex flex-col gap-3 md:gap-4 w-full">
                                     {(slides[currentIndex].items as string[])?.map((item, i) => (
                                         <motion.div
                                             key={i}
                                             initial={{ x: -20, opacity: 0 }}
                                             animate={{ x: 0, opacity: 1 }}
-                                            transition={{ delay: 0.4 + (i * 0.1) }}
-                                            className="flex items-center gap-3 text-xs md:text-sm text-slate-700 font-medium text-left md:text-center w-fit"
+                                            transition={{ delay: 0.2 + (i * 0.1) }}
+                                            className="flex items-center gap-3 text-xs md:text-sm text-slate-800 font-bold bg-white/80 p-3 rounded-xl shadow-sm backdrop-blur-sm"
                                         >
-                                            <div className="flex-shrink-0 w-6 h-6 rounded-full bg-[#267E82]/10 flex items-center justify-center text-[#267E82]">
-                                                <Check size={16} strokeWidth={3} />
+                                            <div className="flex-shrink-0 w-6 h-6 rounded-full bg-[#267E82] flex items-center justify-center text-white">
+                                                <Check size={14} strokeWidth={3} />
                                             </div>
                                             {item}
                                         </motion.div>
                                     ))}
                                 </div>
+                            </motion.div>
+
+                            {/* Title & Text (Moved Below) */}
+                            <div className="w-full max-w-2xl flex flex-col items-center text-center space-y-4 md:space-y-6 z-10 px-4 md:px-0">
+                                <motion.h3
+                                    initial={{ y: 20, opacity: 0 }}
+                                    animate={{ y: 0, opacity: 1 }}
+                                    transition={{ delay: 0.5 }}
+                                    className="text-2xl md:text-3xl lg:text-4xl font-bold text-slate-800 whitespace-pre-line leading-tight"
+                                >
+                                    {slides[currentIndex].title}
+                                </motion.h3>
 
                                 <motion.p
                                     initial={{ y: 20, opacity: 0 }}
                                     animate={{ y: 0, opacity: 1 }}
-                                    transition={{ delay: 0.9 }}
-                                    className="text-xs md:text-sm text-[#267E82] font-bold whitespace-pre-line mt-4"
+                                    transition={{ delay: 0.7 }}
+                                    className="text-xs md:text-sm text-slate-600 leading-relaxed whitespace-pre-line font-medium"
                                 >
                                     {slides[currentIndex].footer}
                                 </motion.p>
