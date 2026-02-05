@@ -121,16 +121,16 @@ export default function FullPageScroll({ children }: Props) {
             })}
 
             {/* Global Scroll Indicator & Page Number */}
-            <div className="absolute bottom-6 md:bottom-10 left-1/2 -translate-x-1/2 z-[100] flex flex-col items-center gap-1 md:gap-2 pointer-events-none">
-                <span className="text-[#267E82] text-xs md:text-sm tracking-widest font-semibold font-mono min-h-[32px] md:min-h-[40px] text-center whitespace-pre-line">
+            <div className="absolute bottom-2 md:bottom-8 left-1/2 -translate-x-1/2 z-[100] flex flex-col items-center gap-0 md:gap-1 pointer-events-none">
+                <span className="text-[#267E82] text-[10px] md:text-xs tracking-widest font-semibold font-mono min-h-[20px] md:min-h-[24px] text-center whitespace-pre-line leading-tight">
                     {currentPage === 0 ? "스크롤하여\n살펴보기" : `${currentPage + 1} / ${totalPages}`}
                 </span>
                 {/* Animated Chevrons */}
-                <div className="flex flex-col items-center -space-y-2">
+                <div className="flex flex-col items-center -space-y-3">
                     <motion.svg
                         xmlns="http://www.w3.org/2000/svg"
-                        width="24"
-                        height="24"
+                        width="20"
+                        height="20"
                         viewBox="0 0 24 24"
                         fill="none"
                         stroke="currentColor"
@@ -138,15 +138,15 @@ export default function FullPageScroll({ children }: Props) {
                         strokeLinecap="round"
                         strokeLinejoin="round"
                         className="text-[#267E82]"
-                        animate={{ y: [0, 4, 0] }}
+                        animate={{ y: [0, 3, 0] }}
                         transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
                     >
                         <polyline points="6 9 12 15 18 9" />
                     </motion.svg>
                     <motion.svg
                         xmlns="http://www.w3.org/2000/svg"
-                        width="24"
-                        height="24"
+                        width="20"
+                        height="20"
                         viewBox="0 0 24 24"
                         fill="none"
                         stroke="currentColor"
@@ -154,7 +154,7 @@ export default function FullPageScroll({ children }: Props) {
                         strokeLinecap="round"
                         strokeLinejoin="round"
                         className="text-[#267E82]/50"
-                        animate={{ y: [0, 4, 0] }}
+                        animate={{ y: [0, 3, 0] }}
                         transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut", delay: 0.2 }}
                     >
                         <polyline points="6 9 12 15 18 9" />
