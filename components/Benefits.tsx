@@ -306,7 +306,7 @@ export default function Benefits({ isActive }: BenefitsProps) {
                         </div>
                     ) : (
                         // FEATURE SLIDE
-                        <div className="w-full h-full flex flex-col items-center justify-center px-4 py-6 md:p-16 md:pb-16 gap-4 md:gap-12 max-w-6xl mx-auto">
+                        <div className="w-full h-full flex flex-col items-center justify-center px-0 py-6 md:p-16 md:pb-16 gap-4 md:gap-12 max-w-6xl mx-auto">
 
                             {/* Text Container (Top 40%) */}
                             <div className="w-full h-[35%] md:h-auto md:flex-1 flex flex-col items-center md:items-start text-center md:text-left justify-end md:justify-center space-y-3 md:space-y-6 order-1 z-10 px-4 md:px-0">
@@ -329,11 +329,11 @@ export default function Benefits({ isActive }: BenefitsProps) {
                             </div>
 
                             {/* Image Container (Bottom 60%) */}
-                            <div className="relative w-full h-[65%] md:h-auto md:flex-1 flex items-start md:items-center justify-center order-2 px-4 md:px-0">
+                            <div className="relative w-full h-[65%] md:h-auto md:flex-1 flex items-end justify-center order-2 px-0 md:px-0">
                                 <div className="relative w-full h-full max-h-[500px] md:max-w-[500px] mx-auto">
                                     {/* 2-Image Layout (Side-by-Side, Filling Space) */}
                                     {slides[currentIndex].images ? (
-                                        <div className="relative w-full h-full flex items-end justify-center gap-2 md:gap-4 px-4 pb-4">
+                                        <div className="relative w-full h-full flex items-end justify-center gap-1 md:gap-4 pb-0">
                                             {/* Image 1 (Left) */}
                                             <motion.div
                                                 className="relative w-1/2 h-full rounded-2xl overflow-hidden shadow-lg"

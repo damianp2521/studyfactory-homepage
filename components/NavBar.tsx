@@ -36,7 +36,7 @@ export default function NavBar() {
     return (
         <>
             {/* Premium Sticky Header */}
-            <nav className="fixed top-0 left-0 right-0 z-50 flex justify-between items-center px-6 py-4 bg-white shadow-sm transition-all pointer-events-auto">
+            <nav className="fixed top-0 left-0 right-0 z-50 flex justify-between items-center px-6 py-2 bg-white shadow-sm transition-all pointer-events-auto">
                 {/* Logo - Clickable to go home */}
                 <button
                     onClick={handleLogoClick}
