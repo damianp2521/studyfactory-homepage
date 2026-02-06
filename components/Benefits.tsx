@@ -15,7 +15,7 @@ const slides = [
     {
         id: 1,
         type: 'feature',
-        title: "자격증공장\n특화 학습관리시스템",
+        title: "자격증공장 특화 학습관리시스템",
         text: "자체 개발한 앱을 통해 스스로 정한 계획과 결과를 중앙 본부와 공유하여 진도 상담을 받을 수 있고, 타 수험자의 계획과 결과도 참고함으로써 본인의 공부 속도를 가늠해 혼자 하는 공부가 아니라는 느낌을 줍니다.",
         image: "/benefits_ui.png",
         layout: "left" // Image on left for desktop
@@ -23,7 +23,7 @@ const slides = [
     {
         id: 2,
         type: 'feature',
-        title: "회사원 같은\n자율 휴무 시스템",
+        title: "회사원 같은 자율 휴무 시스템",
         text: "쉬는 날을 평일과 주말 구분 없이 스스로 정하여 중앙 본부에 보고하고 사용하는 구조로, 자신의 컨디션과 공부 계획에 따라 자유롭게 이용할 수 있습니다.",
         image: "/benefits_ui_2.png", // Fallback
         images: ["/benefits_carousel_1.png", "/benefits_carousel_2.png", "/benefits_carousel_3.png"],
@@ -47,7 +47,7 @@ const slides = [
     {
         id: 4,
         type: 'centered',
-        title: "합격하는 올바른 공부법으로\n단기 합격",
+        title: "합격하는 올바른 공부법으로 단기 합격",
         subtitle: "열심히만 한다고 합격하진 않습니다.\n핵심은 점수로 이어지는 올바른 공부법!\n\n합격자 공부법 그대로 꾸준히 실천할 수 있도록 지속적 개인 모니터링과 1:1 원격상담을 시험날까지 지원합니다.",
         items: [
             "실제 자격증공장 수험자의 합격 공부법을 그대로 전수",
@@ -390,7 +390,7 @@ export default function Benefits({ isActive }: BenefitsProps) {
             )}
 
             {/* Local Slide Counter & Navigation (Mobile) */}
-            <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-30 flex items-center gap-4 pointer-events-auto">
+            <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-30 flex items-center gap-2 pointer-events-auto">
                 <button
                     onClick={() => paginate(-1)}
                     className="p-2 text-slate-400 hover:text-[#267E82] transition-colors md:hidden"

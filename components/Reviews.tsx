@@ -223,7 +223,7 @@ export default function Reviews({ isActive }: ReviewsProps) {
                 </motion.div>
             </AnimatePresence>
             {/* Local Slide Counter & Navigation (Mobile) */}
-            <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-30 flex items-center gap-4 pointer-events-auto">
+            <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-30 flex items-center gap-2 pointer-events-auto">
                 <button
                     onClick={() => paginate(-1)}
                     className="p-2 text-slate-400 hover:text-[#267E82] transition-colors md:hidden"

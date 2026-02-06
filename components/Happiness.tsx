@@ -9,13 +9,13 @@ const slides = [
     {
         id: 0,
         type: 'intro',
-        title: "자격증공장에 오면\n누리는 행복",
+        title: "자격증공장에 오면 누리는 행복",
         sub: ""
     },
     {
         id: 1,
         type: 'feature',
-        title: "매일 아침\n건강 선식 제공",
+        title: "매일 아침 건강 선식 제공",
         text: "선식은 익힌 곡물로 소화에 용이하며 아침 뇌기능 활성에 도움",
         image: "/benefits_food.jpg",
         layout: "right"
@@ -23,7 +23,7 @@ const slides = [
     {
         id: 2,
         type: 'feature',
-        title: "모모스커피와\n함께하는 공부",
+        title: "모모스커피와 함께하는 공부",
         text: "바리스타 대회 1등 모모스커피 에스쇼콜라 블렌드 스페셜티 원두와 함께하는 고급스러운 공부",
         image: "/benefits_coffee.jpg",
         layout: "left"
@@ -39,7 +39,7 @@ const slides = [
     {
         id: 4,
         type: 'feature',
-        title: "뷔페급\n신선 과일 제공",
+        title: "뷔페급 신선 과일 제공",
         text: "다양한 과일을 통한 비타민 섭취와 스트레스 완화로 활기찬 전문직 수험생활",
         image: "/benefits_fruits.jpg",
         layout: "left"
@@ -47,7 +47,7 @@ const slides = [
     {
         id: 5,
         type: 'feature',
-        title: "편의점 갈 일 없이\n공부만",
+        title: "편의점 갈 일 없이 공부만",
         text: "오븐에 갓 구운 빵과 크림치즈, 다양한 잼으로 허기질 땐 언제든 에너지 보충\n\n편의점급 음료수와 각종 유제품으로 편의점 갈 일 없이 공부만!",
         image: "/benefits_bread.png",
         layout: "right"
@@ -55,7 +55,7 @@ const slides = [
     {
         id: 6,
         type: 'feature',
-        title: "스트레스 해소\n매운라면",
+        title: "스트레스 해소 매운라면",
         text: "먹고싶은 라면 계란 퐁당 넣어 언제든 무제한 제공, 공부하다 스트레스 받을 땐 매운 라면으로 한 끼 뚝딱!",
         image: "/benefits_ramen.jpg",
         layout: "left"
@@ -177,7 +177,7 @@ export default function Happiness({ isActive }: HappinessProps) {
                     ) : (
 
                         // FEATURE SLIDE
-                        <div className="w-full h-full flex flex-col md:flex-row items-center justify-center px-0 py-6 md:p-16 md:pb-16 gap-4 md:gap-12 max-w-6xl mx-auto">
+                        <div className="w-full h-full flex flex-col md:flex-row items-center justify-center px-0 pt-14 pb-0 md:p-16 md:pb-16 gap-4 md:gap-12 max-w-6xl mx-auto">
 
                             {/* Image Container */}
                             <div className={`relative w-full md:flex-1 h-[60vh] md:h-[60vh] flex items-center justify-center order-1 px-0 md:px-0 ${slides[currentIndex].layout === 'right' ? 'md:order-2' : 'md:order-1'}`}>
@@ -226,7 +226,7 @@ export default function Happiness({ isActive }: HappinessProps) {
             }
 
             {/* Local Slide Counter & Navigation (Mobile) */}
-            <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-30 flex items-center gap-4 pointer-events-auto">
+            <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-30 flex items-center gap-2 pointer-events-auto">
                 <button
                     onClick={() => paginate(-1)}
                     className="p-2 text-slate-400 hover:text-[#267E82] transition-colors md:hidden"
