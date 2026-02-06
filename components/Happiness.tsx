@@ -177,7 +177,7 @@ export default function Happiness({ isActive }: HappinessProps) {
                     ) : (
 
                         // FEATURE SLIDE
-                        <div className="w-full h-full flex flex-col md:flex-row items-center justify-center px-0 pt-14 pb-0 md:p-16 md:pb-16 gap-4 md:gap-12 max-w-6xl mx-auto">
+                        <div className="w-full h-full flex flex-col md:flex-row items-center justify-center px-0 pt-12 pb-0 md:p-16 md:pb-16 gap-4 md:gap-12 max-w-6xl mx-auto">
 
                             {/* Image Container */}
                             <div className={`relative w-full md:flex-1 h-[60vh] md:h-[60vh] flex items-center justify-center order-1 px-0 md:px-0 ${slides[currentIndex].layout === 'right' ? 'md:order-2' : 'md:order-1'}`}>
