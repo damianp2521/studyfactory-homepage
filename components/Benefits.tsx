@@ -198,7 +198,7 @@ export default function Benefits({ isActive }: BenefitsProps) {
 
                             {/* Fanned Images (Summary of Section) */}
                             <div className="relative w-full flex-1 max-w-[280px] md:max-w-[360px] mx-auto mt-4 mb-20 md:mb-0">
-                                {/* Left Card (Tilted Left) - Usage/Rest Plan */}
+                                {/* Left Card (Tilted Left) - Rest Plan */}
                                 <motion.div
                                     initial={{ opacity: 0, x: -50, rotate: -20 }}
                                     animate={{ opacity: 1, x: 0, rotate: -12 }}
@@ -213,7 +213,7 @@ export default function Benefits({ isActive }: BenefitsProps) {
                                     />
                                 </motion.div>
 
-                                {/* Right Card (Tilted Right) - Service Checklist */}
+                                {/* Right Card (Tilted Right) - Work Plan */}
                                 <motion.div
                                     initial={{ opacity: 0, x: 50, rotate: 20 }}
                                     animate={{ opacity: 1, x: 0, rotate: 12 }}
@@ -221,14 +221,14 @@ export default function Benefits({ isActive }: BenefitsProps) {
                                     className="absolute top-0 right-0 w-[70%] aspect-[9/16] bg-white rounded-2xl shadow-lg border border-slate-200 z-10 transform translate-x-8 translate-y-4 origin-bottom-right overflow-hidden"
                                 >
                                     <Image
-                                        src="/intro_fan_3.png"
-                                        alt="Service Checklist UI"
+                                        src="/intro_fan_1.png"
+                                        alt="Work Plan UI"
                                         fill
                                         className="object-fill opacity-90"
                                     />
                                 </motion.div>
 
-                                {/* Center Card (Front) - Work Plan */}
+                                {/* Center Card (Front) - Service Checklist */}
                                 <motion.div
                                     initial={{ opacity: 0, y: 50 }}
                                     animate={{ opacity: 1, y: 0 }}
@@ -236,8 +236,8 @@ export default function Benefits({ isActive }: BenefitsProps) {
                                     className="absolute top-4 left-1/2 -translate-x-1/2 w-[75%] aspect-[9/16] bg-white rounded-2xl shadow-2xl border border-slate-100 z-20 overflow-hidden"
                                 >
                                     <Image
-                                        src="/intro_fan_1.png"
-                                        alt="Work Plan UI"
+                                        src="/intro_fan_3.png"
+                                        alt="Service Checklist UI"
                                         fill
                                         className="object-fill"
                                     />
