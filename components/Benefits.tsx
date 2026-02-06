@@ -164,7 +164,7 @@ export default function Benefits({ isActive }: BenefitsProps) {
                     {slides[currentIndex].type === 'intro' ? (
                         // INTRO SLIDE
                         // INTRO SLIDE (Redesigned: Text Top + Fanned Images Bottom)
-                        <div className="w-full h-full flex flex-col items-center justify-start pt-4 px-4 md:px-6 relative overflow-hidden">
+                        <div className="w-full h-full flex flex-col items-center justify-start pt-20 px-4 md:px-6 relative overflow-hidden">
                             {/* Text Group (Moved Up & Tightened) */}
                             <div className="flex flex-col items-center text-center z-40 shrink-0">
                                 <motion.h2
