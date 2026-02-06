@@ -77,8 +77,8 @@ export default function FullPageScroll({ children }: Props) {
         const touchEndY = e.changedTouches[0].clientY;
         const deltaY = touchStartY.current - touchEndY;
 
-        // Threshold: 30px (Slight drag as requested)
-        if (Math.abs(deltaY) > 30) {
+        // Threshold: 100px (Increased to prevent accidental scrolls)
+        if (Math.abs(deltaY) > 100) {
             handleScroll(deltaY > 0 ? "down" : "up");
         }
     };
@@ -119,6 +119,23 @@ export default function FullPageScroll({ children }: Props) {
                     </motion.div>
                 );
             })}
+
+            {/* Page Indicators (Dots) - Top Left */}
+            <div className="absolute top-24 left-6 md:left-12 z-[100] flex flex-col gap-3">
+                {Array.from({ length: totalPages }).map((_, i) => (
+                    <motion.div
+                        key={i}
+                        className={`w-2 h-2 rounded-full transition-colors duration-300 ${i === currentPage ? "bg-[#267E82]" : "bg-slate-300"}`}
+                        initial={false}
+                        animate={{
+                            scale: i === currentPage ? 1.2 : 1,
+                            opacity: i === currentPage ? 1 : 0.5
+                        }}
+                        onClick={() => setCurrentPage(i)} // Allow clicking dots to navigate
+                        style={{ cursor: "pointer" }}
+                    />
+                ))}
+            </div>
 
             {/* Global Scroll Indicator & Page Number */}
             <div className="absolute bottom-2 md:bottom-8 left-1/2 -translate-x-1/2 z-[100] flex flex-col items-center gap-0 md:gap-1 pointer-events-none">
