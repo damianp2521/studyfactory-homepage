@@ -389,11 +389,27 @@ export default function Benefits({ isActive }: BenefitsProps) {
                 </div>
             )}
 
-            {/* Local Slide Counter (New) */}
-            <div className="absolute bottom-16 md:bottom-20 left-1/2 -translate-x-1/2 z-30 pointer-events-none">
+            {/* Local Slide Counter & Navigation (Mobile) */}
+            <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-30 flex items-center gap-4 pointer-events-auto">
+                <button
+                    onClick={() => paginate(-1)}
+                    className="p-2 text-slate-400 hover:text-[#267E82] transition-colors md:hidden"
+                    aria-label="Previous slide"
+                >
+                    <ChevronLeft className="w-6 h-6" />
+                </button>
+
                 <span className="text-[#267E82] text-xs md:text-sm font-mono font-semibold opacity-80 bg-white/50 px-3 py-1 rounded-full backdrop-blur-sm">
                     {currentIndex + 1} / {slides.length}
                 </span>
+
+                <button
+                    onClick={() => paginate(1)}
+                    className="p-2 text-slate-400 hover:text-[#267E82] transition-colors md:hidden"
+                    aria-label="Next slide"
+                >
+                    <ChevronRight className="w-6 h-6" />
+                </button>
             </div>
         </section>
     );

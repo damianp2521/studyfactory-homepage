@@ -222,11 +222,27 @@ export default function Reviews({ isActive }: ReviewsProps) {
                     </div>
                 </motion.div>
             </AnimatePresence>
-            {/* Local Slide Counter (New) */}
-            <div className="absolute bottom-16 md:bottom-20 left-1/2 -translate-x-1/2 z-30 pointer-events-none">
+            {/* Local Slide Counter & Navigation (Mobile) */}
+            <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-30 flex items-center gap-4 pointer-events-auto">
+                <button
+                    onClick={() => paginate(-1)}
+                    className="p-2 text-slate-400 hover:text-[#267E82] transition-colors md:hidden"
+                    aria-label="Previous review"
+                >
+                    <ChevronLeft className="w-6 h-6" />
+                </button>
+
                 <span className="text-slate-500 text-xs md:text-sm font-mono font-semibold opacity-80 bg-slate-200/50 px-3 py-1 rounded-full backdrop-blur-sm">
                     {currentIndex + 1} / {reviews.length}
                 </span>
+
+                <button
+                    onClick={() => paginate(1)}
+                    className="p-2 text-slate-400 hover:text-[#267E82] transition-colors md:hidden"
+                    aria-label="Next review"
+                >
+                    <ChevronRight className="w-6 h-6" />
+                </button>
             </div>
         </section>
     );
