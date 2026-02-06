@@ -306,10 +306,10 @@ export default function Benefits({ isActive }: BenefitsProps) {
                         </div>
                     ) : (
                         // FEATURE SLIDE
-                        <div className="w-full h-full flex flex-col items-center justify-center px-0 py-6 md:p-16 md:pb-16 gap-4 md:gap-12 max-w-6xl mx-auto">
+                        <div className="w-full h-full flex flex-col md:flex-row items-center justify-center px-0 py-6 md:p-16 md:pb-16 gap-4 md:gap-12 max-w-6xl mx-auto">
 
-                            {/* Text Container (Top 40%) */}
-                            <div className="w-full h-[35%] md:h-auto md:flex-1 flex flex-col items-center md:items-start text-center md:text-left justify-end md:justify-center space-y-3 md:space-y-6 order-1 z-10 px-4 md:px-0">
+                            {/* Text Container (Top 40% Mobile, Left 35% Desktop) */}
+                            <div className="w-full h-[35%] md:h-auto md:basis-[35%] flex flex-col items-center md:items-start text-center md:text-left justify-end md:justify-center space-y-3 md:space-y-6 order-1 md:order-1 z-10 px-4 md:px-0">
                                 <motion.h3
                                     initial={{ y: 20, opacity: 0 }}
                                     animate={{ y: 0, opacity: 1 }}
@@ -328,15 +328,15 @@ export default function Benefits({ isActive }: BenefitsProps) {
                                 </motion.p>
                             </div>
 
-                            {/* Image Container (Bottom 60%) */}
-                            <div className="relative w-full h-[65%] md:h-auto md:flex-1 flex items-end justify-center order-2 px-0 md:px-0">
-                                <div className="relative w-full h-full max-h-[500px] md:max-w-[500px] mx-auto">
+                            {/* Image Container (Bottom 60% Mobile, Right 65% Desktop) */}
+                            <div className="relative w-full h-[65%] md:h-auto md:basis-[65%] flex items-end md:items-center justify-center order-2 md:order-2 px-0 md:px-0">
+                                <div className="relative w-full h-full max-h-[500px] md:max-h-full md:max-w-full mx-auto">
                                     {/* 2-Image Layout (Side-by-Side) */}
                                     {slides[currentIndex].images ? (
-                                        <div className="relative w-full h-full flex items-end justify-center gap-1 md:gap-6 pb-0">
-                                            {/* Image 1 (Left - Narrower on Desktop) */}
+                                        <div className="relative w-full h-full flex items-end md:items-center justify-center gap-1 md:gap-6 pb-0 md:pb-0">
+                                            {/* Image 1 (Left) */}
                                             <motion.div
-                                                className="relative w-1/2 md:w-[35%] h-full overflow-hidden shadow-lg rounded-none md:rounded-2xl"
+                                                className="relative w-1/2 h-full md:h-[80%] overflow-hidden shadow-lg rounded-none md:rounded-2xl"
                                                 initial={{ y: 50, opacity: 0 }}
                                                 animate={{ y: 0, opacity: 1 }}
                                                 transition={{ delay: 0.3, duration: 0.6 }}
@@ -349,9 +349,9 @@ export default function Benefits({ isActive }: BenefitsProps) {
                                                 />
                                             </motion.div>
 
-                                            {/* Image 2 (Right - Wider on Desktop) */}
+                                            {/* Image 2 (Right) */}
                                             <motion.div
-                                                className="relative w-1/2 md:w-[65%] h-full overflow-hidden shadow-lg rounded-none md:rounded-2xl"
+                                                className="relative w-1/2 h-full md:h-[80%] overflow-hidden shadow-lg rounded-none md:rounded-2xl"
                                                 initial={{ y: 50, opacity: 0 }}
                                                 animate={{ y: 0, opacity: 1 }}
                                                 transition={{ delay: 0.4, duration: 0.6 }}
