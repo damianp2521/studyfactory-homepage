@@ -151,7 +151,7 @@ export default function Reviews({ isActive }: ReviewsProps) {
                             paginate(-1);
                         }
                     }}
-                    className="absolute inset-0 flex flex-col items-center justify-start md:justify-center p-6 cursor-grab active:cursor-grabbing"
+                    className="absolute inset-0 flex flex-col items-center justify-start md:justify-center pt-12 px-6 pb-6 md:p-16 cursor-grab active:cursor-grabbing"
                 >
                     <div className="relative z-10 text-center max-w-2xl px-[10%] md:px-8 flex flex-col items-center">
                         {/* Conditional Rendering for Link Slide */}
@@ -232,7 +232,7 @@ export default function Reviews({ isActive }: ReviewsProps) {
                     <ChevronLeft className="w-6 h-6" />
                 </button>
 
-                <span className="text-slate-500 text-xs md:text-sm font-mono font-semibold opacity-80 bg-slate-200/50 px-3 py-1 rounded-full backdrop-blur-sm">
+                <span className="text-[#267E82] text-xs md:text-sm font-mono font-semibold opacity-80 bg-white/50 px-3 py-1 rounded-full backdrop-blur-sm">
                     {currentIndex + 1} / {reviews.length}
                 </span>
 
