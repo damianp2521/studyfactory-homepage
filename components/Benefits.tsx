@@ -163,34 +163,86 @@ export default function Benefits({ isActive }: BenefitsProps) {
                 >
                     {slides[currentIndex].type === 'intro' ? (
                         // INTRO SLIDE
-                        <div className="text-center px-4 md:px-6 md:pb-0">
-                            <motion.h2
-                                initial={{ scale: 0.9, opacity: 0 }}
-                                animate={{ scale: 1, opacity: 1 }}
-                                transition={{ duration: 0.8 }}
-                                className="text-3xl md:text-5xl lg:text-6xl font-bold text-[#267E82] tracking-tight mb-8 break-keep leading-tight md:leading-tight"
-                            >
-                                {slides[currentIndex].title}
-                            </motion.h2>
-                            <motion.p
-                                initial={{ opacity: 0, y: 10 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ delay: 0.5, duration: 0.8 }}
-                                className="text-slate-500 text-sm md:text-lg mb-12 md:mb-16 md:max-w-2xl mx-auto leading-relaxed text-center px-4 md:px-0 break-keep"
-                            >
-                                전문직 자격증 준비하는 성인 수험생들이 <br className="md:hidden" />
-                                스스로 계획하고 성취하게 함으로써 <br className="md:hidden" />
-                                할 수 있다는 자신감을 심어줍니다.
-                            </motion.p>
-                            <motion.p
-                                initial={{ opacity: 0, x: -20 }}
-                                animate={{ opacity: 1, x: 0 }}
-                                transition={{ delay: 1, duration: 1, repeat: Infinity, repeatType: "reverse" }}
-                                className="text-lg md:text-xl text-slate-400 font-medium cursor-pointer flex items-center justify-center gap-2"
-                                onClick={() => paginate(1)}
-                            >
-                                오른쪽으로 넘기기 →
-                            </motion.p>
+                        // INTRO SLIDE (Redesigned: Text Top + Fanned Images Bottom)
+                        <div className="w-full h-full flex flex-col items-center justify-start pt-4 px-4 md:px-6 relative overflow-hidden">
+                            {/* Text Group (Moved Up & Tightened) */}
+                            <div className="flex flex-col items-center text-center z-40 shrink-0">
+                                <motion.h2
+                                    initial={{ scale: 0.9, opacity: 0 }}
+                                    animate={{ scale: 1, opacity: 1 }}
+                                    transition={{ duration: 0.8 }}
+                                    className="text-3xl md:text-5xl lg:text-6xl font-bold text-[#267E82] tracking-tight mb-4 break-keep leading-tight md:leading-tight"
+                                >
+                                    {slides[currentIndex].title}
+                                </motion.h2>
+                                <motion.p
+                                    initial={{ opacity: 0, y: 10 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    transition={{ delay: 0.5, duration: 0.8 }}
+                                    className="text-slate-500 text-sm md:text-lg mb-6 md:mb-8 md:max-w-2xl mx-auto leading-relaxed px-2 md:px-0 break-keep"
+                                >
+                                    전문직 자격증 준비하는 성인 수험생들이 <br className="md:hidden" />
+                                    스스로 계획하고 성취하게 함으로써 <br className="md:hidden" />
+                                    할 수 있다는 자신감을 심어줍니다.
+                                </motion.p>
+                                <motion.p
+                                    initial={{ opacity: 0, x: -20 }}
+                                    animate={{ opacity: 1, x: 0 }}
+                                    transition={{ delay: 1, duration: 1, repeat: Infinity, repeatType: "reverse" }}
+                                    className="text-base md:text-xl text-slate-400 font-medium cursor-pointer flex items-center justify-center gap-2 mb-4"
+                                    onClick={() => paginate(1)}
+                                >
+                                    오른쪽으로 넘기기 →
+                                </motion.p>
+                            </div>
+
+                            {/* Fanned Images (Summary of Section) */}
+                            <div className="relative w-full flex-1 max-w-[320px] md:max-w-[400px] mx-auto mt-4">
+                                {/* Left Card (Tilted Left) */}
+                                <motion.div
+                                    initial={{ opacity: 0, x: -50, rotate: -20 }}
+                                    animate={{ opacity: 1, x: 0, rotate: -12 }}
+                                    transition={{ delay: 0.8, duration: 0.6 }}
+                                    className="absolute top-0 left-0 w-[70%] aspect-[9/16] bg-white rounded-2xl shadow-lg border border-slate-200 z-10 transform -translate-x-8 translate-y-4 origin-bottom-left overflow-hidden"
+                                >
+                                    <Image
+                                        src="/benefits_ui.png"
+                                        alt="Plan UI"
+                                        fill
+                                        className="object-cover opacity-90"
+                                    />
+                                </motion.div>
+
+                                {/* Right Card (Tilted Right) */}
+                                <motion.div
+                                    initial={{ opacity: 0, x: 50, rotate: 20 }}
+                                    animate={{ opacity: 1, x: 0, rotate: 12 }}
+                                    transition={{ delay: 1.0, duration: 0.6 }}
+                                    className="absolute top-0 right-0 w-[70%] aspect-[9/16] bg-white rounded-2xl shadow-lg border border-slate-200 z-10 transform translate-x-8 translate-y-4 origin-bottom-right overflow-hidden"
+                                >
+                                    <Image
+                                        src="/benefits_carousel_1.png"
+                                        alt="Calendar UI"
+                                        fill
+                                        className="object-cover opacity-90"
+                                    />
+                                </motion.div>
+
+                                {/* Center Card (Front) */}
+                                <motion.div
+                                    initial={{ opacity: 0, y: 50 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    transition={{ delay: 1.2, duration: 0.6 }}
+                                    className="absolute top-4 left-1/2 -translate-x-1/2 w-[75%] aspect-[9/16] bg-white rounded-2xl shadow-2xl border border-slate-100 z-20 overflow-hidden"
+                                >
+                                    <Image
+                                        src="/benefits_ui_2.png"
+                                        alt="Main UI"
+                                        fill
+                                        className="object-cover"
+                                    />
+                                </motion.div>
+                            </div>
                         </div>
                     ) : slides[currentIndex].type === 'list' ? (
                         // LIST SLIDE (Updated Layout: List -> Title -> Text)
