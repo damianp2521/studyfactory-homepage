@@ -222,6 +222,12 @@ export default function Reviews({ isActive }: ReviewsProps) {
                     </div>
                 </motion.div>
             </AnimatePresence>
+            {/* Local Slide Counter (New) */}
+            <div className="absolute bottom-16 md:bottom-20 left-1/2 -translate-x-1/2 z-30 pointer-events-none">
+                <span className="text-slate-500 text-xs md:text-sm font-mono font-semibold opacity-80 bg-slate-200/50 px-3 py-1 rounded-full backdrop-blur-sm">
+                    {currentIndex + 1} / {reviews.length}
+                </span>
+            </div>
         </section>
     );
 }

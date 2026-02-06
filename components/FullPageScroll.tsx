@@ -139,11 +139,9 @@ export default function FullPageScroll({ children }: Props) {
                 </div>
             )}
 
-            {/* Global Scroll Indicator & Page Number */}
+            {/* Global Scroll Indicator (Chevrons only) */}
             <div className="absolute bottom-2 md:bottom-8 left-1/2 -translate-x-1/2 z-[100] flex flex-col items-center gap-0 md:gap-1 pointer-events-none">
-                <span className="text-[#267E82] text-[10px] md:text-xs tracking-widest font-semibold font-mono min-h-[20px] md:min-h-[24px] text-center whitespace-pre-line leading-tight">
-                    {currentPage === 0 ? "스크롤하여\n살펴보기" : `${currentPage + 1} / ${totalPages}`}
-                </span>
+                {/* Text Removed as per request */}
                 {/* Animated Chevrons */}
                 <div className="flex flex-col items-center -space-y-3">
                     <motion.svg

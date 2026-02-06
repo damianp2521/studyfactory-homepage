@@ -388,6 +388,13 @@ export default function Benefits({ isActive }: BenefitsProps) {
                     <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-[#267E82] to-transparent" />
                 </div>
             )}
+
+            {/* Local Slide Counter (New) */}
+            <div className="absolute bottom-16 md:bottom-20 left-1/2 -translate-x-1/2 z-30 pointer-events-none">
+                <span className="text-[#267E82] text-xs md:text-sm font-mono font-semibold opacity-80 bg-white/50 px-3 py-1 rounded-full backdrop-blur-sm">
+                    {currentIndex + 1} / {slides.length}
+                </span>
+            </div>
         </section>
     );
 }
