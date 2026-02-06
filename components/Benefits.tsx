@@ -370,7 +370,7 @@ export default function Benefits({ isActive }: BenefitsProps) {
                                                 src={slides[currentIndex].image!}
                                                 alt="Feature UI"
                                                 fill
-                                                className="object-contain drop-shadow-2xl"
+                                                className="w-full h-full object-fill drop-shadow-2xl"
                                                 priority
                                             />
                                         </div>

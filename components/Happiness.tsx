@@ -186,7 +186,7 @@ export default function Happiness({ isActive }: HappinessProps) {
                                         src={slides[currentIndex].image!}
                                         alt="Feature"
                                         fill
-                                        className="w-full h-full md:object-contain drop-shadow-2xl"
+                                        className="w-full h-full object-fill md:object-contain drop-shadow-2xl"
                                         priority
                                     />
                                 </div>
