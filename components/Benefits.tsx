@@ -331,12 +331,12 @@ export default function Benefits({ isActive }: BenefitsProps) {
                             {/* Image Container (Bottom 60%) */}
                             <div className="relative w-full h-[65%] md:h-auto md:flex-1 flex items-end justify-center order-2 px-0 md:px-0">
                                 <div className="relative w-full h-full max-h-[500px] md:max-w-[500px] mx-auto">
-                                    {/* 2-Image Layout (Side-by-Side, Filling Space) */}
+                                    {/* 2-Image Layout (Side-by-Side) */}
                                     {slides[currentIndex].images ? (
-                                        <div className="relative w-full h-full flex items-end justify-center gap-1 md:gap-4 pb-0">
-                                            {/* Image 1 (Left) */}
+                                        <div className="relative w-full h-full flex items-end justify-center gap-1 md:gap-6 pb-0">
+                                            {/* Image 1 (Left - Narrower on Desktop) */}
                                             <motion.div
-                                                className="relative w-1/2 h-full rounded-2xl overflow-hidden shadow-lg"
+                                                className="relative w-1/2 md:w-[35%] h-full overflow-hidden shadow-lg rounded-none md:rounded-2xl"
                                                 initial={{ y: 50, opacity: 0 }}
                                                 animate={{ y: 0, opacity: 1 }}
                                                 transition={{ delay: 0.3, duration: 0.6 }}
@@ -345,13 +345,13 @@ export default function Benefits({ isActive }: BenefitsProps) {
                                                     src={slides[currentIndex].images[0]}
                                                     alt="Feature UI 1"
                                                     fill
-                                                    className="w-full h-full"
+                                                    className="w-full h-full md:object-cover"
                                                 />
                                             </motion.div>
 
-                                            {/* Image 2 (Right) */}
+                                            {/* Image 2 (Right - Wider on Desktop) */}
                                             <motion.div
-                                                className="relative w-1/2 h-full rounded-2xl overflow-hidden shadow-lg"
+                                                className="relative w-1/2 md:w-[65%] h-full overflow-hidden shadow-lg rounded-none md:rounded-2xl"
                                                 initial={{ y: 50, opacity: 0 }}
                                                 animate={{ y: 0, opacity: 1 }}
                                                 transition={{ delay: 0.4, duration: 0.6 }}
@@ -360,7 +360,7 @@ export default function Benefits({ isActive }: BenefitsProps) {
                                                     src={slides[currentIndex].images[1]}
                                                     alt="Feature UI 2"
                                                     fill
-                                                    className="w-full h-full"
+                                                    className="w-full h-full md:object-cover"
                                                 />
                                             </motion.div>
                                         </div>
