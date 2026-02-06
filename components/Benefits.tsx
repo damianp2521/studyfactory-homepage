@@ -306,47 +306,10 @@ export default function Benefits({ isActive }: BenefitsProps) {
                         </div>
                     ) : (
                         // FEATURE SLIDE
-                        <div className="w-full h-full flex flex-col md:flex-row items-center justify-center px-4 py-6 md:p-16 md:pb-16 gap-4 md:gap-12 max-w-6xl mx-auto">
+                        <div className="w-full h-full flex flex-col items-center justify-center px-4 py-6 md:p-16 md:pb-16 gap-4 md:gap-12 max-w-6xl mx-auto">
 
-                            {/* Image Container */}
-                            <div className={`relative w-full md:flex-1 h-[40vh] md:h-[60vh] flex items-center justify-center order-1 px-16 md:px-0 ${slides[currentIndex].layout === 'right' ? 'md:order-2' : 'md:order-1'}`}>
-                                <div className="relative w-full h-full max-h-[400px] md:max-h-[500px] max-w-[300px] md:max-w-[500px] mx-auto">
-                                    {/* Carousel or Static Image */}
-                                    {slides[currentIndex].images ? (
-                                        <div className="relative w-full h-full">
-                                            <AnimatePresence initial={false}>
-                                                <motion.div
-                                                    key={imageIndex}
-                                                    initial={{ opacity: 0 }}
-                                                    animate={{ opacity: 1 }}
-                                                    exit={{ opacity: 0 }}
-                                                    transition={{ duration: 1.5, ease: "easeInOut" }}
-                                                    className="absolute inset-0"
-                                                >
-                                                    <Image
-                                                        src={slides[currentIndex].images[imageIndex]}
-                                                        alt="Feature UI"
-                                                        fill
-                                                        className="object-contain drop-shadow-2xl"
-                                                        priority
-                                                    />
-                                                </motion.div>
-                                            </AnimatePresence>
-                                        </div>
-                                    ) : (
-                                        <Image
-                                            src={slides[currentIndex].image!}
-                                            alt="Feature UI"
-                                            fill
-                                            className="object-contain drop-shadow-2xl"
-                                            priority
-                                        />
-                                    )}
-                                </div>
-                            </div>
-
-                            {/* Text Container */}
-                            <div className={`w-full md:flex-1 flex flex-col items-center md:items-start text-center md:text-left space-y-3 md:space-y-6 order-2 ${slides[currentIndex].layout === 'right' ? 'md:order-1 md:items-start md:text-left' : 'md:order-2 md:items-start md:text-left'} z-10 px-16 md:px-0`}>
+                            {/* Text Container (Top 40%) */}
+                            <div className="w-full h-[35%] md:h-auto md:flex-1 flex flex-col items-center md:items-start text-center md:text-left justify-end md:justify-center space-y-3 md:space-y-6 order-1 z-10 px-4 md:px-0">
                                 <motion.h3
                                     initial={{ y: 20, opacity: 0 }}
                                     animate={{ y: 0, opacity: 1 }}
@@ -363,6 +326,71 @@ export default function Benefits({ isActive }: BenefitsProps) {
                                 >
                                     {slides[currentIndex].text}
                                 </motion.p>
+                            </div>
+
+                            {/* Image Container (Bottom 60%) */}
+                            <div className="relative w-full h-[65%] md:h-auto md:flex-1 flex items-start md:items-center justify-center order-2 px-4 md:px-0">
+                                <div className="relative w-full h-full max-h-[500px] md:max-w-[500px] mx-auto">
+                                    {/* 3-Image Layout or Single Image */}
+                                    {slides[currentIndex].images ? (
+                                        <div className="relative w-full h-full flex items-center justify-center">
+                                            {/* Image 1 (Left, Tilted) */}
+                                            <motion.div
+                                                className="absolute left-0 md:left-4 bottom-10 md:bottom-20 w-[45%] h-[70%] z-10 shadow-xl rounded-xl overflow-hidden border border-slate-100/50"
+                                                initial={{ x: -50, opacity: 0, rotate: -10 }}
+                                                animate={{ x: 0, opacity: 1, rotate: -6 }}
+                                                transition={{ delay: 0.3, duration: 0.6 }}
+                                            >
+                                                <Image
+                                                    src={slides[currentIndex].images[0]}
+                                                    alt="Feature UI 1"
+                                                    fill
+                                                    className="object-cover"
+                                                />
+                                            </motion.div>
+
+                                            {/* Image 2 (Right, Tilted) */}
+                                            <motion.div
+                                                className="absolute right-0 md:right-4 bottom-10 md:bottom-20 w-[45%] h-[70%] z-10 shadow-xl rounded-xl overflow-hidden border border-slate-100/50"
+                                                initial={{ x: 50, opacity: 0, rotate: 10 }}
+                                                animate={{ x: 0, opacity: 1, rotate: 6 }}
+                                                transition={{ delay: 0.4, duration: 0.6 }}
+                                            >
+                                                <Image
+                                                    src={slides[currentIndex].images[1]}
+                                                    alt="Feature UI 2"
+                                                    fill
+                                                    className="object-cover"
+                                                />
+                                            </motion.div>
+
+                                            {/* Image 3 (Center, Front) */}
+                                            <motion.div
+                                                className="absolute bottom-4 md:bottom-10 w-[50%] h-[80%] z-20 shadow-2xl rounded-2xl overflow-hidden border-2 border-white/50"
+                                                initial={{ y: 50, opacity: 0 }}
+                                                animate={{ y: 0, opacity: 1 }}
+                                                transition={{ delay: 0.5, duration: 0.6 }}
+                                            >
+                                                <Image
+                                                    src={slides[currentIndex].images[2]}
+                                                    alt="Feature UI 3"
+                                                    fill
+                                                    className="object-cover"
+                                                />
+                                            </motion.div>
+                                        </div>
+                                    ) : (
+                                        <div className="relative w-full h-full flex items-center justify-center">
+                                            <Image
+                                                src={slides[currentIndex].image!}
+                                                alt="Feature UI"
+                                                fill
+                                                className="object-contain drop-shadow-2xl"
+                                                priority
+                                            />
+                                        </div>
+                                    )}
+                                </div>
                             </div>
                         </div>
                     )}
