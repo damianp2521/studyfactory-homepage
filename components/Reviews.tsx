@@ -116,7 +116,7 @@ export default function Reviews({ isActive }: ReviewsProps) {
             {/* Navigation Buttons */}
             <button
                 onClick={() => paginate(-1)}
-                className="absolute left-2 md:left-8 top-1/2 -translate-y-1/2 z-30 p-2 text-slate-400 hover:text-slate-900 transition-colors cursor-pointer"
+                className="hidden md:block absolute left-2 md:left-8 top-1/2 -translate-y-1/2 z-30 p-2 text-slate-400 hover:text-slate-900 transition-colors cursor-pointer"
                 aria-label="Previous review"
             >
                 <ChevronLeft className="w-8 h-8 md:w-12 md:h-12" strokeWidth={1} />
@@ -124,7 +124,7 @@ export default function Reviews({ isActive }: ReviewsProps) {
 
             <button
                 onClick={() => paginate(1)}
-                className="absolute right-2 md:right-8 top-1/2 -translate-y-1/2 z-30 p-2 text-slate-400 hover:text-slate-900 transition-colors cursor-pointer"
+                className="hidden md:block absolute right-2 md:right-8 top-1/2 -translate-y-1/2 z-30 p-2 text-slate-400 hover:text-slate-900 transition-colors cursor-pointer"
                 aria-label="Next review"
             >
                 <ChevronRight className="w-8 h-8 md:w-12 md:h-12" strokeWidth={1} />
@@ -153,7 +153,7 @@ export default function Reviews({ isActive }: ReviewsProps) {
                     }}
                     className="absolute inset-0 flex flex-col items-center justify-center p-6 cursor-grab active:cursor-grabbing"
                 >
-                    <div className="relative z-10 text-center max-w-2xl px-16 md:px-8 flex flex-col items-center">
+                    <div className="relative z-10 text-center max-w-2xl px-4 md:px-8 flex flex-col items-center">
                         {/* Conditional Rendering for Link Slide */}
                         {reviews[currentIndex].type === 'link' ? (
                             <Link href={reviews[currentIndex].url!} target="_blank" className="group/link flex flex-col items-center">

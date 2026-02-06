@@ -121,10 +121,10 @@ export default function Benefits({ isActive }: BenefitsProps) {
 
     return (
         <section ref={containerRef} id="benefits" className="relative h-full w-full overflow-hidden bg-slate-50 text-slate-900 group">
-            {/* Navigation Buttons - Visible on all devices, sized responsively */}
+            {/* Navigation Buttons - Visible only on desktop */}
             <button
                 onClick={() => paginate(-1)}
-                className="absolute left-2 md:left-8 top-1/2 -translate-y-1/2 z-30 p-2 text-slate-300 hover:text-[#267E82] transition-colors cursor-pointer"
+                className="hidden md:block absolute left-2 md:left-8 top-1/2 -translate-y-1/2 z-30 p-2 text-slate-300 hover:text-[#267E82] transition-colors cursor-pointer"
                 aria-label="Previous slide"
             >
                 <ChevronLeft className="w-8 h-8 md:w-12 md:h-12" strokeWidth={1} />
@@ -132,7 +132,7 @@ export default function Benefits({ isActive }: BenefitsProps) {
 
             <button
                 onClick={() => paginate(1)}
-                className="absolute right-2 md:right-8 top-1/2 -translate-y-1/2 z-30 p-2 text-slate-300 hover:text-[#267E82] transition-colors cursor-pointer"
+                className="hidden md:block absolute right-2 md:right-8 top-1/2 -translate-y-1/2 z-30 p-2 text-slate-300 hover:text-[#267E82] transition-colors cursor-pointer"
                 aria-label="Next slide"
             >
                 <ChevronRight className="w-8 h-8 md:w-12 md:h-12" strokeWidth={1} />
@@ -163,7 +163,7 @@ export default function Benefits({ isActive }: BenefitsProps) {
                 >
                     {slides[currentIndex].type === 'intro' ? (
                         // INTRO SLIDE
-                        <div className="text-center px-12 md:px-6 md:pb-0">
+                        <div className="text-center px-4 md:px-6 md:pb-0">
                             <motion.h2
                                 initial={{ scale: 0.9, opacity: 0 }}
                                 animate={{ scale: 1, opacity: 1 }}
@@ -194,7 +194,7 @@ export default function Benefits({ isActive }: BenefitsProps) {
                         </div>
                     ) : slides[currentIndex].type === 'list' ? (
                         // LIST SLIDE (Updated Layout: List -> Title -> Text)
-                        <div className="w-full h-full flex flex-col items-center justify-center px-12 py-6 md:p-12 lg:p-16 pb-20 md:pb-16 gap-6 md:gap-8">
+                        <div className="w-full h-full flex flex-col items-center justify-center px-4 py-6 md:p-12 lg:p-16 pb-20 md:pb-16 gap-6 md:gap-8">
                             {/* List Container with Background Image */}
                             <motion.div
                                 initial={{ scale: 0.9, opacity: 0 }}
@@ -257,7 +257,7 @@ export default function Benefits({ isActive }: BenefitsProps) {
                         </div>
                     ) : slides[currentIndex].type === 'centered' ? (
                         // CENTERED SLIDE (Redesigned: Cards -> Title -> Text)
-                        <div className="w-full h-full flex flex-col items-center justify-center px-12 py-6 md:p-16 lg:p-24 md:px-24 pb-20 md:pb-16 gap-8 md:gap-12">
+                        <div className="w-full h-full flex flex-col items-center justify-center px-4 py-6 md:p-16 lg:p-24 md:px-24 pb-20 md:pb-16 gap-8 md:gap-12">
                             {/* Features Cards */}
                             <motion.div
                                 initial={{ y: 20, opacity: 0 }}
@@ -306,7 +306,7 @@ export default function Benefits({ isActive }: BenefitsProps) {
                         </div>
                     ) : (
                         // FEATURE SLIDE
-                        <div className="w-full h-full flex flex-col md:flex-row items-center justify-center px-12 py-6 md:p-16 md:pb-16 gap-4 md:gap-12 max-w-6xl mx-auto">
+                        <div className="w-full h-full flex flex-col md:flex-row items-center justify-center px-4 py-6 md:p-16 md:pb-16 gap-4 md:gap-12 max-w-6xl mx-auto">
 
                             {/* Image Container */}
                             <div className={`relative w-full md:flex-1 h-[40vh] md:h-[60vh] flex items-center justify-center order-1 px-16 md:px-0 ${slides[currentIndex].layout === 'right' ? 'md:order-2' : 'md:order-1'}`}>
