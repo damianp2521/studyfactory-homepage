@@ -168,7 +168,7 @@ export default function Benefits({ isActive }: BenefitsProps) {
                                 initial={{ scale: 0.9, opacity: 0 }}
                                 animate={{ scale: 1, opacity: 1 }}
                                 transition={{ duration: 0.8 }}
-                                className="text-3xl md:text-5xl lg:text-6xl font-bold text-[#267E82] tracking-tight mb-8"
+                                className="text-3xl md:text-5xl lg:text-6xl font-bold text-[#267E82] tracking-tight mb-8 break-keep leading-tight md:leading-tight"
                             >
                                 {slides[currentIndex].title}
                             </motion.h2>
@@ -176,7 +176,7 @@ export default function Benefits({ isActive }: BenefitsProps) {
                                 initial={{ opacity: 0, y: 10 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ delay: 0.5, duration: 0.8 }}
-                                className="text-slate-500 text-xs md:text-sm mb-12 md:mb-16 md:max-w-2xl mx-auto break-keep leading-relaxed text-center px-4 md:px-0"
+                                className="text-slate-500 text-sm md:text-lg mb-12 md:mb-16 md:max-w-2xl mx-auto leading-relaxed text-center px-4 md:px-0 break-keep"
                             >
                                 전문직 자격증 준비하는 성인 수험생들이 <br className="md:hidden" />
                                 스스로 계획하고 성취하게 함으로써 <br className="md:hidden" />
@@ -249,7 +249,7 @@ export default function Benefits({ isActive }: BenefitsProps) {
                                     initial={{ y: 20, opacity: 0 }}
                                     animate={{ y: 0, opacity: 1 }}
                                     transition={{ delay: 0.7 }}
-                                    className="text-xs md:text-sm text-slate-600 leading-relaxed whitespace-pre-line font-medium"
+                                    className="text-sm md:text-base text-slate-600 leading-relaxed font-medium whitespace-normal md:whitespace-pre-line break-keep"
                                 >
                                     {slides[currentIndex].footer}
                                 </motion.p>
@@ -298,7 +298,7 @@ export default function Benefits({ isActive }: BenefitsProps) {
                                     initial={{ y: 20, opacity: 0 }}
                                     animate={{ y: 0, opacity: 1 }}
                                     transition={{ delay: 0.7 }}
-                                    className="text-xs md:text-sm text-slate-600 leading-relaxed whitespace-pre-line font-medium"
+                                    className="text-sm md:text-base text-slate-600 leading-relaxed font-medium whitespace-normal md:whitespace-pre-line break-keep"
                                 >
                                     {slides[currentIndex].subtitle}
                                 </motion.p>
@@ -359,7 +359,7 @@ export default function Benefits({ isActive }: BenefitsProps) {
                                     initial={{ y: 20, opacity: 0 }}
                                     animate={{ y: 0, opacity: 1 }}
                                     transition={{ delay: 0.4 }}
-                                    className="text-xs md:text-sm text-slate-600 leading-relaxed whitespace-pre-line md:whitespace-pre-line break-keep md:break-normal"
+                                    className="text-sm md:text-base text-slate-600 leading-relaxed whitespace-normal md:whitespace-pre-line break-keep"
                                 >
                                     {slides[currentIndex].text}
                                 </motion.p>

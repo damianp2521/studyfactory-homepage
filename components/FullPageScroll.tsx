@@ -120,22 +120,24 @@ export default function FullPageScroll({ children }: Props) {
                 );
             })}
 
-            {/* Page Indicators (Dots) - Top Left */}
-            <div className="absolute top-24 left-6 md:left-12 z-[100] flex flex-col gap-3">
-                {Array.from({ length: totalPages }).map((_, i) => (
-                    <motion.div
-                        key={i}
-                        className={`w-2 h-2 rounded-full transition-colors duration-300 ${i === currentPage ? "bg-[#267E82]" : "bg-slate-300"}`}
-                        initial={false}
-                        animate={{
-                            scale: i === currentPage ? 1.2 : 1,
-                            opacity: i === currentPage ? 1 : 0.5
-                        }}
-                        onClick={() => setCurrentPage(i)} // Allow clicking dots to navigate
-                        style={{ cursor: "pointer" }}
-                    />
-                ))}
-            </div>
+            {/* Page Indicators (Dots) - Center Left (Hidden on Home) */}
+            {currentPage > 0 && (
+                <div className="absolute top-1/2 -translate-y-1/2 left-4 md:left-8 z-[100] flex flex-col gap-4">
+                    {Array.from({ length: totalPages }).map((_, i) => (
+                        <motion.div
+                            key={i}
+                            className={`w-2 h-2 rounded-full transition-all duration-300 ${i === currentPage ? "bg-[#267E82] scale-125" : "bg-slate-300 hover:bg-slate-400"}`}
+                            initial={false}
+                            animate={{
+                                scale: i === currentPage ? 1.5 : 1,
+                                opacity: i === currentPage ? 1 : 0.4
+                            }}
+                            onClick={() => setCurrentPage(i)}
+                            style={{ cursor: "pointer" }}
+                        />
+                    ))}
+                </div>
+            )}
 
             {/* Global Scroll Indicator & Page Number */}
             <div className="absolute bottom-2 md:bottom-8 left-1/2 -translate-x-1/2 z-[100] flex flex-col items-center gap-0 md:gap-1 pointer-events-none">
