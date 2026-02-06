@@ -16,7 +16,7 @@ const slides = [
         id: 1,
         type: 'feature',
         title: "매일 아침\n건강 선식 제공",
-        text: "선식은 익힌 곡물로 소화에 용이하며\n아침 뇌기능 활성에 도움",
+        text: "선식은 익힌 곡물로\n소화에 용이하며\n아침 뇌기능 활성에 도움",
         image: "/benefits_food.jpg",
         layout: "right"
     },
@@ -24,7 +24,7 @@ const slides = [
         id: 2,
         type: 'feature',
         title: "모모스커피와\n함께하는 공부",
-        text: "바리스타 대회 1등 모모스커피\n에스쇼콜라 블렌드 스페셜티 원두와\n함께하는 고급스러운 공부",
+        text: "바리스타 대회 1등 모모스커피\n에스쇼콜라 블렌드\n스페셜티 원두와 함께하는\n고급스러운 공부",
         image: "/benefits_coffee.jpg",
         layout: "left"
     },
@@ -32,7 +32,7 @@ const slides = [
         id: 3,
         type: 'feature',
         title: "건강 간식 제공",
-        text: "오븐에 구운 감자, 고구마, 단호박,\n삶은 달걀로 운동 없이도 살찌지 않는\n건강 수험 생활",
+        text: "오븐에 구운 감자, 고구마,\n단호박, 삶은 달걀로\n운동 없이도 살찌지 않는\n건강 수험 생활",
         image: "/benefits_healthy_food.jpg",
         layout: "right"
     },
@@ -40,7 +40,7 @@ const slides = [
         id: 4,
         type: 'feature',
         title: "뷔페급\n신선 과일 제공",
-        text: "다양한 과일을 통한 비타민 섭취와\n스트레스 완화로 활기찬 전문직 수험생활",
+        text: "다양한 과일을 통한\n비타민 섭취와\n스트레스 완화로 활기찬\n전문직 수험생활",
         image: "/benefits_fruits.jpg",
         layout: "left"
     },
@@ -48,7 +48,7 @@ const slides = [
         id: 5,
         type: 'feature',
         title: "편의점 갈 일 없이\n공부만",
-        text: "오븐에 갓 구운 빵과 크림치즈,\n다양한 잼으로 허기질 땐 언제든\n에너지 보충\n\n편의점급 음료수와 각종 유제품으로\n편의점 갈 일 없이 공부만!",
+        text: "오븐에 갓 구운 빵과\n크림치즈, 다양한 잼으로\n허기질 땐 언제든\n에너지 보충\n\n편의점급 음료수와\n각종 유제품으로\n편의점 갈 일 없이 공부만!",
         image: "/benefits_bread.png",
         layout: "right"
     },
@@ -56,7 +56,7 @@ const slides = [
         id: 6,
         type: 'feature',
         title: "스트레스 해소\n매운라면",
-        text: "먹고싶은 라면 계란 퐁당 넣어 언제든 무제한 제공,\n공부하다 스트레스 받을 땐 매운 라면으로 한 끼 뚝딱!",
+        text: "먹고싶은 라면 계란 퐁당 넣어\n언제든 무제한 제공,\n공부하다 스트레스 받을 땐\n매운 라면으로 한 끼 뚝딱!",
         image: "/benefits_ramen.jpg",
         layout: "left"
     }
