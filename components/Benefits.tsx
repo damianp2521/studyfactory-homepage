@@ -228,7 +228,7 @@ export default function Benefits({ isActive }: BenefitsProps) {
                                     />
                                 </motion.div>
 
-                                {/* Center Card (Front) - Service Checklist */}
+                                {/* Center Card (Front) - Service Checklist (New User Image) */}
                                 <motion.div
                                     initial={{ opacity: 0, y: 50 }}
                                     animate={{ opacity: 1, y: 0 }}
@@ -236,8 +236,8 @@ export default function Benefits({ isActive }: BenefitsProps) {
                                     className="absolute top-4 left-1/2 -translate-x-1/2 w-[75%] aspect-[9/16] bg-white rounded-2xl shadow-2xl border border-slate-100 z-20 overflow-hidden"
                                 >
                                     <Image
-                                        src="/intro_fan_3.png"
-                                        alt="Service Checklist UI"
+                                        src="/intro_fan_center_final.png"
+                                        alt="Main Feature UI"
                                         fill
                                         className="object-fill"
                                     />
