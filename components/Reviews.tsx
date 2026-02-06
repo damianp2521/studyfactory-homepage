@@ -151,7 +151,7 @@ export default function Reviews({ isActive }: ReviewsProps) {
                             paginate(-1);
                         }
                     }}
-                    className="absolute inset-0 flex flex-col items-center justify-start md:justify-center pt-12 px-6 pb-6 md:p-16 cursor-grab active:cursor-grabbing"
+                    className="absolute inset-0 flex flex-col items-center justify-center pt-12 px-6 pb-6 md:p-16 cursor-grab active:cursor-grabbing"
                 >
                     <div className="relative z-10 text-center max-w-2xl px-[10%] md:px-8 flex flex-col items-center">
                         {/* Conditional Rendering for Link Slide */}
