@@ -198,7 +198,7 @@ export default function Benefits({ isActive }: BenefitsProps) {
 
                             {/* Fanned Images (Summary of Section) */}
                             <div className="relative w-full flex-1 max-w-[280px] md:max-w-[360px] mx-auto mt-4 mb-20 md:mb-0">
-                                {/* Left Card (Tilted Left) - Rest Plan */}
+                                {/* Left Card (Tilted Left) - Rest Plan (New User Image) */}
                                 <motion.div
                                     initial={{ opacity: 0, x: -50, rotate: -20 }}
                                     animate={{ opacity: 1, x: 0, rotate: -12 }}
@@ -206,7 +206,7 @@ export default function Benefits({ isActive }: BenefitsProps) {
                                     className="absolute top-0 left-0 w-[70%] aspect-[9/16] bg-white rounded-2xl shadow-lg border border-slate-200 z-10 transform -translate-x-8 translate-y-4 origin-bottom-left overflow-hidden"
                                 >
                                     <Image
-                                        src="/intro_fan_2.png"
+                                        src="/intro_fan_left_final.png"
                                         alt="Rest Plan UI"
                                         fill
                                         className="object-fill opacity-90"
