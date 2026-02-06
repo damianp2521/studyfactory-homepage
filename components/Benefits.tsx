@@ -345,7 +345,7 @@ export default function Benefits({ isActive }: BenefitsProps) {
                                                     src={slides[currentIndex].images[0]}
                                                     alt="Feature UI 1"
                                                     fill
-                                                    className="object-cover"
+                                                    className="w-full h-full"
                                                 />
                                             </motion.div>
 
@@ -360,7 +360,7 @@ export default function Benefits({ isActive }: BenefitsProps) {
                                                     src={slides[currentIndex].images[1]}
                                                     alt="Feature UI 2"
                                                     fill
-                                                    className="object-cover"
+                                                    className="w-full h-full"
                                                 />
                                             </motion.div>
                                         </div>
