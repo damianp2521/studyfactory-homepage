@@ -309,7 +309,7 @@ export default function Benefits({ isActive }: BenefitsProps) {
                         <div className="w-full h-full flex flex-col md:flex-row items-center justify-center px-0 pt-14 pb-0 md:p-16 md:pb-16 gap-0 md:gap-12 max-w-6xl mx-auto">
 
                             {/* Text Container (Bottom - Fills Remaining, Left 35% Desktop) */}
-                            <div className="w-full flex-1 md:h-full md:basis-[35%] flex flex-col items-center md:items-start text-center md:text-left justify-start md:justify-center space-y-3 md:space-y-6 order-2 md:order-1 z-10 px-4 md:px-0 pt-6 md:pt-0">
+                            <div className="w-full flex-1 md:h-full md:basis-[35%] flex flex-col items-center md:items-start text-center md:text-left justify-start md:justify-center space-y-3 md:space-y-6 order-2 md:order-1 z-10 px-[10%] md:px-0 pt-6 md:pt-0">
                                 <motion.h3
                                     initial={{ y: 20, opacity: 0 }}
                                     animate={{ y: 0, opacity: 1 }}

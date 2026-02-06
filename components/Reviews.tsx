@@ -153,7 +153,7 @@ export default function Reviews({ isActive }: ReviewsProps) {
                     }}
                     className="absolute inset-0 flex flex-col items-center justify-center p-6 cursor-grab active:cursor-grabbing"
                 >
-                    <div className="relative z-10 text-center max-w-2xl px-4 md:px-8 flex flex-col items-center">
+                    <div className="relative z-10 text-center max-w-2xl px-[10%] md:px-8 flex flex-col items-center">
                         {/* Conditional Rendering for Link Slide */}
                         {reviews[currentIndex].type === 'link' ? (
                             <Link href={reviews[currentIndex].url!} target="_blank" className="group/link flex flex-col items-center">
