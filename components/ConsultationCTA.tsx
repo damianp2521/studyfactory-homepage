@@ -33,15 +33,6 @@ export default function ConsultationCTA() {
                 >
                     상담예약
                 </button>
-
-                <a
-                    href={MAP_URL}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="bg-white text-[var(--color-primary)] border border-[var(--color-primary)] px-4 md:px-6 py-2 md:py-3 rounded-full shadow-lg hover:bg-[var(--color-primary)] hover:text-white transition-colors font-bold text-sm md:text-base tracking-wide text-center"
-                >
-                    위치보기
-                </a>
             </motion.div>
 
             <AnimatePresence>

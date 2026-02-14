@@ -61,27 +61,13 @@ const reviews: Review[] = [
     },
 ];
 
-interface ReviewsProps {
-    isActive?: boolean;
-}
-
 const AUTOPLAY_MS = 7000;
 
-export default function Reviews({ isActive }: ReviewsProps) {
+export default function Reviews() {
     const [[page, direction], setPage] = useState([0, 0]);
     const [isPaused, setIsPaused] = useState(false);
     const [isDragging, setIsDragging] = useState(false);
     const containerRef = useRef<HTMLElement | null>(null);
-
-    useEffect(() => {
-        if (!isActive) {
-            const timer = setTimeout(() => {
-                setPage([0, 0]);
-                setIsPaused(false);
-            }, 800);
-            return () => clearTimeout(timer);
-        }
-    }, [isActive]);
 
     const currentIndex = (page % reviews.length + reviews.length) % reviews.length;
     const currentReview = reviews[currentIndex];
@@ -91,7 +77,6 @@ export default function Reviews({ isActive }: ReviewsProps) {
     }, []);
 
     const canAutoplay =
-        !!isActive &&
         !isPaused &&
         !isDragging &&
         !currentReview.highlight &&
@@ -130,7 +115,7 @@ export default function Reviews({ isActive }: ReviewsProps) {
         <section
             ref={containerRef}
             id="reviews"
-            className="relative h-full w-full overflow-hidden bg-slate-50 text-slate-900 group"
+            className="relative h-[var(--section-height)] min-h-[640px] w-full overflow-hidden bg-slate-50 text-slate-900 group"
             onMouseEnter={() => setIsPaused(true)}
             onMouseLeave={() => setIsPaused(false)}
             onFocusCapture={() => setIsPaused(true)}
@@ -291,7 +276,7 @@ export default function Reviews({ isActive }: ReviewsProps) {
                     <ChevronLeft className="w-6 h-6" />
                 </button>
 
-                <span className="text-[var(--color-primary)] text-xs md:text-sm font-mono font-semibold opacity-80 bg-white/50 px-3 py-1 rounded-full backdrop-blur-sm">
+                <span className="text-[var(--color-primary)] text-xs md:text-sm font-semibold opacity-80 bg-white/50 px-3 py-1 rounded-full backdrop-blur-sm">
                     {currentIndex + 1} / {reviews.length}
                 </span>
 

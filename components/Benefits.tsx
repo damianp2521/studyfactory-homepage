@@ -56,26 +56,10 @@ const slides = [
     }
 ];
 
-// Add props interface
-interface BenefitsProps {
-    isActive?: boolean;
-}
-
-export default function Benefits({ isActive }: BenefitsProps) {
+export default function Benefits() {
     const [[page, direction], setPage] = useState([0, 0]);
     const [imageIndex, setImageIndex] = useState(0); // For Image Carousel
     const containerRef = useRef(null);
-
-    // Reset to start when leaving the section
-    useEffect(() => {
-        if (!isActive) {
-            const timer = setTimeout(() => {
-                setPage([0, 0]);
-                setImageIndex(0); // Reset carousel
-            }, 800);
-            return () => clearTimeout(timer);
-        }
-    }, [isActive]);
 
     const currentIndex = (page % slides.length + slides.length) % slides.length;
 
@@ -118,7 +102,7 @@ export default function Benefits({ isActive }: BenefitsProps) {
     };
 
     return (
-        <section ref={containerRef} id="benefits" className="relative h-full w-full overflow-hidden bg-slate-50 text-slate-900 group">
+        <section ref={containerRef} id="benefits" className="relative h-[var(--section-height)] min-h-[640px] w-full overflow-hidden bg-slate-50 text-slate-900 group">
             {/* Navigation Buttons - Visible only on desktop */}
             <button
                 onClick={() => paginate(-1)}
@@ -446,7 +430,7 @@ export default function Benefits({ isActive }: BenefitsProps) {
                     <ChevronLeft className="w-6 h-6" />
                 </button>
 
-                <span className="text-[#267E82] text-xs md:text-sm font-mono font-semibold opacity-80 bg-white/50 px-3 py-1 rounded-full backdrop-blur-sm">
+                <span className="text-[#267E82] text-xs md:text-sm font-semibold opacity-80 bg-white/50 px-3 py-1 rounded-full backdrop-blur-sm">
                     {currentIndex + 1} / {slides.length}
                 </span>
 

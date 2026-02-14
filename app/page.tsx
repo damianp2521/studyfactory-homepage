@@ -9,7 +9,7 @@ import FullPageScroll from "@/components/FullPageScroll";
 
 export default function Home() {
   return (
-    <main className="relative bg-[var(--color-surface)] selection:bg-[var(--color-primary)] selection:text-white">
+    <main className="relative bg-[var(--color-surface)] pt-[var(--nav-height)] selection:bg-[var(--color-primary)] selection:text-white">
       <div className="fixed top-0 left-0 right-0 z-50">
         <NavBar />
       </div>
@@ -22,11 +22,7 @@ export default function Home() {
         <Footer />
       </FullPageScroll>
 
-      <div className="fixed bottom-0 left-0 right-0 z-[100] pointer-events-none">
-        <div className="pointer-events-auto">
-          <ConsultationCTA />
-        </div>
-      </div>
+      <ConsultationCTA />
     </main>
   );
 }

@@ -12,18 +12,26 @@
   --color-primary-strong: #1a5f62;
   --color-surface: #ffffff;
   --color-surface-muted: #f8fafc;
-  --nav-height: 48px;
-  --floating-gap: 16px;
+  --nav-height: 56px;
+  --cta-clearance: 84px;
+  --section-height: calc(100svh - var(--nav-height) - var(--cta-clearance));
 }
 
-/* 모든 요소에 폰트 강제 적용 (가장 강력한 방법) */
-* {
-  font-family: var(--font-gowun), cursive, system-ui, -apple-system, sans-serif !important;
+@media (min-width: 768px) {
+  :root {
+    --cta-clearance: 96px;
+  }
 }
 
 body {
   color: rgb(var(--foreground-rgb));
   background: var(--color-surface);
+  font-family: var(--font-gowun), var(--font-noto-sans), system-ui, -apple-system, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--nav-height) + 12px);
 }
 
 /* Responsive text utilities using clamp */
