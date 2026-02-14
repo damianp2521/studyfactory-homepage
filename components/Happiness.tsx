@@ -165,15 +165,15 @@ export default function Happiness() {
                     ) : (
                         <div className="mx-auto flex h-full w-full max-w-6xl flex-col justify-center gap-4 px-5 pb-20 pt-8 md:flex-row md:items-center md:gap-12 md:px-12 md:pb-16 md:pt-10">
                             <div
-                                className={`relative order-1 flex h-[clamp(260px,44vh,470px)] w-full flex-1 items-center justify-center md:h-[clamp(320px,56vh,600px)] ${slides[currentIndex].layout === "right" ? "md:order-2" : "md:order-1"
+                                className={`relative order-1 flex h-[clamp(320px,52vh,560px)] w-full flex-1 items-center justify-center md:h-[clamp(320px,56vh,600px)] ${slides[currentIndex].layout === "right" ? "md:order-2" : "md:order-1"
                                     }`}
                             >
-                                <div className="relative mx-auto h-full w-full max-w-[620px]">
+                                <div className="relative mx-auto h-full w-full max-w-[700px] md:max-w-[620px]">
                                     <Image
                                         src={slides[currentIndex].image!}
                                         alt="Feature"
                                         fill
-                                        className="object-contain px-2 drop-shadow-2xl md:px-4"
+                                        className="object-contain drop-shadow-2xl md:px-4"
                                         priority
                                     />
                                 </div>

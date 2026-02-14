@@ -148,8 +148,8 @@ export default function Benefits() {
                     className="absolute inset-0 flex items-center justify-center cursor-grab active:cursor-grabbing"
                 >
                     {slides[currentIndex].type === 'intro' ? (
-                        <div className="mx-auto flex h-full w-full max-w-6xl flex-col justify-center gap-6 px-6 pb-20 pt-8 md:flex-row md:items-center md:gap-14 md:px-14 md:pb-16 md:pt-10">
-                            <div className="w-full text-center md:max-w-[460px] md:text-left">
+                        <div className="mx-auto flex h-full w-full max-w-[1280px] flex-col justify-center gap-6 px-6 pb-20 pt-8 md:flex-row md:items-center md:gap-16 md:px-12 md:pb-16 md:pt-10 lg:gap-20 lg:px-16">
+                            <div className="w-full text-center md:w-[46%] md:max-w-[500px] md:text-left">
                                 <motion.h2
                                     initial={{ scale: 0.9, opacity: 0 }}
                                     animate={{ scale: 1, opacity: 1 }}
@@ -179,12 +179,12 @@ export default function Benefits() {
                                 </motion.p>
                             </div>
 
-                            <div className="relative mx-auto h-[clamp(260px,42vh,440px)] w-full max-w-[640px] shrink-0 md:h-[clamp(320px,56vh,560px)]">
+                            <div className="relative mx-auto h-[clamp(320px,50vh,520px)] w-full max-w-[700px] shrink-0 md:ml-4 md:h-[clamp(360px,58vh,600px)] md:w-[54%] md:max-w-[620px]">
                                 <motion.div
                                     initial={{ opacity: 0, x: -50, rotate: -16 }}
                                     animate={{ opacity: 1, x: 0, rotate: -7 }}
                                     transition={{ delay: 0.8, duration: 0.6 }}
-                                    className="absolute bottom-[1%] left-[4%] z-10 h-[82%] w-[34%] overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-xl"
+                                    className="absolute bottom-[1%] left-[8%] z-10 h-[82%] w-[33%] overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-xl"
                                 >
                                     <Image
                                         src="/intro_fan_left_final.png"
@@ -198,7 +198,7 @@ export default function Benefits() {
                                     initial={{ opacity: 0, x: 50, rotate: 16 }}
                                     animate={{ opacity: 1, x: 0, rotate: 7 }}
                                     transition={{ delay: 1.0, duration: 0.6 }}
-                                    className="absolute bottom-[1%] right-[4%] z-10 h-[82%] w-[34%] overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-xl"
+                                    className="absolute bottom-[1%] right-[8%] z-10 h-[82%] w-[33%] overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-xl"
                                 >
                                     <Image
                                         src="/intro_fan_right_final.png"
@@ -359,7 +359,7 @@ export default function Benefits() {
                             </div>
 
                             <div
-                                className={`relative order-1 flex h-[clamp(260px,44vh,460px)] w-full flex-1 items-center justify-center md:h-[clamp(320px,58vh,620px)] ${slides[currentIndex].layout === "right" ? "md:order-2" : "md:order-1"
+                                className={`relative order-1 flex h-[clamp(320px,52vh,540px)] w-full flex-1 items-center justify-center md:h-[clamp(320px,58vh,620px)] ${slides[currentIndex].layout === "right" ? "md:order-2" : "md:order-1"
                                     }`}
                             >
                                 <div className="relative mx-auto h-full w-full max-w-[760px]">
@@ -367,7 +367,7 @@ export default function Benefits() {
                                         <div className="relative w-full h-full flex items-center justify-center">
                                             <motion.div
                                                 key={slides[currentIndex].images[imageIndex]}
-                                                className="relative h-[92%] w-[88%] overflow-hidden rounded-xl bg-white shadow-lg md:h-[84%] md:w-[82%] md:rounded-2xl"
+                                                className="relative h-[96%] w-[96%] overflow-hidden rounded-xl bg-white shadow-lg md:h-[84%] md:w-[82%] md:rounded-2xl"
                                                 initial={{ y: 50, opacity: 0 }}
                                                 animate={{ y: 0, opacity: 1 }}
                                                 transition={{ delay: 0.3, duration: 0.6 }}
@@ -398,7 +398,7 @@ export default function Benefits() {
                                                 src={slides[currentIndex].image!}
                                                 alt="Feature UI"
                                                 fill
-                                                className="object-contain px-2 drop-shadow-2xl md:px-4"
+                                                className="object-contain drop-shadow-2xl md:px-4"
                                                 priority
                                             />
                                         </div>
