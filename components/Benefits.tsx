@@ -372,11 +372,20 @@ export default function Benefits() {
                                                 animate={{ y: 0, opacity: 1 }}
                                                 transition={{ delay: 0.3, duration: 0.6 }}
                                             >
+                                                <div className="absolute inset-0 md:hidden">
+                                                    <Image
+                                                        src={slides[currentIndex].images[imageIndex]}
+                                                        alt=""
+                                                        fill
+                                                        aria-hidden
+                                                        className="object-cover opacity-20 blur-xl scale-110"
+                                                    />
+                                                </div>
                                                 <Image
                                                     src={slides[currentIndex].images[imageIndex]}
                                                     alt={`Feature UI ${imageIndex + 1}`}
                                                     fill
-                                                    className="object-cover md:object-contain"
+                                                    className="object-contain"
                                                 />
                                             </motion.div>
                                             <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-1">
@@ -394,11 +403,20 @@ export default function Benefits() {
                                         </div>
                                     ) : (
                                         <div className="relative w-full h-full flex items-center justify-center">
+                                            <div className="absolute inset-0 md:hidden">
+                                                <Image
+                                                    src={slides[currentIndex].image!}
+                                                    alt=""
+                                                    fill
+                                                    aria-hidden
+                                                    className="object-cover opacity-20 blur-xl scale-110"
+                                                />
+                                            </div>
                                             <Image
                                                 src={slides[currentIndex].image!}
                                                 alt="Feature UI"
                                                 fill
-                                                className="object-cover md:object-contain md:px-4 md:drop-shadow-2xl"
+                                                className="object-contain md:px-4 md:drop-shadow-2xl"
                                                 priority
                                             />
                                         </div>

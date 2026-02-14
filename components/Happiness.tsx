@@ -169,11 +169,20 @@ export default function Happiness() {
                                     }`}
                             >
                                 <div className="relative mx-auto h-full w-full md:max-w-[620px]">
+                                    <div className="absolute inset-0 md:hidden">
+                                        <Image
+                                            src={slides[currentIndex].image!}
+                                            alt=""
+                                            fill
+                                            aria-hidden
+                                            className="object-cover opacity-20 blur-xl scale-110"
+                                        />
+                                    </div>
                                     <Image
                                         src={slides[currentIndex].image!}
                                         alt="Feature"
                                         fill
-                                        className="object-cover md:object-contain md:px-4"
+                                        className="object-contain md:px-4"
                                         priority
                                     />
                                 </div>
