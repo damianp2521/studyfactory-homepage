@@ -1,26 +1,53 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { useState, useEffect, useMemo } from "react";
+import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
+import Image from "next/image";
 
 type Phase = "blinds" | "no" | "lines" | "fadeOut" | "done";
+
+function seededRandom(seed: number) {
+    const value = Math.sin(seed * 12.9898) * 43758.5453;
+    return value - Math.floor(value);
+}
 
 export default function EntranceOverlay() {
     const [phase, setPhase] = useState<Phase>("blinds");
     const [startAnimation, setStartAnimation] = useState(false);
-    const [slats, setSlats] = useState<number[]>([]);
-    const [windowHeight, setWindowHeight] = useState(1200);
     const [currentLine, setCurrentLine] = useState(0);
+    const prefersReducedMotion = useReducedMotion();
 
     // Config
     const SLAT_HEIGHT = 32;
     const ANIMATION_DURATION = 2.2;
+    const viewportHeight =
+        typeof window !== "undefined" ? window.innerHeight : 1200;
+    const slats = useMemo(
+        () =>
+            Array.from(
+                { length: Math.ceil(viewportHeight / SLAT_HEIGHT) + 2 },
+                (_, i) => i
+            ),
+        [viewportHeight]
+    );
+    const particles = useMemo(
+        () =>
+            Array.from({ length: 20 }, (_, i) => ({
+                id: i,
+                size: 4 + seededRandom(i + 1) * 4,
+                startX: seededRandom(i + 31) * 100,
+                startY: seededRandom(i + 71) * 100,
+                delay: 0.3 + seededRandom(i + 101) * 0.6,
+                isTeal: i % 2 === 0,
+            })),
+        []
+    );
 
     useEffect(() => {
-        const height = typeof window !== 'undefined' ? window.innerHeight : 1200;
-        setWindowHeight(height);
-        const count = Math.ceil(height / SLAT_HEIGHT) + 2;
-        setSlats(Array.from({ length: count }, (_, i) => i));
+        if (prefersReducedMotion) {
+            document.body.style.overflow = "";
+            return;
+        }
 
         document.body.style.overflow = "hidden";
 
@@ -29,7 +56,7 @@ export default function EntranceOverlay() {
         }, 600);
 
         return () => clearTimeout(timer);
-    }, []);
+    }, [prefersReducedMotion]);
 
     // Phase transitions
     useEffect(() => {
@@ -60,9 +87,6 @@ export default function EntranceOverlay() {
         setPhase("no");
     };
 
-    // 부드러운 이징 커브
-    const EASE_CURVE: [number, number, number, number] = [0.4, 0, 0.2, 1];
-
     // 85% → 100% → 0% 애니메이션 (더 부드럽게)
     const slatVariants = {
         initial: {
@@ -92,9 +116,9 @@ export default function EntranceOverlay() {
         }
     };
 
-    const textCenterY = windowHeight / 2;
+    const textCenterY = viewportHeight / 2;
 
-    if (phase === "done") return null;
+    if (prefersReducedMotion || phase === "done") return null;
 
     return (
         <>
@@ -239,9 +263,11 @@ export default function EntranceOverlay() {
                                                         열심히 하지 <br />
                                                         않을까?
                                                     </div>
-                                                    <img
+                                                    <Image
                                                         src="/crying-face.png"
                                                         alt="crying face"
+                                                        width={144}
+                                                        height={144}
                                                         className="absolute -bottom-28 left-1/2 -translate-x-1/2 w-24 md:w-36 opacity-90"
                                                     />
                                                 </div>
@@ -359,24 +385,20 @@ export default function EntranceOverlay() {
                                     </div>
                                 </div>
                             </motion.div>
-                            {Array.from({ length: 20 }).map((_, i) => {
-                                const size = 4 + Math.random() * 4;
-                                const startX = Math.random() * 100;
-                                const startY = Math.random() * 100;
-                                const isTeal = i % 2 === 0;
+                            {particles.map((particle) => {
                                 return (
                                     <motion.div
-                                        key={i}
+                                        key={particle.id}
                                         className="absolute rounded-full"
                                         style={{
-                                            width: size,
-                                            height: size,
-                                            left: `${startX}%`,
-                                            top: `${startY}%`,
-                                            background: isTeal
+                                            width: particle.size,
+                                            height: particle.size,
+                                            left: `${particle.startX}%`,
+                                            top: `${particle.startY}%`,
+                                            background: particle.isTeal
                                                 ? "rgba(38, 126, 130, 0.6)"
                                                 : "rgba(255, 215, 0, 0.6)",
-                                            boxShadow: isTeal
+                                            boxShadow: particle.isTeal
                                                 ? "0 0 10px 3px rgba(38, 126, 130, 0.4)"
                                                 : "0 0 10px 3px rgba(255, 215, 0, 0.4)",
                                         }}
@@ -388,7 +410,7 @@ export default function EntranceOverlay() {
                                         }}
                                         transition={{
                                             duration: 1.2,
-                                            delay: 0.3 + Math.random() * 0.6,
+                                            delay: particle.delay,
                                             ease: "easeOut"
                                         }}
                                     />

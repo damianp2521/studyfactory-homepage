@@ -1,4 +1,3 @@
-import EntranceOverlay from "@/components/EntranceOverlay";
 import NavBar from "@/components/NavBar";
 import Hero from "@/components/Hero";
 import Benefits from "@/components/Benefits";
@@ -10,8 +9,7 @@ import FullPageScroll from "@/components/FullPageScroll";
 
 export default function Home() {
   return (
-    <main className="relative bg-white selection:bg-[#267E82] selection:text-white">
-      <EntranceOverlay />
+    <main className="relative bg-[var(--color-surface)] selection:bg-[var(--color-primary)] selection:text-white">
       <div className="fixed top-0 left-0 right-0 z-50">
         <NavBar />
       </div>

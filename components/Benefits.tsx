@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useCallback, useRef, useEffect } from "react";
-import { motion, AnimatePresence, useInView } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight, Check } from "lucide-react";
 import Image from "next/image";
 
@@ -64,9 +64,7 @@ interface BenefitsProps {
 export default function Benefits({ isActive }: BenefitsProps) {
     const [[page, direction], setPage] = useState([0, 0]);
     const [imageIndex, setImageIndex] = useState(0); // For Image Carousel
-    const DURATION = 5000;
     const containerRef = useRef(null);
-    const isInView = useInView(containerRef, { amount: 0.5 });
 
     // Reset to start when leaving the section
     useEffect(() => {
@@ -92,9 +90,9 @@ export default function Benefits({ isActive }: BenefitsProps) {
     }, [currentIndex]);
 
     const paginate = useCallback((newDirection: number) => {
-        setPage([page + newDirection, newDirection]);
+        setPage(([prev]) => [prev + newDirection, newDirection]);
         setImageIndex(0); // Reset carousel when changing slides
-    }, [page]);
+    }, []);
 
     const variants = {
         enter: (direction: number) => ({
@@ -209,7 +207,7 @@ export default function Benefits({ isActive }: BenefitsProps) {
                                         src="/intro_fan_left_final.png"
                                         alt="Rest Plan UI"
                                         fill
-                                        className="object-fill opacity-90"
+                                        className="object-contain opacity-90"
                                     />
                                 </motion.div>
 
@@ -224,7 +222,7 @@ export default function Benefits({ isActive }: BenefitsProps) {
                                         src="/intro_fan_right_final.png"
                                         alt="Work Plan UI"
                                         fill
-                                        className="object-fill opacity-90"
+                                        className="object-contain opacity-90"
                                     />
                                 </motion.div>
 
@@ -239,7 +237,7 @@ export default function Benefits({ isActive }: BenefitsProps) {
                                         src="/intro_fan_center_final.png"
                                         alt="Main Feature UI"
                                         fill
-                                        className="object-fill"
+                                        className="object-contain"
                                     />
                                 </motion.div>
                             </div>
@@ -385,36 +383,33 @@ export default function Benefits({ isActive }: BenefitsProps) {
                                 <div className="relative w-full h-full max-h-none md:max-h-none md:max-w-full mx-auto">
                                     {/* 2-Image Layout (Side-by-Side) */}
                                     {slides[currentIndex].images ? (
-                                        <div className="relative w-full h-full flex items-end md:items-center justify-center gap-1 md:gap-6 pb-0 md:pb-0">
-                                            {/* Image 1 (Left) */}
+                                        <div className="relative w-full h-full flex items-center justify-center">
                                             <motion.div
-                                                className="relative w-1/2 h-full md:h-[80%] overflow-hidden shadow-lg rounded-none md:rounded-2xl"
+                                                key={slides[currentIndex].images[imageIndex]}
+                                                className="relative w-[85%] h-full md:h-[80%] overflow-hidden shadow-lg rounded-xl md:rounded-2xl bg-white"
                                                 initial={{ y: 50, opacity: 0 }}
                                                 animate={{ y: 0, opacity: 1 }}
                                                 transition={{ delay: 0.3, duration: 0.6 }}
                                             >
                                                 <Image
-                                                    src={slides[currentIndex].images[0]}
-                                                    alt="Feature UI 1"
+                                                    src={slides[currentIndex].images[imageIndex]}
+                                                    alt={`Feature UI ${imageIndex + 1}`}
                                                     fill
-                                                    className="w-full h-full md:object-cover"
+                                                    className="w-full h-full object-contain"
                                                 />
                                             </motion.div>
-
-                                            {/* Image 2 (Right) */}
-                                            <motion.div
-                                                className="relative w-1/2 h-full md:h-[80%] overflow-hidden shadow-lg rounded-none md:rounded-2xl"
-                                                initial={{ y: 50, opacity: 0 }}
-                                                animate={{ y: 0, opacity: 1 }}
-                                                transition={{ delay: 0.4, duration: 0.6 }}
-                                            >
-                                                <Image
-                                                    src={slides[currentIndex].images[1]}
-                                                    alt="Feature UI 2"
-                                                    fill
-                                                    className="w-full h-full md:object-cover"
-                                                />
-                                            </motion.div>
+                                            <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-1">
+                                                {slides[currentIndex].images.map((_, idx) => (
+                                                    <button
+                                                        type="button"
+                                                        key={idx}
+                                                        onClick={() => setImageIndex(idx)}
+                                                        className={`h-1.5 w-5 rounded-full transition-colors ${idx === imageIndex ? "bg-[var(--color-primary)]" : "bg-slate-300"
+                                                            }`}
+                                                        aria-label={`Switch image ${idx + 1}`}
+                                                    />
+                                                ))}
+                                            </div>
                                         </div>
                                     ) : (
                                         <div className="relative w-full h-full flex items-center justify-center">
@@ -422,7 +417,7 @@ export default function Benefits({ isActive }: BenefitsProps) {
                                                 src={slides[currentIndex].image!}
                                                 alt="Feature UI"
                                                 fill
-                                                className="w-full h-full object-fill drop-shadow-2xl"
+                                                className="w-full h-full object-contain drop-shadow-2xl"
                                                 priority
                                             />
                                         </div>

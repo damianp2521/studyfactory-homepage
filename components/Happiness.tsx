@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useCallback, useRef, useEffect } from "react";
-import { motion, AnimatePresence, useInView } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import Image from "next/image";
 
@@ -70,7 +70,6 @@ interface HappinessProps {
 export default function Happiness({ isActive }: HappinessProps) {
     const [[page, direction], setPage] = useState([0, 0]);
     const containerRef = useRef(null);
-    const isInView = useInView(containerRef, { amount: 0.5 });
 
     // Reset to start when leaving the section
     useEffect(() => {
@@ -85,8 +84,8 @@ export default function Happiness({ isActive }: HappinessProps) {
     const currentIndex = (page % slides.length + slides.length) % slides.length;
 
     const paginate = useCallback((newDirection: number) => {
-        setPage([page + newDirection, newDirection]);
-    }, [page]);
+        setPage(([prev]) => [prev + newDirection, newDirection]);
+    }, []);
 
     const variants = {
         enter: (direction: number) => ({
@@ -186,7 +185,7 @@ export default function Happiness({ isActive }: HappinessProps) {
                                         src={slides[currentIndex].image!}
                                         alt="Feature"
                                         fill
-                                        className="w-full h-full object-fill md:object-contain drop-shadow-2xl"
+                                        className="w-full h-full object-contain drop-shadow-2xl"
                                         priority
                                     />
                                 </div>

@@ -8,7 +8,12 @@
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 255, 255, 255;
   --background-end-rgb: 255, 255, 255;
-  --primary: #267E82;
+  --color-primary: #267e82;
+  --color-primary-strong: #1a5f62;
+  --color-surface: #ffffff;
+  --color-surface-muted: #f8fafc;
+  --nav-height: 48px;
+  --floating-gap: 16px;
 }
 
 /* 모든 요소에 폰트 강제 적용 (가장 강력한 방법) */
@@ -18,7 +23,7 @@
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: white;
+  background: var(--color-surface);
 }
 
 /* Responsive text utilities using clamp */

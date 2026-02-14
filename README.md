@@ -1,5 +1,21 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
+## Version Snapshots
+
+- `v1` (tag): first baseline backup before V2 overhaul
+- `codex/v1-backup` (branch): branch pointer for V1
+- `codex/v2` (branch): active V2 improvements branch
+
+Quick switch:
+
+```bash
+git checkout codex/v1-backup
+# or
+git checkout v1
+
+git checkout codex/v2
+```
+
 ## Getting Started
 
 First, run the development server:

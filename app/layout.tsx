@@ -1,5 +1,10 @@
 import type { Metadata } from "next";
-import { Noto_Sans_KR, Noto_Serif_KR, Gaegu, Gowun_Dodum } from "next/font/google"; // 다시 고운 돋움으로 변경
+import {
+  Noto_Sans_KR,
+  Noto_Serif_KR,
+  Gaegu,
+  Gowun_Dodum,
+} from "next/font/google";
 import "./globals.css";
 
 const notoSansKr = Noto_Sans_KR({
@@ -43,9 +48,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko" suppressHydrationWarning>
-      <body className={`${notoSansKr.variable} ${notoSerifKr.variable} ${gaegu.variable} ${gowunDodum.variable} font-sans antialiased text-slate-800 bg-white`}>
+      <body
+        className={`${notoSansKr.variable} ${notoSerifKr.variable} ${gaegu.variable} ${gowunDodum.variable} font-sans antialiased text-slate-800 bg-white`}
+      >
         <EntranceOverlay />
-        {children}
+        <div id="page-content">{children}</div>
       </body>
     </html>
   );
