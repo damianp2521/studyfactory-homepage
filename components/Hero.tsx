@@ -6,7 +6,7 @@ export default function Hero() {
     return (
         <section
             id="hero"
-            className="relative h-[var(--section-height)] min-h-[620px] w-full overflow-hidden bg-[var(--color-surface)]"
+            className="relative h-full w-full overflow-hidden bg-[var(--color-surface)]"
         >
             <div className="absolute inset-0 z-0">
                 <div

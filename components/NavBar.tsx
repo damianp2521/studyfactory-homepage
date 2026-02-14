@@ -6,19 +6,36 @@ import { Menu, X } from "lucide-react";
 import Image from "next/image";
 import { menuItems } from "@/lib/data";
 
+const pageIndexMap: Record<string, number> = {
+    "#hero": 0,
+    "#benefits": 1,
+    "#happiness": 2,
+    "#reviews": 3,
+    "#footer": 4,
+};
+
 export default function NavBar() {
     const [isOpen, setIsOpen] = useState(false);
 
-    const handleLogoClick = () => {
-        window.scrollTo({ top: 0, behavior: "smooth" });
+    const navigateToPage = (pageIndex: number) => {
+        window.dispatchEvent(new CustomEvent("navigateToPage", { detail: pageIndex }));
         setIsOpen(false);
+    };
+
+    const handleMenuClick = (
+        event: React.MouseEvent<HTMLAnchorElement>,
+        href: string
+    ) => {
+        event.preventDefault();
+        const pageIndex = pageIndexMap[href] ?? 0;
+        navigateToPage(pageIndex);
     };
 
     return (
         <>
             <nav className="fixed top-0 left-0 right-0 z-50 flex h-[var(--nav-height)] items-center justify-between border-b border-slate-100 bg-white/95 px-6 py-2 backdrop-blur shadow-sm">
                 <button
-                    onClick={handleLogoClick}
+                    onClick={() => navigateToPage(0)}
                     className="relative h-8 w-40 max-w-[180px] cursor-pointer"
                     aria-label="자격증공장 홈으로 이동"
                 >
@@ -54,7 +71,7 @@ export default function NavBar() {
                                 <li key={item.name}>
                                     <a
                                         href={item.href}
-                                        onClick={() => setIsOpen(false)}
+                                        onClick={(event) => handleMenuClick(event, item.href)}
                                         className="text-3xl font-semibold text-slate-800 transition-colors hover:text-[var(--color-primary)]"
                                     >
                                         {item.name}

@@ -97,7 +97,7 @@ export default function Happiness() {
     };
 
     return (
-        <section ref={containerRef} id="happiness" className="relative h-[var(--section-height)] min-h-[640px] w-full overflow-hidden bg-white text-slate-900 group">
+        <section ref={containerRef} id="happiness" className="relative h-full w-full overflow-hidden bg-white text-slate-900 group">
             {/* Navigation Buttons */}
             <button
                 onClick={() => paginate(-1)}

@@ -102,7 +102,7 @@ export default function Benefits() {
     };
 
     return (
-        <section ref={containerRef} id="benefits" className="relative h-[var(--section-height)] min-h-[640px] w-full overflow-hidden bg-slate-50 text-slate-900 group">
+        <section ref={containerRef} id="benefits" className="relative h-full w-full overflow-hidden bg-slate-50 text-slate-900 group">
             {/* Navigation Buttons - Visible only on desktop */}
             <button
                 onClick={() => paginate(-1)}

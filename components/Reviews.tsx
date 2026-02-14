@@ -115,7 +115,7 @@ export default function Reviews() {
         <section
             ref={containerRef}
             id="reviews"
-            className="relative h-[var(--section-height)] min-h-[640px] w-full overflow-hidden bg-slate-50 text-slate-900 group"
+            className="relative h-full w-full overflow-hidden bg-slate-50 text-slate-900 group"
             onMouseEnter={() => setIsPaused(true)}
             onMouseLeave={() => setIsPaused(false)}
             onFocusCapture={() => setIsPaused(true)}
