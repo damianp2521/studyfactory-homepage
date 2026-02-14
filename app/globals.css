@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 @theme {
-  --font-sans: var(--font-gowun), var(--font-noto-sans), ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-sans: var(--font-noto-sans), var(--font-gowun), ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 
 :root {
@@ -26,12 +26,18 @@
 body {
   color: rgb(var(--foreground-rgb));
   background: var(--color-surface);
-  font-family: var(--font-gowun), var(--font-noto-sans), system-ui, -apple-system, sans-serif;
+  font-family: var(--font-noto-sans), var(--font-gowun), system-ui, -apple-system, sans-serif;
+  line-height: 1.45;
 }
 
 html {
   scroll-behavior: smooth;
   scroll-padding-top: calc(var(--nav-height) + 12px);
+}
+
+html,
+body {
+  overflow-x: hidden;
 }
 
 /* Responsive text utilities using clamp */

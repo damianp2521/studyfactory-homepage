@@ -143,7 +143,7 @@ export default function FullPageScroll({ children }: Props) {
 
     return (
         <div
-            className="relative w-full h-[calc(100svh-var(--nav-height))] overflow-hidden bg-[var(--color-surface)] touch-none"
+            className="relative h-[calc(100dvh-var(--nav-height))] w-full overflow-hidden bg-[var(--color-surface)] touch-none"
             onTouchStart={onTouchStart}
             onTouchEnd={onTouchEnd}
         >
@@ -166,69 +166,6 @@ export default function FullPageScroll({ children }: Props) {
                     </motion.div>
                 );
             })}
-
-            {currentPage > 0 && (
-                <div className="absolute top-1/2 -translate-y-1/2 left-4 md:left-8 z-[100] flex flex-col gap-4">
-                    {Array.from({ length: totalPages }).map((_, i) => (
-                        <button
-                            type="button"
-                            key={i}
-                            className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                                i === currentPage
-                                    ? "bg-[var(--color-primary)] scale-125"
-                                    : "bg-slate-300 hover:bg-slate-400"
-                            }`}
-                            onClick={() => navigateToPage(i)}
-                            aria-label={`Move to section ${i + 1}`}
-                        />
-                    ))}
-                </div>
-            )}
-
-            {!prefersReducedMotion && (
-                <div className="absolute bottom-2 md:bottom-8 left-1/2 -translate-x-1/2 z-[100] flex flex-col items-center gap-0 md:gap-1 pointer-events-none">
-                    <div className="flex flex-col items-center -space-y-3">
-                        <motion.svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="20"
-                            height="20"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            strokeWidth="2"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            className="text-[var(--color-primary)]"
-                            animate={{ y: [0, 3, 0] }}
-                            transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-                        >
-                            <polyline points="6 9 12 15 18 9" />
-                        </motion.svg>
-                        <motion.svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="20"
-                            height="20"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            strokeWidth="2"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            className="text-[var(--color-primary)]"
-                            style={{ opacity: 0.5 }}
-                            animate={{ y: [0, 3, 0] }}
-                            transition={{
-                                duration: 1.5,
-                                repeat: Infinity,
-                                ease: "easeInOut",
-                                delay: 0.2,
-                            }}
-                        >
-                            <polyline points="6 9 12 15 18 9" />
-                        </motion.svg>
-                    </div>
-                </div>
-            )}
         </div>
     );
 }

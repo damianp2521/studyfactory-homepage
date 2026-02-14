@@ -115,7 +115,7 @@ export default function Reviews() {
         <section
             ref={containerRef}
             id="reviews"
-            className="relative h-full w-full overflow-hidden bg-slate-50 text-slate-900 group"
+            className="relative h-full w-full overflow-hidden bg-slate-50 text-slate-900 font-sans group"
             onMouseEnter={() => setIsPaused(true)}
             onMouseLeave={() => setIsPaused(false)}
             onFocusCapture={() => setIsPaused(true)}
@@ -160,9 +160,9 @@ export default function Reviews() {
                             paginate(-1);
                         }
                     }}
-                    className="absolute inset-0 flex flex-col items-center justify-center pt-12 px-6 pb-6 md:p-16 cursor-grab active:cursor-grabbing"
+                    className="absolute inset-0 flex items-center justify-center px-5 pb-24 pt-10 md:px-16 md:pb-20 md:pt-12 cursor-grab active:cursor-grabbing"
                 >
-                    <div className="relative z-10 text-center max-w-2xl px-[10%] md:px-8 flex flex-col items-center">
+                    <div className="relative z-10 flex w-full max-w-4xl flex-col items-center px-2 text-center md:px-8">
                         {currentReview.type === "link" ? (
                             <Link
                                 href={currentReview.url!}
@@ -173,14 +173,14 @@ export default function Reviews() {
                                     initial={{ scale: 0.9, opacity: 0 }}
                                     animate={{ scale: 1, opacity: 1 }}
                                     transition={{ duration: 0.5 }}
-                                    className="mb-6 p-4 rounded-full bg-[var(--color-primary)]/10 text-[var(--color-primary)] group-hover/link:bg-[var(--color-primary)] group-hover/link:text-white transition-colors duration-300"
+                                    className="mb-6 rounded-full bg-[var(--color-primary)]/10 p-4 text-[var(--color-primary)] transition-colors duration-300 group-hover/link:bg-[var(--color-primary)] group-hover/link:text-white"
                                 >
                                     <ExternalLink size={48} />
                                 </motion.div>
-                                <motion.h2 className="text-3xl md:text-5xl font-bold mb-4 text-slate-900 group-hover/link:text-[var(--color-primary)] transition-colors">
+                                <motion.h2 className="mb-4 text-3xl font-bold text-slate-900 transition-colors group-hover/link:text-[var(--color-primary)] md:text-5xl">
                                     {currentReview.text}
                                 </motion.h2>
-                                <p className="text-lg text-slate-500">{currentReview.sub}</p>
+                                <p className="text-base text-slate-500 md:text-lg">{currentReview.sub}</p>
                             </Link>
                         ) : (
                             <>
@@ -190,8 +190,8 @@ export default function Reviews() {
                                     transition={{ delay: 0.2, duration: 0.8 }}
                                     className={`font-bold mb-6 ${
                                         currentReview.highlight
-                                            ? "text-4xl md:text-5xl text-[var(--color-primary)]"
-                                            : "text-2xl md:text-4xl text-slate-900"
+                                            ? "text-3xl md:text-5xl text-[var(--color-primary)]"
+                                            : "text-2xl md:text-[2rem] text-slate-900"
                                     }`}
                                 >
                                     {currentReview.text}
@@ -207,7 +207,7 @@ export default function Reviews() {
                                             repeat: Infinity,
                                             repeatType: "reverse",
                                         }}
-                                        className="text-lg md:text-xl text-slate-400 font-medium cursor-pointer flex items-center justify-center gap-2"
+                                        className="flex cursor-pointer items-center justify-center gap-2 text-base font-medium text-slate-400 md:text-xl"
                                         onClick={() => paginate(1)}
                                     >
                                         오른쪽으로 넘기기 →
@@ -219,7 +219,7 @@ export default function Reviews() {
                                         initial={{ y: 20, opacity: 0 }}
                                         animate={{ y: 0, opacity: 1 }}
                                         transition={{ delay: 0.3, duration: 0.8 }}
-                                        className="text-xs md:text-sm text-slate-600 mb-8 leading-relaxed break-keep"
+                                        className="mb-8 max-w-3xl text-sm leading-relaxed text-slate-600 break-keep md:text-base"
                                     >
                                         <span aria-hidden>“</span>
                                         {currentReview.sub}

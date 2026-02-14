@@ -102,7 +102,11 @@ export default function Benefits() {
     };
 
     return (
-        <section ref={containerRef} id="benefits" className="relative h-full w-full overflow-hidden bg-slate-50 text-slate-900 group">
+        <section
+            ref={containerRef}
+            id="benefits"
+            className="relative h-full w-full overflow-hidden bg-slate-50 text-slate-900 font-sans group"
+        >
             {/* Navigation Buttons - Visible only on desktop */}
             <button
                 onClick={() => paginate(-1)}
@@ -141,19 +145,16 @@ export default function Benefits() {
                             paginate(-1);
                         }
                     }}
-                    className="absolute inset-0 flex flex-col items-center justify-center cursor-grab active:cursor-grabbing"
+                    className="absolute inset-0 flex items-center justify-center cursor-grab active:cursor-grabbing"
                 >
                     {slides[currentIndex].type === 'intro' ? (
-                        // INTRO SLIDE
-                        // INTRO SLIDE (Redesigned: Text Top + Fanned Images Bottom)
-                        <div className="w-full h-full flex flex-col items-center justify-start pt-20 px-4 md:px-6 relative overflow-hidden">
-                            {/* Text Group (Moved Up & Tightened) */}
-                            <div className="flex flex-col items-center text-center z-40 shrink-0">
+                        <div className="mx-auto flex h-full w-full max-w-6xl flex-col justify-center gap-6 px-6 pb-20 pt-8 md:flex-row md:items-center md:gap-14 md:px-14 md:pb-16 md:pt-10">
+                            <div className="w-full text-center md:max-w-[460px] md:text-left">
                                 <motion.h2
                                     initial={{ scale: 0.9, opacity: 0 }}
                                     animate={{ scale: 1, opacity: 1 }}
                                     transition={{ duration: 0.8 }}
-                                    className="text-3xl md:text-5xl lg:text-6xl font-bold text-[#267E82] tracking-tight mb-4 break-keep leading-tight md:leading-tight"
+                                    className="text-3xl font-bold leading-tight tracking-tight text-[#267E82] break-keep md:text-5xl lg:text-6xl"
                                 >
                                     {slides[currentIndex].title}
                                 </motion.h2>
@@ -161,7 +162,7 @@ export default function Benefits() {
                                     initial={{ opacity: 0, y: 10 }}
                                     animate={{ opacity: 1, y: 0 }}
                                     transition={{ delay: 0.5, duration: 0.8 }}
-                                    className="text-slate-500 text-sm md:text-lg mb-6 md:mb-8 md:max-w-2xl mx-auto leading-relaxed px-2 md:px-0 break-keep"
+                                    className="mx-auto mt-3 text-sm leading-relaxed text-slate-500 break-keep md:mx-0 md:mt-4 md:text-lg"
                                 >
                                     전문직 자격증 준비하는 성인 수험생들이 <br className="md:hidden" />
                                     스스로 계획하고 성취하게 함으로써 <br className="md:hidden" />
@@ -171,70 +172,65 @@ export default function Benefits() {
                                     initial={{ opacity: 0, x: -20 }}
                                     animate={{ opacity: 1, x: 0 }}
                                     transition={{ delay: 1, duration: 1, repeat: Infinity, repeatType: "reverse" }}
-                                    className="text-base md:text-xl text-slate-400 font-medium cursor-pointer flex items-center justify-center gap-2 mb-4"
+                                    className="mt-4 flex cursor-pointer items-center justify-center gap-2 text-sm font-semibold text-slate-400 md:mt-5 md:justify-start md:text-base"
                                     onClick={() => paginate(1)}
                                 >
                                     오른쪽으로 넘기기 →
                                 </motion.p>
                             </div>
 
-                            {/* Fanned Images (Summary of Section) */}
-                            <div className="relative w-full flex-1 max-w-[280px] md:max-w-[360px] mx-auto mt-4 mb-20 md:mb-0">
-                                {/* Left Card (Tilted Left) - Rest Plan (New User Image) */}
+                            <div className="relative mx-auto h-[clamp(260px,42vh,440px)] w-full max-w-[640px] shrink-0 md:h-[clamp(320px,56vh,560px)]">
                                 <motion.div
-                                    initial={{ opacity: 0, x: -50, rotate: -20 }}
-                                    animate={{ opacity: 1, x: 0, rotate: -12 }}
+                                    initial={{ opacity: 0, x: -50, rotate: -16 }}
+                                    animate={{ opacity: 1, x: 0, rotate: -7 }}
                                     transition={{ delay: 0.8, duration: 0.6 }}
-                                    className="absolute top-0 left-0 w-[70%] aspect-[9/16] bg-white rounded-2xl shadow-lg border border-slate-200 z-10 transform -translate-x-8 translate-y-4 origin-bottom-left overflow-hidden"
+                                    className="absolute bottom-[1%] left-[4%] z-10 h-[82%] w-[34%] overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-xl"
                                 >
                                     <Image
                                         src="/intro_fan_left_final.png"
                                         alt="Rest Plan UI"
                                         fill
-                                        className="object-contain opacity-90"
+                                        className="object-contain opacity-95"
                                     />
                                 </motion.div>
 
-                                {/* Right Card (Tilted Right) - Work Plan (New User Image) */}
                                 <motion.div
-                                    initial={{ opacity: 0, x: 50, rotate: 20 }}
-                                    animate={{ opacity: 1, x: 0, rotate: 12 }}
+                                    initial={{ opacity: 0, x: 50, rotate: 16 }}
+                                    animate={{ opacity: 1, x: 0, rotate: 7 }}
                                     transition={{ delay: 1.0, duration: 0.6 }}
-                                    className="absolute top-0 right-0 w-[70%] aspect-[9/16] bg-white rounded-2xl shadow-lg border border-slate-200 z-10 transform translate-x-8 translate-y-4 origin-bottom-right overflow-hidden"
+                                    className="absolute bottom-[1%] right-[4%] z-10 h-[82%] w-[34%] overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-xl"
                                 >
                                     <Image
                                         src="/intro_fan_right_final.png"
                                         alt="Work Plan UI"
                                         fill
-                                        className="object-contain opacity-90"
+                                        className="object-contain opacity-95"
                                     />
                                 </motion.div>
 
-                                {/* Center Card (Front) - Service Checklist (New User Image) */}
                                 <motion.div
                                     initial={{ opacity: 0, y: 50 }}
                                     animate={{ opacity: 1, y: 0 }}
                                     transition={{ delay: 1.2, duration: 0.6 }}
-                                    className="absolute top-4 left-1/2 -translate-x-1/2 w-[75%] aspect-[9/16] bg-white rounded-2xl shadow-2xl border border-slate-100 z-20 overflow-hidden"
+                                    className="absolute bottom-0 left-1/2 z-20 h-full w-[40%] -translate-x-1/2 overflow-hidden rounded-2xl border border-slate-100 bg-white shadow-2xl"
                                 >
                                     <Image
                                         src="/intro_fan_center_final.png"
                                         alt="Main Feature UI"
                                         fill
-                                        className="object-contain"
+                                        className="object-contain opacity-100"
                                     />
                                 </motion.div>
                             </div>
                         </div>
                     ) : slides[currentIndex].type === 'list' ? (
-                        // LIST SLIDE (Updated Layout: List -> Title -> Text)
-                        <div className="w-full h-full flex flex-col items-center justify-center px-4 py-6 md:p-12 lg:p-16 pb-20 md:pb-16 gap-6 md:gap-8">
+                        <div className="mx-auto flex h-full w-full max-w-5xl flex-col items-center justify-center gap-6 px-5 pb-20 pt-8 md:gap-8 md:px-10 md:pb-16 md:pt-10">
                             {/* List Container with Background Image */}
                             <motion.div
                                 initial={{ scale: 0.9, opacity: 0 }}
                                 animate={{ scale: 1, opacity: 1 }}
                                 transition={{ duration: 0.5 }}
-                                className="relative w-full max-w-[340px] md:max-w-[500px] h-auto rounded-3xl overflow-hidden shadow-xl bg-white flex items-center justify-center py-8 px-6 md:py-10 md:px-12"
+                                className="relative h-auto w-full max-w-[360px] overflow-hidden rounded-3xl bg-white px-6 py-8 shadow-xl md:max-w-[560px] md:px-12 md:py-10"
                             >
                                 {/* Background Image with Opacity */}
                                 {slides[currentIndex].image && (
@@ -257,9 +253,9 @@ export default function Benefits() {
                                             initial={{ x: -20, opacity: 0 }}
                                             animate={{ x: 0, opacity: 1 }}
                                             transition={{ delay: 0.2 + (i * 0.1) }}
-                                            className="flex items-center gap-3 text-xs md:text-sm text-slate-800 font-bold bg-white/80 p-3 rounded-xl shadow-sm backdrop-blur-sm"
+                                            className="flex items-center gap-3 rounded-xl bg-white/80 p-3 text-xs font-bold text-slate-800 shadow-sm backdrop-blur-sm md:text-sm"
                                         >
-                                            <div className="flex-shrink-0 w-6 h-6 rounded-full bg-[#267E82] flex items-center justify-center text-white">
+                                            <div className="flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-[#267E82] text-white">
                                                 <Check size={14} strokeWidth={3} />
                                             </div>
                                             {item}
@@ -268,7 +264,6 @@ export default function Benefits() {
                                 </div>
                             </motion.div>
 
-                            {/* Title & Text (Moved Below) */}
                             <div className="w-full max-w-2xl flex flex-col items-center text-center space-y-4 md:space-y-6 z-10 px-4 md:px-0">
                                 <motion.h3
                                     initial={{ y: 20, opacity: 0 }}
@@ -290,14 +285,13 @@ export default function Benefits() {
                             </div>
                         </div>
                     ) : slides[currentIndex].type === 'centered' ? (
-                        // CENTERED SLIDE (Redesigned: Cards -> Title -> Text)
-                        <div className="w-full h-full flex flex-col items-center justify-center px-4 py-6 md:p-16 lg:p-24 md:px-24 pb-20 md:pb-16 gap-8 md:gap-12">
+                        <div className="mx-auto flex h-full w-full max-w-6xl flex-col items-center justify-center gap-6 px-5 pb-20 pt-8 md:gap-8 md:px-12 md:pb-16 md:pt-10">
                             {/* Features Cards */}
                             <motion.div
                                 initial={{ y: 20, opacity: 0 }}
                                 animate={{ y: 0, opacity: 1 }}
                                 transition={{ delay: 0.2 }}
-                                className="flex flex-col md:flex-row gap-4 md:gap-6 w-full md:w-full max-w-4xl justify-center z-10"
+                                className="z-10 flex w-full max-w-5xl flex-col justify-center gap-4 md:flex-row md:gap-6"
                             >
                                 {(slides[currentIndex].items as string[])?.map((item, i) => (
                                     <motion.div
@@ -305,19 +299,18 @@ export default function Benefits() {
                                         initial={{ scale: 0.9, opacity: 0 }}
                                         animate={{ scale: 1, opacity: 1 }}
                                         transition={{ delay: 0.3 + (i * 0.1) }}
-                                        className="flex-1 bg-white p-6 md:p-8 rounded-3xl shadow-lg border border-slate-100 flex flex-col items-center text-center gap-4 hover:shadow-xl transition-shadow"
+                                        className="flex flex-1 flex-col items-center gap-4 rounded-3xl border border-slate-100 bg-white p-6 text-center shadow-lg transition-shadow hover:shadow-xl md:p-8"
                                     >
-                                        <div className="w-12 h-12 md:w-14 md:h-14 rounded-2xl bg-[#267E82]/10 flex items-center justify-center text-[#267E82]">
+                                        <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#267E82]/10 text-[#267E82] md:h-14 md:w-14">
                                             <Check size={24} strokeWidth={3} />
                                         </div>
-                                        <p className="text-sm md:text-lg font-bold text-slate-800 break-keep leading-snug">
+                                        <p className="text-sm font-bold leading-snug text-slate-800 break-keep md:text-lg">
                                             {item}
                                         </p>
                                     </motion.div>
                                 ))}
                             </motion.div>
 
-                            {/* Title & Subtitle (Moved Below) */}
                             <div className="w-full max-w-2xl flex flex-col items-center text-center space-y-4 md:space-y-6 z-10 px-4 md:px-0">
                                 <motion.h3
                                     initial={{ y: 20, opacity: 0 }}
@@ -339,16 +332,19 @@ export default function Benefits() {
                             </div>
                         </div>
                     ) : (
-                        // FEATURE SLIDE
-                        <div className="w-full h-full flex flex-col md:flex-row items-center justify-start md:justify-center px-0 pt-12 pb-0 md:p-16 md:pb-16 gap-0 md:gap-12 max-w-6xl mx-auto">
+                        <div className="mx-auto flex h-full w-full max-w-6xl flex-col justify-center gap-4 px-5 pb-20 pt-8 md:flex-row md:items-center md:gap-12 md:px-12 md:pb-16 md:pt-10">
 
-                            {/* Text Container (Bottom - Fills Remaining, Left 35% Desktop) */}
-                            <div className="w-full flex-1 md:h-full md:basis-[35%] flex flex-col items-center md:items-start text-center md:text-left justify-start md:justify-center space-y-3 md:space-y-6 order-2 md:order-1 z-10 px-[10%] md:px-0 pt-6 md:pt-0">
+                            <div
+                                className={`order-2 z-10 flex w-full flex-1 flex-col justify-center space-y-3 px-2 text-center md:space-y-5 md:px-0 md:text-left ${slides[currentIndex].layout === "right"
+                                        ? "md:order-1 md:items-start"
+                                        : "md:order-2 md:items-start"
+                                    }`}
+                            >
                                 <motion.h3
                                     initial={{ y: 20, opacity: 0 }}
                                     animate={{ y: 0, opacity: 1 }}
                                     transition={{ delay: 0.2 }}
-                                    className="text-2xl md:text-4xl lg:text-5xl font-bold text-slate-800 whitespace-pre-line leading-tight"
+                                    className="text-2xl font-bold leading-tight text-slate-800 whitespace-pre-line md:text-3xl lg:text-4xl"
                                 >
                                     {slides[currentIndex].title}
                                 </motion.h3>
@@ -356,21 +352,22 @@ export default function Benefits() {
                                     initial={{ y: 20, opacity: 0 }}
                                     animate={{ y: 0, opacity: 1 }}
                                     transition={{ delay: 0.4 }}
-                                    className="text-sm md:text-base text-slate-600 leading-relaxed whitespace-normal md:whitespace-normal break-keep"
+                                    className="text-sm leading-relaxed text-slate-600 break-keep md:text-base"
                                 >
                                     {slides[currentIndex].text}
                                 </motion.p>
                             </div>
 
-                            {/* Image Container (Top - 60vh Fixed, Right 65% Desktop) */}
-                            <div className="relative w-full h-[60vh] md:h-full md:basis-[65%] flex items-end md:items-center justify-center order-1 md:order-2 px-0 md:px-0">
-                                <div className="relative w-full h-full max-h-none md:max-h-none md:max-w-full mx-auto">
-                                    {/* 2-Image Layout (Side-by-Side) */}
+                            <div
+                                className={`relative order-1 flex h-[clamp(260px,44vh,460px)] w-full flex-1 items-center justify-center md:h-[clamp(320px,58vh,620px)] ${slides[currentIndex].layout === "right" ? "md:order-2" : "md:order-1"
+                                    }`}
+                            >
+                                <div className="relative mx-auto h-full w-full max-w-[760px]">
                                     {slides[currentIndex].images ? (
                                         <div className="relative w-full h-full flex items-center justify-center">
                                             <motion.div
                                                 key={slides[currentIndex].images[imageIndex]}
-                                                className="relative w-[85%] h-full md:h-[80%] overflow-hidden shadow-lg rounded-xl md:rounded-2xl bg-white"
+                                                className="relative h-[92%] w-[88%] overflow-hidden rounded-xl bg-white shadow-lg md:h-[84%] md:w-[82%] md:rounded-2xl"
                                                 initial={{ y: 50, opacity: 0 }}
                                                 animate={{ y: 0, opacity: 1 }}
                                                 transition={{ delay: 0.3, duration: 0.6 }}
@@ -379,7 +376,7 @@ export default function Benefits() {
                                                     src={slides[currentIndex].images[imageIndex]}
                                                     alt={`Feature UI ${imageIndex + 1}`}
                                                     fill
-                                                    className="w-full h-full object-contain"
+                                                    className="object-contain"
                                                 />
                                             </motion.div>
                                             <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-1">
@@ -401,7 +398,7 @@ export default function Benefits() {
                                                 src={slides[currentIndex].image!}
                                                 alt="Feature UI"
                                                 fill
-                                                className="w-full h-full object-contain drop-shadow-2xl"
+                                                className="object-contain px-2 drop-shadow-2xl md:px-4"
                                                 priority
                                             />
                                         </div>

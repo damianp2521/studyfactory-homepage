@@ -6,7 +6,7 @@ export default function Hero() {
     return (
         <section
             id="hero"
-            className="relative h-full w-full overflow-hidden bg-[var(--color-surface)]"
+            className="relative h-full w-full overflow-hidden bg-[var(--color-surface)] font-sans"
         >
             <div className="absolute inset-0 z-0">
                 <div
@@ -16,24 +16,24 @@ export default function Hero() {
                 <div className="absolute inset-0 bg-white/88" />
             </div>
 
-            <div className="relative z-10 mx-auto flex h-full w-full max-w-5xl items-center justify-center px-6">
+            <div className="relative z-10 mx-auto flex h-full w-full max-w-5xl items-center justify-center px-6 pb-20 pt-10 md:px-8 md:pb-16 md:pt-12">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.7 }}
-                    className="space-y-5 text-center"
+                    className="space-y-4 text-center md:space-y-5"
                 >
                     <p className="text-[var(--color-primary)] font-semibold tracking-wide text-sm md:text-base">
                         전문자격 학습관리센터 | 성인관리형독서실
                     </p>
 
-                    <p className="text-xl md:text-2xl lg:text-3xl font-medium text-slate-600">
+                    <p className="text-lg font-medium text-slate-600 md:text-2xl lg:text-3xl">
                         행복한 수험생활이 합격이 되는
                     </p>
-                    <h1 className="bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-primary-strong)] bg-clip-text py-2 text-3xl font-extrabold leading-tight text-transparent md:text-5xl lg:text-6xl">
+                    <h1 className="bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-primary-strong)] bg-clip-text py-2 text-4xl font-extrabold leading-tight text-transparent md:text-5xl lg:text-6xl">
                         자격증공장의 마법
                     </h1>
-                    <p className="text-xl md:text-2xl lg:text-3xl font-medium text-slate-600">
+                    <p className="text-lg font-medium text-slate-600 md:text-2xl lg:text-3xl">
                         지금 시작합니다.
                     </p>
 

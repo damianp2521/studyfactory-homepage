@@ -97,7 +97,11 @@ export default function Happiness() {
     };
 
     return (
-        <section ref={containerRef} id="happiness" className="relative h-full w-full overflow-hidden bg-white text-slate-900 group">
+        <section
+            ref={containerRef}
+            id="happiness"
+            className="relative h-full w-full overflow-hidden bg-white text-slate-900 font-sans group"
+        >
             {/* Navigation Buttons */}
             <button
                 onClick={() => paginate(-1)}
@@ -136,16 +140,15 @@ export default function Happiness() {
                             paginate(-1);
                         }
                     }}
-                    className="absolute inset-0 flex flex-col items-center justify-center cursor-grab active:cursor-grabbing"
+                    className="absolute inset-0 flex items-center justify-center cursor-grab active:cursor-grabbing"
                 >
                     {slides[currentIndex].type === 'intro' ? (
-                        // INTRO SLIDE
-                        <div className="text-center px-4 md:px-0 md:pb-0">
+                        <div className="mx-auto flex h-full w-full max-w-5xl flex-col items-center justify-center px-6 pb-20 pt-8 text-center md:px-10 md:pb-16 md:pt-10">
                             <motion.h2
                                 initial={{ scale: 0.9, opacity: 0 }}
                                 animate={{ scale: 1, opacity: 1 }}
                                 transition={{ duration: 0.8 }}
-                                className="text-3xl md:text-5xl lg:text-6xl font-bold text-[#267E82] tracking-tight mb-8 whitespace-pre-line"
+                                className="mb-6 text-3xl font-bold tracking-tight text-[#267E82] whitespace-pre-line md:mb-8 md:text-5xl lg:text-6xl"
                             >
                                 {slides[currentIndex].title}
                             </motion.h2>
@@ -153,37 +156,40 @@ export default function Happiness() {
                                 initial={{ opacity: 0, x: -20 }}
                                 animate={{ opacity: 1, x: 0 }}
                                 transition={{ delay: 1, duration: 1, repeat: Infinity, repeatType: "reverse" }}
-                                className="text-lg md:text-xl text-slate-400 font-medium cursor-pointer flex items-center justify-center gap-2"
+                                className="flex cursor-pointer items-center justify-center gap-2 text-base font-medium text-slate-400 md:text-xl"
                                 onClick={() => paginate(1)}
                             >
                                 오른쪽으로 넘기기 →
                             </motion.p>
                         </div>
                     ) : (
-
-                        // FEATURE SLIDE
-                        <div className="w-full h-full flex flex-col md:flex-row items-center justify-start md:justify-center px-0 pt-12 pb-0 md:p-16 md:pb-16 gap-4 md:gap-12 max-w-6xl mx-auto">
-
-                            {/* Image Container */}
-                            <div className={`relative w-full md:flex-1 h-[60vh] md:h-[60vh] flex items-center justify-center order-1 px-0 md:px-0 ${slides[currentIndex].layout === 'right' ? 'md:order-2' : 'md:order-1'}`}>
-                                <div className="relative w-full h-full md:max-h-[500px] md:max-w-[500px] mx-auto">
+                        <div className="mx-auto flex h-full w-full max-w-6xl flex-col justify-center gap-4 px-5 pb-20 pt-8 md:flex-row md:items-center md:gap-12 md:px-12 md:pb-16 md:pt-10">
+                            <div
+                                className={`relative order-1 flex h-[clamp(260px,44vh,470px)] w-full flex-1 items-center justify-center md:h-[clamp(320px,56vh,600px)] ${slides[currentIndex].layout === "right" ? "md:order-2" : "md:order-1"
+                                    }`}
+                            >
+                                <div className="relative mx-auto h-full w-full max-w-[620px]">
                                     <Image
                                         src={slides[currentIndex].image!}
                                         alt="Feature"
                                         fill
-                                        className="w-full h-full object-contain drop-shadow-2xl"
+                                        className="object-contain px-2 drop-shadow-2xl md:px-4"
                                         priority
                                     />
                                 </div>
                             </div>
 
-                            {/* Text Container */}
-                            <div className={`w-full md:flex-1 flex flex-col items-center md:items-start text-center md:text-left space-y-3 md:space-y-6 order-2 ${slides[currentIndex].layout === 'right' ? 'md:order-1 md:items-start md:text-left' : 'md:order-2 md:items-start md:text-left'} z-10 px-[10%] md:px-0`}>
+                            <div
+                                className={`order-2 z-10 flex w-full flex-1 flex-col justify-center space-y-3 px-2 text-center md:space-y-6 md:px-0 md:text-left ${slides[currentIndex].layout === "right"
+                                        ? "md:order-1 md:items-start"
+                                        : "md:order-2 md:items-start"
+                                    }`}
+                            >
                                 <motion.h3
                                     initial={{ y: 20, opacity: 0 }}
                                     animate={{ y: 0, opacity: 1 }}
                                     transition={{ delay: 0.2 }}
-                                    className="text-2xl md:text-4xl lg:text-5xl font-bold text-slate-800 whitespace-pre-line leading-tight"
+                                    className="text-2xl font-bold leading-tight text-slate-800 whitespace-pre-line md:text-4xl lg:text-5xl"
                                 >
                                     {slides[currentIndex].title}
                                 </motion.h3>
@@ -191,7 +197,7 @@ export default function Happiness() {
                                     initial={{ y: 20, opacity: 0 }}
                                     animate={{ y: 0, opacity: 1 }}
                                     transition={{ delay: 0.4 }}
-                                    className="text-xs md:text-sm text-slate-600 leading-relaxed whitespace-pre-line"
+                                    className="text-sm leading-relaxed text-slate-600 whitespace-pre-line"
                                 >
                                     {slides[currentIndex].text}
                                 </motion.p>
