@@ -163,24 +163,24 @@ export default function Happiness() {
                             </motion.p>
                         </div>
                     ) : (
-                        <div className="mx-auto flex h-full w-full max-w-6xl flex-col justify-center gap-4 px-5 pb-20 pt-8 md:flex-row md:items-center md:gap-12 md:px-12 md:pb-16 md:pt-10">
+                        <div className="mx-auto flex h-full w-full max-w-6xl flex-col px-0 pb-20 pt-2 md:flex-row md:items-center md:gap-12 md:px-12 md:pb-16 md:pt-10">
                             <div
-                                className={`relative order-1 flex h-[clamp(320px,52vh,560px)] w-full flex-1 items-center justify-center md:h-[clamp(320px,56vh,600px)] ${slides[currentIndex].layout === "right" ? "md:order-2" : "md:order-1"
+                                className={`relative order-1 flex h-[65%] w-full items-center justify-center overflow-hidden md:h-[clamp(320px,56vh,600px)] md:flex-1 ${slides[currentIndex].layout === "right" ? "md:order-2" : "md:order-1"
                                     }`}
                             >
-                                <div className="relative mx-auto h-full w-full max-w-[700px] md:max-w-[620px]">
+                                <div className="relative mx-auto h-full w-full md:max-w-[620px]">
                                     <Image
                                         src={slides[currentIndex].image!}
                                         alt="Feature"
                                         fill
-                                        className="object-contain drop-shadow-2xl md:px-4"
+                                        className="object-cover md:object-contain md:px-4"
                                         priority
                                     />
                                 </div>
                             </div>
 
                             <div
-                                className={`order-2 z-10 flex w-full flex-1 flex-col justify-center space-y-3 px-2 text-center md:space-y-6 md:px-0 md:text-left ${slides[currentIndex].layout === "right"
+                                className={`order-2 z-10 flex h-[35%] w-full flex-col justify-center space-y-3 px-6 text-center md:h-auto md:w-full md:flex-1 md:space-y-6 md:px-0 md:text-left ${slides[currentIndex].layout === "right"
                                         ? "md:order-1 md:items-start"
                                         : "md:order-2 md:items-start"
                                     }`}
@@ -189,7 +189,7 @@ export default function Happiness() {
                                     initial={{ y: 20, opacity: 0 }}
                                     animate={{ y: 0, opacity: 1 }}
                                     transition={{ delay: 0.2 }}
-                                    className="text-2xl font-bold leading-tight text-slate-800 whitespace-pre-line md:text-4xl lg:text-5xl"
+                                    className="text-[1.9rem] font-bold leading-tight text-slate-800 whitespace-pre-line md:text-4xl lg:text-5xl"
                                 >
                                     {slides[currentIndex].title}
                                 </motion.h3>
@@ -197,7 +197,7 @@ export default function Happiness() {
                                     initial={{ y: 20, opacity: 0 }}
                                     animate={{ y: 0, opacity: 1 }}
                                     transition={{ delay: 0.4 }}
-                                    className="text-sm leading-relaxed text-slate-600 whitespace-pre-line"
+                                    className="text-base leading-relaxed text-slate-600 whitespace-pre-line md:text-sm"
                                 >
                                     {slides[currentIndex].text}
                                 </motion.p>
