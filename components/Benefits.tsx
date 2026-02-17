@@ -101,6 +101,12 @@ export default function Benefits() {
         opacity: { duration: 0.4 }
     };
 
+    const introCardSources = {
+        left: "/benefits_carousel_2.png",
+        center: "/benefits_carousel_1.png",
+        right: "/benefits_carousel_3.png",
+    };
+
     return (
         <section
             ref={containerRef}
@@ -184,13 +190,14 @@ export default function Benefits() {
                                     initial={{ opacity: 0, x: -50, rotate: -16 }}
                                     animate={{ opacity: 1, x: 0, rotate: -7 }}
                                     transition={{ delay: 0.8, duration: 0.6 }}
-                                    className="absolute bottom-[1%] left-[8%] z-10 h-[82%] w-[33%] overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-xl"
+                                    className="absolute bottom-[1%] left-[8%] z-10 h-[80%] w-auto overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-xl"
+                                    style={{ aspectRatio: "692 / 1024" }}
                                 >
                                     <Image
-                                        src="/intro_fan_left_final.png"
-                                        alt="Rest Plan UI"
+                                        src={introCardSources.left}
+                                        alt="휴무계획 화면"
                                         fill
-                                        className="object-contain opacity-95"
+                                        className="object-contain"
                                     />
                                 </motion.div>
 
@@ -198,13 +205,14 @@ export default function Benefits() {
                                     initial={{ opacity: 0, x: 50, rotate: 16 }}
                                     animate={{ opacity: 1, x: 0, rotate: 7 }}
                                     transition={{ delay: 1.0, duration: 0.6 }}
-                                    className="absolute bottom-[1%] right-[8%] z-10 h-[82%] w-[33%] overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-xl"
+                                    className="absolute bottom-[1%] right-[8%] z-10 h-[86%] w-auto overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-xl"
+                                    style={{ aspectRatio: "540 / 1024" }}
                                 >
                                     <Image
-                                        src="/intro_fan_right_final.png"
-                                        alt="Work Plan UI"
+                                        src={introCardSources.right}
+                                        alt="몰입 환경 제공 화면"
                                         fill
-                                        className="object-contain opacity-95"
+                                        className="object-contain"
                                     />
                                 </motion.div>
 
@@ -212,13 +220,14 @@ export default function Benefits() {
                                     initial={{ opacity: 0, y: 50 }}
                                     animate={{ opacity: 1, y: 0 }}
                                     transition={{ delay: 1.2, duration: 0.6 }}
-                                    className="absolute bottom-0 left-1/2 z-20 h-full w-[40%] -translate-x-1/2 overflow-hidden rounded-2xl border border-slate-100 bg-white shadow-2xl"
+                                    className="absolute bottom-0 left-1/2 z-20 h-full w-auto -translate-x-1/2 overflow-hidden rounded-2xl border border-slate-100 bg-white shadow-2xl"
+                                    style={{ aspectRatio: "689 / 1024" }}
                                 >
                                     <Image
-                                        src="/intro_fan_center_final.png"
-                                        alt="Main Feature UI"
+                                        src={introCardSources.center}
+                                        alt="작업계획 화면"
                                         fill
-                                        className="object-contain opacity-100"
+                                        className="object-contain"
                                     />
                                 </motion.div>
                             </div>
