@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useMemo } from "react";
+import { useState, useEffect, useMemo, useCallback } from "react";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import Image from "next/image";
 
@@ -87,6 +87,13 @@ export default function EntranceOverlay() {
         setPhase("no");
     };
 
+    const skipOverlay = useCallback(() => {
+        setCurrentLine(3);
+        setStartAnimation(true);
+        setPhase("done");
+        document.body.style.overflow = "";
+    }, []);
+
     // 85% → 100% → 0% 애니메이션 (더 부드럽게)
     const slatVariants = {
         initial: {
@@ -128,6 +135,12 @@ export default function EntranceOverlay() {
                     className="fixed inset-0 z-[9998] bg-white"
                 />
             )}
+            <button
+                type="button"
+                aria-label="로딩 애니메이션 건너뛰기"
+                onPointerDown={skipOverlay}
+                className="fixed inset-0 z-[10000] bg-transparent"
+            />
 
             {/* Blinds Phase */}
             <AnimatePresence>

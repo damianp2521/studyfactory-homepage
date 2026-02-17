@@ -3,6 +3,7 @@
 import { useCallback, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, Phone, MapPin } from "lucide-react";
+import { createPortal } from "react-dom";
 import useAccessibleModal from "@/lib/useAccessibleModal";
 
 const PHONE_NUMBER = "051-757-5134";
@@ -18,6 +19,83 @@ export default function ConsultationCTA() {
     }, []);
 
     useAccessibleModal(isOpen, modalRef, closeModal);
+    const canPortal = typeof document !== "undefined";
+
+    const modalContent = (
+        <AnimatePresence>
+            {isOpen && (
+                <div className="fixed inset-0 z-[150] flex items-center justify-center p-4">
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        onClick={closeModal}
+                        className="absolute inset-0 bg-black/40 backdrop-blur-sm"
+                    />
+
+                    <motion.div
+                        ref={modalRef}
+                        role="dialog"
+                        aria-modal="true"
+                        aria-label="상담 예약"
+                        tabIndex={-1}
+                        initial={{ opacity: 0, scale: 0.95, y: 20 }}
+                        animate={{ opacity: 1, scale: 1, y: 0 }}
+                        exit={{ opacity: 0, scale: 0.95, y: 20 }}
+                        className="relative w-full max-w-md bg-white rounded-3xl p-8 shadow-2xl overflow-hidden"
+                    >
+                        <button
+                            onClick={closeModal}
+                            className="absolute top-4 right-4 p-2 text-slate-400 hover:text-slate-600 transition-colors"
+                            aria-label="상담 모달 닫기"
+                        >
+                            <X size={24} />
+                        </button>
+
+                        <div className="text-center space-y-5">
+                            <h2 className="text-2xl font-bold text-slate-900">상담 예약</h2>
+
+                            <div className="text-lg md:text-xl font-medium text-slate-600">
+                                <p>자격증공장 중앙 컨트롤 본부</p>
+                                <p className="text-sm md:text-base text-slate-500 font-normal my-1">
+                                    (J-control hub)
+                                </p>
+                                <div className="flex items-center justify-center gap-2 mt-2 text-[var(--color-primary)]">
+                                    <Phone size={24} />
+                                    <p className="text-2xl font-bold">051-757-5134</p>
+                                </div>
+                            </div>
+
+                            <p className="text-sm md:text-base text-slate-500 bg-slate-50 py-3 rounded-xl">
+                                현재 부산 거주 수험자만 등록 가능합니다.
+                            </p>
+
+                            <div className="grid grid-cols-2 gap-2">
+                                <a
+                                    href={`tel:${PHONE_NUMBER}`}
+                                    onClick={closeModal}
+                                    className="inline-flex items-center justify-center gap-2 rounded-xl bg-[var(--color-primary)] px-4 py-3 text-sm font-bold text-white hover:bg-[var(--color-primary-strong)] transition-colors"
+                                >
+                                    <Phone size={16} />
+                                    전화걸기
+                                </a>
+                                <a
+                                    href={MAP_URL}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    onClick={closeModal}
+                                    className="inline-flex items-center justify-center gap-2 rounded-xl border border-[var(--color-primary)] px-4 py-3 text-sm font-bold text-[var(--color-primary)] hover:bg-[var(--color-primary)] hover:text-white transition-colors"
+                                >
+                                    <MapPin size={16} />
+                                    길찾기
+                                </a>
+                            </div>
+                        </div>
+                    </motion.div>
+                </div>
+            )}
+        </AnimatePresence>
+    );
 
     return (
         <>
@@ -34,78 +112,7 @@ export default function ConsultationCTA() {
                     상담예약
                 </button>
             </motion.div>
-
-            <AnimatePresence>
-                {isOpen && (
-                    <div className="fixed inset-0 z-[150] flex items-center justify-center p-4">
-                        <motion.div
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            exit={{ opacity: 0 }}
-                            onClick={closeModal}
-                            className="absolute inset-0 bg-black/40 backdrop-blur-sm"
-                        />
-
-                        <motion.div
-                            ref={modalRef}
-                            role="dialog"
-                            aria-modal="true"
-                            aria-label="상담 예약"
-                            tabIndex={-1}
-                            initial={{ opacity: 0, scale: 0.95, y: 20 }}
-                            animate={{ opacity: 1, scale: 1, y: 0 }}
-                            exit={{ opacity: 0, scale: 0.95, y: 20 }}
-                            className="relative w-full max-w-md bg-white rounded-3xl p-8 shadow-2xl overflow-hidden"
-                        >
-                            <button
-                                onClick={closeModal}
-                                className="absolute top-4 right-4 p-2 text-slate-400 hover:text-slate-600 transition-colors"
-                                aria-label="상담 모달 닫기"
-                            >
-                                <X size={24} />
-                            </button>
-
-                            <div className="text-center space-y-5">
-                                <h2 className="text-2xl font-bold text-slate-900">상담 예약</h2>
-
-                                <div className="text-lg md:text-xl font-medium text-slate-600">
-                                    <p>자격증공장 중앙 컨트롤 본부</p>
-                                    <p className="text-sm md:text-base text-slate-500 font-normal my-1">
-                                        (J-control hub)
-                                    </p>
-                                    <div className="flex items-center justify-center gap-2 mt-2 text-[var(--color-primary)]">
-                                        <Phone size={24} />
-                                        <p className="text-2xl font-bold">051-757-5134</p>
-                                    </div>
-                                </div>
-
-                                <p className="text-sm md:text-base text-slate-500 bg-slate-50 py-3 rounded-xl">
-                                    현재 부산 거주 수험자만 등록 가능합니다.
-                                </p>
-
-                                <div className="grid grid-cols-2 gap-2">
-                                    <a
-                                        href={`tel:${PHONE_NUMBER}`}
-                                        className="inline-flex items-center justify-center gap-2 rounded-xl bg-[var(--color-primary)] px-4 py-3 text-sm font-bold text-white hover:bg-[var(--color-primary-strong)] transition-colors"
-                                    >
-                                        <Phone size={16} />
-                                        전화걸기
-                                    </a>
-                                    <a
-                                        href={MAP_URL}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="inline-flex items-center justify-center gap-2 rounded-xl border border-[var(--color-primary)] px-4 py-3 text-sm font-bold text-[var(--color-primary)] hover:bg-[var(--color-primary)] hover:text-white transition-colors"
-                                    >
-                                        <MapPin size={16} />
-                                        길찾기
-                                    </a>
-                                </div>
-                            </div>
-                        </motion.div>
-                    </div>
-                )}
-            </AnimatePresence>
+            {canPortal ? createPortal(modalContent, document.body) : null}
         </>
     );
 }
