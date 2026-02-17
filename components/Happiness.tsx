@@ -96,6 +96,12 @@ export default function Happiness() {
         opacity: { duration: 0.4 }
     };
 
+    const introCardSources = {
+        left: "/benefits_coffee.jpg",
+        center: "/benefits_food.jpg",
+        right: "/benefits_healthy_food.jpg",
+    };
+
     return (
         <section
             ref={containerRef}
@@ -143,24 +149,73 @@ export default function Happiness() {
                     className="absolute inset-0 flex items-center justify-center cursor-grab active:cursor-grabbing"
                 >
                     {slides[currentIndex].type === 'intro' ? (
-                        <div className="mx-auto flex h-full w-full max-w-5xl flex-col items-center justify-center px-6 pb-20 pt-8 text-center md:px-10 md:pb-16 md:pt-10">
-                            <motion.h2
-                                initial={{ scale: 0.9, opacity: 0 }}
-                                animate={{ scale: 1, opacity: 1 }}
-                                transition={{ duration: 0.8 }}
-                                className="mb-6 text-3xl font-bold tracking-tight text-[#267E82] whitespace-pre-line md:mb-8 md:text-5xl lg:text-6xl"
-                            >
-                                {slides[currentIndex].title}
-                            </motion.h2>
-                            <motion.p
-                                initial={{ opacity: 0, x: -20 }}
-                                animate={{ opacity: 1, x: 0 }}
-                                transition={{ delay: 1, duration: 1, repeat: Infinity, repeatType: "reverse" }}
-                                className="flex cursor-pointer items-center justify-center gap-2 text-base font-medium text-slate-400 md:text-xl"
-                                onClick={() => paginate(1)}
-                            >
-                                오른쪽으로 넘기기 →
-                            </motion.p>
+                        <div className="mx-auto flex h-full w-full max-w-[1280px] flex-col justify-center gap-6 px-6 pb-20 pt-8 md:flex-row md:items-center md:gap-16 md:px-12 md:pb-16 md:pt-10 lg:gap-20 lg:px-16">
+                            <div className="w-full text-center md:w-[46%] md:max-w-[500px] md:text-left">
+                                <motion.h2
+                                    initial={{ scale: 0.9, opacity: 0 }}
+                                    animate={{ scale: 1, opacity: 1 }}
+                                    transition={{ duration: 0.8 }}
+                                    className="text-3xl font-bold leading-tight tracking-tight text-[#267E82] break-keep md:text-5xl lg:text-6xl"
+                                >
+                                    {slides[currentIndex].title}
+                                </motion.h2>
+                                <motion.p
+                                    initial={{ opacity: 0, x: -20 }}
+                                    animate={{ opacity: 1, x: 0 }}
+                                    transition={{ delay: 1, duration: 1, repeat: Infinity, repeatType: "reverse" }}
+                                    className="mt-4 flex cursor-pointer items-center justify-center gap-2 text-sm font-semibold text-slate-400 md:mt-5 md:justify-start md:text-base"
+                                    onClick={() => paginate(1)}
+                                >
+                                    오른쪽으로 넘기기 →
+                                </motion.p>
+                            </div>
+
+                            <div className="relative mx-auto h-[clamp(320px,50vh,520px)] w-full max-w-[700px] shrink-0 md:ml-4 md:h-[clamp(360px,58vh,600px)] md:w-[54%] md:max-w-[620px]">
+                                <motion.div
+                                    initial={{ opacity: 0, x: -50, rotate: -16 }}
+                                    animate={{ opacity: 1, x: 0, rotate: -7 }}
+                                    transition={{ delay: 0.8, duration: 0.6 }}
+                                    className="absolute bottom-[1%] left-[8%] z-10 h-[82%] w-auto overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-xl"
+                                    style={{ aspectRatio: "831 / 1024" }}
+                                >
+                                    <Image
+                                        src={introCardSources.left}
+                                        alt="모모스커피 화면"
+                                        fill
+                                        className="object-contain"
+                                    />
+                                </motion.div>
+
+                                <motion.div
+                                    initial={{ opacity: 0, x: 50, rotate: 16 }}
+                                    animate={{ opacity: 1, x: 0, rotate: 7 }}
+                                    transition={{ delay: 1.0, duration: 0.6 }}
+                                    className="absolute bottom-[1%] right-[8%] z-10 h-[82%] w-auto overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-xl"
+                                    style={{ aspectRatio: "826 / 1024" }}
+                                >
+                                    <Image
+                                        src={introCardSources.right}
+                                        alt="건강 간식 화면"
+                                        fill
+                                        className="object-contain"
+                                    />
+                                </motion.div>
+
+                                <motion.div
+                                    initial={{ opacity: 0, y: 50 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    transition={{ delay: 1.2, duration: 0.6 }}
+                                    className="absolute bottom-0 left-1/2 z-20 h-full w-auto -translate-x-1/2 overflow-hidden rounded-2xl border border-slate-100 bg-white shadow-2xl"
+                                    style={{ aspectRatio: "832 / 1024" }}
+                                >
+                                    <Image
+                                        src={introCardSources.center}
+                                        alt="건강 선식 화면"
+                                        fill
+                                        className="object-contain"
+                                    />
+                                </motion.div>
+                            </div>
                         </div>
                     ) : (
                         <div className="mx-auto flex h-full w-full max-w-6xl flex-col px-0 pb-20 pt-2 md:flex-row md:items-center md:gap-12 md:px-12 md:pb-16 md:pt-10">
